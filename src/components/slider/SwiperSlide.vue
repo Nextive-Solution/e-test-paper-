@@ -2,17 +2,21 @@
   <swiper :scrollbar="{
     hide: true,
   }" :breakpoints="breakpoints" :navigation="nav" :slidesPerView="2" :spaceBetween="2" :grabCursor="true" :pagination="{
-    clickable: true,
+    clickable: false,
   }" :autoplay="{
       delay: 3000,
       pauseOnMouseEnter: true,
       disableOnInteraction: false,
     }" :modules="modules" class="mySwiper">
-    <swiper-slide v-for="(nm, i) in 10" :key="i">
-      <div class="">
-        <img src="https://i.ibb.co/p4jrHdh/Group-20016.png" alt="">
+    <swiper-slide v-for="(item, i) in dataArray" :key="i">
+      <div v-if="slideType ==='playStoreReview'" class="py-9">
+        <review-card :item="item"/>
       </div>
+<!--      <div v-if="slideType ==='review'" class="py-9">-->
+<!--        <img class="h-[300px]" :src="item.link" alt="">-->
+<!--      </div>-->
     </swiper-slide>
+
   </swiper>
 </template>
 <script>
@@ -26,6 +30,7 @@ import "../../assets/css/style.css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Scrollbar, Pagination, Autoplay, Navigation } from "swiper";
+import ReviewCard from "~/components/card/ReviewCard.vue";
 
 
 export default {
@@ -65,6 +70,7 @@ export default {
     },
   },
   components: {
+    ReviewCard,
     Swiper,
     SwiperSlide
   },
