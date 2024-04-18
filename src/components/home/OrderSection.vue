@@ -37,7 +37,7 @@
           </div>
           <div class="pt-4">
             <label for="name" class="text-[16px] font-[600]">শাখা *</label>
-            <div class="pt-2">
+            <div class="flex gap-x-2 pt-2">
               <div class="flex items-center gap-x-2">
                 <input v-model="group" type="radio" id="science" name="fav_group" value="science">
                 <label for="science" class="text-[18px]">বিজ্ঞান</label><br>
