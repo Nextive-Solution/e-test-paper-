@@ -1,28 +1,30 @@
 <template>
-  <div class="container mx-auto py-12">
+  <div class="container mx-auto py-6 md:py-12 px-4 md:px-0">
     <div class="text-center">
-      <p class="2xl:text-[46px] font-[700] text-[#0381e0]">ই-টেস্টপেপার এর স্পেশাল ফিচারসমূহ:</p>
+      <p class="text-[26px] 2xl:text-[46px] font-[700] text-[#0381e0]">ই-টেস্টপেপার এর স্পেশাল ফিচারসমূহ:</p>
     </div>
-    <div class="flex justify-center gap-x-8 pt-8">
-      <div class="pt-3">
-        <img class="h-[520px]" src="/images/cover3.jpg" alt="image"/>
+    <div class="md:flex justify-center gap-x-8 pt-4 md:pt-8">
+      <div class="md:pt-3">
+        <img class="md:h-[520px]" src="/images/cover3.jpg" alt="image"/>
       </div>
-      <div>
-        <div v-for="(item , i) in features" :key="i" class="py-3">
+      <div class="pt-4 md:pt-0">
+        <div v-for="(item , i) in features" :key="i" class="py-2 md:py-3">
           <div class="flex items-center gap-x-3">
-            <Icon class="text-[#0381e0]" name="ep:star"/>
+            <Icon class="text-[#0381e0]" size="20" name="ep:star"/>
             <p class="2xl:text-[22px] font-[600]">{{ item.label }}</p>
           </div>
         </div>
       </div>
     </div>
     <div class="flex justify-center pt-8">
-      <button class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-[#0381e0] hover:bg-[#ffffff]  hover:ring-2 ring-[#0381e0] text-[#ffffff] hover:text-[#000000] py-3 px-6 rounded-[30px] font-[600]">সকল ফিচারের এক্সেস পেতে সাবস্ক্রাইব করুন</button>
+      <cta-button button-text="সকল ফিচারের এক্সেস পেতে সাবস্ক্রাইব করুন" />
     </div>
   </div>
 </template>
 
 <script setup>
+import CtaButton from "~/components/common/CtaButton.vue";
+
 const features = ref([
   { label:'বিগত ৫ বছরের (২০১৮-২০২৩) বোর্ড প্রশ্ন ও নির্ভুল সমাধান' },
   { label:'গুরুত্বপূর্ন কলেজ সমূহের ২ বছরের(২০২৩-২০২৪) প্রশ্ন ও নির্ভূল সমাধান' },

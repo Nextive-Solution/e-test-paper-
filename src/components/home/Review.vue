@@ -1,11 +1,11 @@
 <template>
-  <div class="container mx-auto py-12">
+  <div class="container mx-auto py-6 md:py-12 px-4 md:px-0">
     <div class="text-center">
-      <p class="2xl:text-[46px] font-[700] text-[#0381e0]">আমাদের শিক্ষার্থীদের রিভিউ</p>
+      <p class="text-[26px] 2xl:text-[46px] font-[700] text-[#0381e0]">আমাদের শিক্ষার্থীদের রিভিউ</p>
     </div>
-    <div class="py-8">
+    <div class="py-2 md:py-4">
       <div class="flex justify-center">
-        <img class="h-[40px]" src="/images/googlePlay.png" alt="image"/>
+        <img class="h-[20px] md:h-[40px]" src="/images/googlePlay.png" alt="image"/>
       </div>
       <div class="flex justify-center py-2">
         <Icon class="text-[#f0ad4e]" name="ph:star-fill"/>
@@ -15,7 +15,7 @@
         <Icon class="text-[#f0ad4e]" name="ph:star-fill"/>
       </div>
       <div class="text-center">
-        <p class="text-black text-[20px]">Based on 2004 reviews</p>
+        <p class="text-black text-[18px] md:text-[20px]">Based on 2004 reviews</p>
       </div>
     </div>
     <div>

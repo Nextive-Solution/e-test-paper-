@@ -2,9 +2,10 @@
 
 </script>
 <template>
-    <div class="text-3xl">
-        <div style="height: 80vh;">
-            <NuxtPage />
-        </div>
-    </div>
+  <main class="min-h-screen">
+    <main class="min-h-[80vh]">
+      <slot></slot>
+    </main>
+    <common-footer/>
+  </main>
 </template>

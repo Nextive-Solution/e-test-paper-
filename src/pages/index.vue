@@ -27,7 +27,7 @@ import OrderSection from "~/components/home/OrderSection.vue";
   <div>
     <teachers-opinion/>
   </div>
-  <div class="bg-[#e7f3fc]">
+  <div id="orderSection" class="bg-[#e7f3fc]">
     <order-section/>
   </div>
 </template>

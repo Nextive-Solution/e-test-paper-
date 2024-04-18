@@ -1,7 +1,7 @@
 <template>
   <swiper :scrollbar="{
     hide: true,
-  }" :breakpoints="breakpoints" :navigation="nav" :slidesPerView="2" :spaceBetween="2" :grabCursor="true" :pagination="{
+  }" :breakpoints="breakpoints" :navigation="nav" :slidesPerView="1" :spaceBetween="1" :grabCursor="true" :pagination="{
     clickable: false,
   }" :autoplay="{
       delay: 3000,
@@ -9,7 +9,7 @@
       disableOnInteraction: false,
     }" :modules="modules" class="mySwiper">
     <swiper-slide v-for="(item, i) in dataArray" :key="i">
-      <div v-if="slideType ==='playStoreReview'" class="py-9">
+      <div v-if="slideType ==='playStoreReview'" class="py-8 md:py-9">
         <review-card :item="item"/>
       </div>
 <!--      <div v-if="slideType ==='review'" class="py-9">-->

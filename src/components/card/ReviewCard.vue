@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[375px] h-[300px] ring-2 ring-[#0381e0] bg-white p-2">
+  <div class="md:w-[375px] h-[220px] md:h-[300px] ring-2 ring-[#0381e0] bg-white p-2">
     <div>
       <div class="flex justify-between items-center">
         <div>
@@ -10,7 +10,7 @@
       </div>
       <hr/>
       <div>
-        <p class="text-[16px] p-0 m-0">{{ item.text }}</p>
+        <p class="text-[14px] md:text-[16px] p-0 m-0">{{ item.text }}</p>
       </div>
     </div>
   </div>
