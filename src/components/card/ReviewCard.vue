@@ -1,12 +1,12 @@
 <template>
-  <div class="md:w-[375px] h-[220px] md:h-[300px] ring-2 ring-[#0381e0] bg-white p-2">
+  <div class="md:w-full h-[220px] md:h-[190px] ring-2 ring-[#0381e0] bg-white p-2">
     <div>
       <div class="flex justify-between items-center">
         <div>
           <img :src="item.imageLink" alt="image"/>
           <p class="text-[14px] pl-2">{{ item.date }}</p>
         </div>
-        <Icon class="text-[#0381e0]" name="ph:google-play-logo-fill"/>
+        <Icon class="text-[#0381e0]" size="26" name="ph:google-play-logo-fill"/>
       </div>
       <hr/>
       <div>
