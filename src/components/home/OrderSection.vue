@@ -16,6 +16,7 @@
             <div>
               <p class="text-[20px] font-[600]">{{ item.name }} × ১</p>
               <p class="text-[20px] font-[600]">৳ {{ item.price }}</p>
+
             </div>
           </div>
         </div>
