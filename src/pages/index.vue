@@ -9,7 +9,7 @@ import OrderSection from "~/components/home/OrderSection.vue";
 </script>
 
 <template>
-    <div class="bg-[#e7f3fc]">
+    <div class="bg-[#f6fcfd]">
         <banner/>
     </div>
     <div>
