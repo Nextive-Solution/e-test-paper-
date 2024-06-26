@@ -19,9 +19,6 @@ import Service from "~/components/home/Service.vue";
     <div>
       <service/>
     </div>
-    <div class="w-full">
-      <img class="w-full" src="/banner/eidsalamicover.jpg" alt="cover"/>
-    </div>
 <!--    <div class="bg-[#e7f3fc]">-->
 <!--      <cover/>-->
 <!--    </div>-->
@@ -31,9 +28,12 @@ import Service from "~/components/home/Service.vue";
   <div>
     <review/>
   </div>
-  <div>
-    <teachers-opinion/>
+  <div class="w-full">
+    <img class="w-full" src="/banner/eidsalamicover.jpg" alt="cover"/>
   </div>
+<!--  <div>-->
+<!--    <teachers-opinion/>-->
+<!--  </div>-->
   <div id="orderSection" class="bg-[#e7f3fc]">
     <order-section/>
   </div>

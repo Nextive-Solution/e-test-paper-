@@ -3,10 +3,18 @@
     <div class="text-center">
       <p class="text-[26px] 2xl:text-[46px] font-[700] text-[#0381e0]">প্রাক্তন শিক্ষার্থীদের রিভিউ</p>
     </div>
-    <div class="grid grid-cols-3">
-      <div v-for="(item ,i) in studentReviews" :key="i" class="p-4 mt-20" >
-        <ReviewCard  :item="item"/>
+<!--    <div class="grid grid-cols-3">-->
+<!--      <div v-for="(item ,i) in studentReviews" :key="i" class="p-4 mt-16" >-->
+<!--        <ReviewCard  :item="item"/>-->
+<!--      </div>-->
+<!--    </div>-->
+    <div class="grid grid-cols-1 md:grid-cols-3">
+      <div v-for="(item ,i) in reviewImage" :key="i" class="p-6">
+        <img :src="item.link" alt="review"/>
       </div>
+    </div>
+    <div class="pt-4 md:pt-10 flex justify-center">
+      <cta-button button-text="হাজারো শিক্ষার্থীদের সাথে যুক্ত হও" />
     </div>
 <!--    <div>-->
 <!--      <swiper-slide :data-array="playStoreReviews" slide-type="playStoreReview"/>-->
@@ -20,6 +28,7 @@
 <script setup>
 import SwiperSlide from "~/components/slider/SwiperSlide.vue";
 import ReviewCard from "~/components/card/ReviewCard.vue";
+import CtaButton from "~/components/common/CtaButton.vue";
 
 const playStoreReviews = ref([
   { imageLink:'/review/1.png', date:'April 4, 2024', text:'I got a lot of benefit from using this app. I understood my HSC preparation by taking the exam. As a result, I revised the paras later. HSC candidates can install this app at least once. You will be benefited.' },
@@ -41,11 +50,12 @@ const studentReviews = ref([
 ])
 
 const reviewImage = ref([
-  { link:'/images/review1.jpg' },
-  { link:'/images/review2.jpg' },
-  { link:'/images/review3.jpg' },
-  { link:'/images/review4.jpg' },
-  { link:'/images/review5.jpg' }
+  { link:'/review/review1.png' },
+  { link:'/review/review2.png' },
+  { link:'/review/review3.png' },
+  { link:'/review/review4.png' },
+  { link:'/review/review5.png' },
+  { link:'/review/review6.png' }
 ])
 
 </script>

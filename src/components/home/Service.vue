@@ -1,36 +1,110 @@
 <template>
-  <div class="container mx-auto py-6 md:py-12 px-4 md:px-0">
-    <div class="text-center">
-      <p class="text-[26px] 2xl:text-[46px] font-[700] text-[#0381e0] font-['Hind_Siliguri']">একমাত্র E-TestPaper এই তুমি পাচ্ছো</p>
+  <div>
+    <div class="text-center bg-[#0062a8] py-6">
+      <p class="text-[22px] 2xl:text-[46px] font-[700] text-[#ffffff] font-['Hind_Siliguri']">একমাত্র E-TestPaper এই তুমি পাচ্ছো</p>
     </div>
-    <div class="flex justify-center gap-x-12 flex-warp pt-12">
-      <div v-for="(item ,i) in services" :key="i" class="">
-        <div class="flex items-center gap-x-3">
-          <div class="bg-[#0381e0] p-4 rounded-md">
-            <img class="h-[40px]" :src="item.icon" alt="icon"/>
+    <div class="py-0 md:py-0  md:px-0">
+      <div class="hidden md:block">
+        <div class="bg-white">
+          <div class="container mx-auto p-4 md:p-0 md:flex justify-evenly items-center gap-x-24">
+            <div class=" flex items-center gap-x-3">
+              <div class="bg-[#0381e0] p-2 md:p-4 rounded-md">
+                <img class="h-[40px] md:h-[60px]" src="/icon/icon4.png" alt="icon"/>
+              </div>
+              <div>
+                <p class="text-[24px] md:text-[34px] font-[600] font-['Hind_Siliguri'] text-[#0381e0]">Board Question</p>
+                <p class="text-[16px] md:text-[24px] font-[600] font-['Hind_Siliguri'] text-[#000000]">সকল বিষয়ের ৩ বছরের বোর্ড প্রশ্ন ও সমাধান</p>
+              </div>
+            </div>
+            <div>
+              <video controls class="h-[220px] 2xl:h-[512px]">
+                <source src="/media/video.mp4" type="video/mp4">
+              </video>
+            </div>
           </div>
-          <div>
-            <p class="text-[24px] font-[600] font-['Hind_Siliguri'] text-[#0381e0]">{{ item.title }}</p>
-            <p class="text-[18px] font-[600] font-['Hind_Siliguri'] text-[#000000]">{{ item.content }}</p>
+        </div>
+
+        <div class="bg-[#b8e0fc]">
+          <div class="container mx-auto p-4 md:p-0 md:flex justify-evenly items-center gap-x-24">
+            <div>
+              <video controls class="h-[220px] 2xl:h-[512px]">
+                <source src="/media/video.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="flex items-center gap-x-3">
+              <div class="bg-[#0381e0] p-2 md:p-4 rounded-md">
+                <img class="h-[40px] md:h-[60px]" src="/icon/icon3.png" alt="icon"/>
+              </div>
+              <div>
+                <p class="text-[24px] md:text-[34px] font-[600] font-['Hind_Siliguri'] text-[#0381e0]">College Question</p>
+                <p class="text-[16px] md:text-[24px] font-[600] font-['Hind_Siliguri'] text-[#000000]">সকল বিষয়ের কলেজের প্রশ্ন ও সমাধান</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white">
+          <div class="container mx-auto p-4 md:p-0 md:flex justify-evenly items-center gap-x-24">
+            <div class="flex items-center gap-x-3">
+              <div class="bg-[#0381e0] p-2 md:p-4 rounded-md">
+                <img class="h-[40px] md:h-[60px]" src="/icon/icon5.png" alt="icon"/>
+              </div>
+              <div>
+                <p class="text-[24px] md:text-[34px] font-[600] font-['Hind_Siliguri'] text-[#0381e0]">Chapter Wise Preparation</p>
+                <p class="text-[16px] md:text-[24px] font-[600] font-['Hind_Siliguri'] text-[#000000]">সকল বিষয়ের সকল অধ্যায় এর CQ & MCQ</p>
+              </div>
+            </div>
+            <div>
+              <video controls class="h-[220px] 2xl:h-[512px]">
+                <source src="/media/video.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-[#b8e0fc]">
+          <div class="container mx-auto p-4 md:p-0 md:flex justify-evenly items-center gap-x-24">
+            <div>
+              <video controls class="h-[220px] 2xl:h-[512px]">
+                <source src="/media/video.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="flex items-center gap-x-3">
+              <div class="bg-[#0381e0] p-2 md:p-4 rounded-md">
+                <img class="h-[40px] md:h-[60px]" src="/icon/icon2.png" alt="icon"/>
+              </div>
+              <div>
+                <p class="text-[24px] md:text-[34px] font-[600] font-['Hind_Siliguri'] text-[#0381e0]">Model Test</p>
+                <p class="text-[16px] md:text-[24px] font-[600] font-['Hind_Siliguri'] text-[#000000]">ডে চ্যালেঞ্জ এবং বোর্ড স্ট্যান্ডার্ড ফাইনাল মডেল টেস্ট</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="flex justify-center gap-x-12 flex-warp pt-16">
-      <div v-for="(item ,i) in servicesTwo" :key="i" class="">
-        <div class="flex items-center gap-x-3">
-          <div class="bg-[#0381e0] p-4 rounded-md">
-            <img class="h-[40px]" :src="item.icon" alt="icon"/>
-          </div>
-          <div>
-            <p class="text-[24px] font-[600] font-['Hind_Siliguri'] text-[#0381e0]">{{ item.title }}</p>
-            <p class="text-[18px] font-[600] font-['Hind_Siliguri'] text-[#000000]">{{ item.content }}</p>
+      <div class="block md:hidden">
+        <div class="bg-[#b8e0fc]">
+          <div v-for="(item, i) in services" :key="i" class="container mx-auto p-4 md:p-0">
+            <div>
+              <video controls class="h-[220px] 2xl:h-[512px] w-full">
+                <source :src="item.video" type="video/mp4">
+              </video>
+            </div>
+            <div class="flex items-center gap-x-3 pt-4">
+              <div class="bg-[#0381e0] p-2 md:p-4 rounded-md">
+                <img class="h-[40px] md:h-[60px]" :src="item.icon" alt="icon"/>
+              </div>
+              <div>
+                <p class="text-[24px] md:text-[34px] font-[600] font-['Hind_Siliguri'] text-[#0381e0]">{{ item.title }}</p>
+                <p class="text-[16px] md:text-[24px] font-[600] font-['Hind_Siliguri'] text-[#000000]">{{ item.content }}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="pt-4 md:pt-12 flex justify-center">
-      <cta-button button-text="সকল ফিচার লুফে নাও" />
+
+<!--      <div class="pt-4 md:pt-12 flex justify-center">-->
+<!--        <cta-button button-text="সকল ফিচার লুফে নাও" />-->
+<!--      </div>-->
     </div>
   </div>
 </template>
@@ -39,9 +113,10 @@
 import CtaButton from "~/components/common/CtaButton.vue";
 
 const services = ref([
-  { title:'Board Question', content:'সকল বিষয়ের ৩ বছরের বোর্ড প্রশ্ন ও সমাধান', icon:'/icon/icon4.png' },
-  { title:'College Question', content:'সকল বিষয়ের কলেজের প্রশ্ন ও সমাধান', icon: '/icon/icon3.png' },
-  { title:'Chapter Wise Preparation', content:'সকল বিষয়ের সকল অধ্যায় এর CQ & MCQ', icon: '/icon/icon5.png' }
+  { title:'Board Question', content:'সকল বিষয়ের ৩ বছরের বোর্ড প্রশ্ন ও সমাধান', icon:'/icon/icon4.png',video:'/media/video.mp4' },
+  { title:'College Question', content:'সকল বিষয়ের কলেজের প্রশ্ন ও সমাধান', icon: '/icon/icon3.png',video:'/media/video.mp4' },
+  { title:'Chapter Wise Preparation', content:'সকল বিষয়ের সকল অধ্যায় এর CQ & MCQ', icon: '/icon/icon5.png',video:'/media/video.mp4' },
+  { title:'Model Test', content:'ডে চ্যালেঞ্জ এবং বোর্ড স্ট্যান্ডার্ড ফাইনাল মডেল টেস্ট', icon: '/icon/icon2.png',video:'/media/video.mp4' },
 ])
 const servicesTwo = ref([
   { title:'Model Test', content:'ডে চ্যালেঞ্জ এবং বোর্ড স্ট্যান্ডার্ড ফাইনাল মডেল টেস্ট', icon: '/icon/icon2.png' },

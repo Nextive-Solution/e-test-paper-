@@ -1,11 +1,11 @@
 <template>
   <div class="md:w-full h-[220px] md:h-auto ring-2 ring-[#0381e0] rounded-2xl">
-    <div class="flex flex-col items-center rounded-t-2xl bg-[#0062a8]">
+    <div class="flex flex-col items-center rounded-t-2xl ">
       <div class="flex justify-center -mt-[50px] ">
         <img class="h-[100px] w-[100px] md:h-[90px] md:w-[90px] bg-[#fff]  ring-2 ring-[#0381e0]  rounded-full" :src="item.image" alt="image"/>
       </div>
     </div>
-    <div class="bg-[#0062a8] w-full text-center py-2">
+    <div class="bg-[#0062a8] w-full text-center py-2 mt-4">
       <p class="text-[#ffffff] text-[24px] font-[600] font-['Hind_Siliguri'] text-center">{{ item.name }}</p>
       <p class="text-[#ffffff] text-[16px] font-[600] font-['Hind_Siliguri'] text-center">{{ item.institute }}</p>
     </div>
