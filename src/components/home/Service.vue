@@ -6,7 +6,7 @@
     <div class="py-0 md:py-0  md:px-0">
       <div class="hidden md:block">
         <div class="bg-white">
-          <div class="container mx-auto p-4 md:p-0 md:flex justify-evenly items-center gap-x-24">
+          <div class="container mx-auto p-4 md:p-0 md:flex justify-evenly items-center">
             <div class=" flex items-center gap-x-3">
               <div class="bg-[#0381e0] p-2 md:p-4 rounded-md">
                 <img class="h-[40px] md:h-[60px]" src="/icon/icon4.png" alt="icon"/>
@@ -16,20 +16,20 @@
                 <p class="text-[16px] md:text-[24px] font-[600] font-['Hind_Siliguri'] text-[#000000]">সকল বিষয়ের ৩ বছরের বোর্ড প্রশ্ন ও সমাধান</p>
               </div>
             </div>
-            <div>
-              <video controls class="h-[220px] 2xl:h-[512px]">
-                <source src="/media/video.mp4" type="video/mp4">
-              </video>
+            <div class="pl-16">
+              <div class="">
+                <img src="/media/board.gif" alt="gif"/>
+              </div>
             </div>
           </div>
         </div>
 
         <div class="bg-[#b8e0fc]">
-          <div class="container mx-auto p-4 md:p-0 md:flex justify-evenly items-center gap-x-24">
+          <div class="container mx-auto p-4 md:p-0 md:flex justify-evenly items-center">
             <div>
-              <video controls class="h-[220px] 2xl:h-[512px]">
-                <source src="/media/video.mp4" type="video/mp4">
-              </video>
+              <div class="">
+                <img src="/media/college.gif" alt="gif"/>
+              </div>
             </div>
             <div class="flex items-center gap-x-3">
               <div class="bg-[#0381e0] p-2 md:p-4 rounded-md">
@@ -44,7 +44,7 @@
         </div>
 
         <div class="bg-white">
-          <div class="container mx-auto p-4 md:p-0 md:flex justify-evenly items-center gap-x-24">
+          <div class="container mx-auto p-4 md:p-0 md:flex justify-evenly items-center">
             <div class="flex items-center gap-x-3">
               <div class="bg-[#0381e0] p-2 md:p-4 rounded-md">
                 <img class="h-[40px] md:h-[60px]" src="/icon/icon5.png" alt="icon"/>
@@ -54,20 +54,20 @@
                 <p class="text-[16px] md:text-[24px] font-[600] font-['Hind_Siliguri'] text-[#000000]">সকল বিষয়ের সকল অধ্যায় এর CQ & MCQ</p>
               </div>
             </div>
-            <div>
-              <video controls class="h-[220px] 2xl:h-[512px]">
-                <source src="/media/video.mp4" type="video/mp4">
-              </video>
+            <div class="pl-12">
+              <div class="">
+                <img src="/media/chapterwise.gif" alt="gif"/>
+              </div>
             </div>
           </div>
         </div>
 
         <div class="bg-[#b8e0fc]">
-          <div class="container mx-auto p-4 md:p-0 md:flex justify-evenly items-center gap-x-24">
-            <div>
-              <video controls class="h-[220px] 2xl:h-[512px]">
-                <source src="/media/video.mp4" type="video/mp4">
-              </video>
+          <div class="container mx-auto p-4 md:p-0 md:flex justify-evenly items-center">
+            <div class="pl-14">
+              <div class="">
+                <img src="/media/modeltest.gif" alt="gif"/>
+              </div>
             </div>
             <div class="flex items-center gap-x-3">
               <div class="bg-[#0381e0] p-2 md:p-4 rounded-md">
@@ -82,20 +82,20 @@
         </div>
       </div>
       <div class="block md:hidden">
-        <div class="bg-[#b8e0fc]">
+        <div class="bg-[#fff]">
           <div v-for="(item, i) in services" :key="i" class="container mx-auto p-4 md:p-0">
-            <div>
-              <video controls class="h-[220px] 2xl:h-[512px] w-full">
-                <source :src="item.video" type="video/mp4">
-              </video>
-            </div>
-            <div class="flex items-center gap-x-3 pt-4">
-              <div class="bg-[#0381e0] p-2 md:p-4 rounded-md">
-                <img class="h-[40px] md:h-[60px]" :src="item.icon" alt="icon"/>
+            <div class="flex items-center gap-x-3 pb-4">
+              <div class="bg-[#0381e0] p-4 md:p-4 rounded-md">
+                <img class="h-[50px] md:h-[60px]" :src="item.icon" alt="icon"/>
               </div>
               <div>
-                <p class="text-[24px] md:text-[34px] font-[600] font-['Hind_Siliguri'] text-[#0381e0]">{{ item.title }}</p>
+                <p class="text-[20px] md:text-[34px] font-[600] font-['Hind_Siliguri'] text-[#0381e0]">{{ item.title }}</p>
                 <p class="text-[16px] md:text-[24px] font-[600] font-['Hind_Siliguri'] text-[#000000]">{{ item.content }}</p>
+              </div>
+            </div>
+            <div>
+              <div class="">
+                <img :src="item.video" alt="gif"/>
               </div>
             </div>
           </div>
@@ -113,10 +113,10 @@
 import CtaButton from "~/components/common/CtaButton.vue";
 
 const services = ref([
-  { title:'Board Question', content:'সকল বিষয়ের ৩ বছরের বোর্ড প্রশ্ন ও সমাধান', icon:'/icon/icon4.png',video:'/media/video.mp4' },
-  { title:'College Question', content:'সকল বিষয়ের কলেজের প্রশ্ন ও সমাধান', icon: '/icon/icon3.png',video:'/media/video.mp4' },
-  { title:'Chapter Wise Preparation', content:'সকল বিষয়ের সকল অধ্যায় এর CQ & MCQ', icon: '/icon/icon5.png',video:'/media/video.mp4' },
-  { title:'Model Test', content:'ডে চ্যালেঞ্জ এবং বোর্ড স্ট্যান্ডার্ড ফাইনাল মডেল টেস্ট', icon: '/icon/icon2.png',video:'/media/video.mp4' },
+  { title:'Board Question', content:'সকল বিষয়ের ৩ বছরের বোর্ড প্রশ্ন ও সমাধান', icon:'/icon/icon4.png',video:'/media/board.gif' },
+  { title:'College Question', content:'সকল বিষয়ের কলেজের প্রশ্ন ও সমাধান', icon: '/icon/icon3.png',video:'/media/college.gif' },
+  { title:'Chapter Wise Preparation', content:'সকল বিষয়ের সকল অধ্যায় এর CQ & MCQ', icon: '/icon/icon5.png',video:'/media/chapterwise.gif' },
+  { title:'Model Test', content:'ডে চ্যালেঞ্জ এবং বোর্ড স্ট্যান্ডার্ড ফাইনাল মডেল টেস্ট', icon: '/icon/icon2.png',video:'/media/modeltest.gif' },
 ])
 const servicesTwo = ref([
   { title:'Model Test', content:'ডে চ্যালেঞ্জ এবং বোর্ড স্ট্যান্ডার্ড ফাইনাল মডেল টেস্ট', icon: '/icon/icon2.png' },

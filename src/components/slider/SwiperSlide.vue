@@ -9,12 +9,12 @@
       disableOnInteraction: false,
     }" :modules="modules" class="mySwiper">
     <swiper-slide v-for="(item, i) in dataArray" :key="i">
-      <div v-if="slideType ==='playStoreReview'" class="py-8 md:py-9">
-        <review-card :item="item"/>
-      </div>
-<!--      <div v-if="slideType ==='review'" class="py-9">-->
-<!--        <img class="h-[300px]" :src="item.link" alt="">-->
+<!--      <div v-if="slideType ==='playStoreReview'" class="py-8 md:py-9">-->
+<!--        <review-card :item="item"/>-->
 <!--      </div>-->
+      <div v-if="slideType ==='review'" class="py-9">
+        <img class="h-auto" :src="item.link" alt="">
+      </div>
     </swiper-slide>
 
   </swiper>

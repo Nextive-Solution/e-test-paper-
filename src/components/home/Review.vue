@@ -8,20 +8,20 @@
 <!--        <ReviewCard  :item="item"/>-->
 <!--      </div>-->
 <!--    </div>-->
-    <div class="grid grid-cols-1 md:grid-cols-3">
+    <div class="hidden md:grid grid-cols-1 md:grid-cols-3 ">
       <div v-for="(item ,i) in reviewImage" :key="i" class="p-6">
         <img :src="item.link" alt="review"/>
       </div>
     </div>
+    <div class="block md:hidden">
+      <swiper-slide :data-array="reviewImage" slide-type="review"/>
+    </div>
     <div class="pt-4 md:pt-10 flex justify-center">
       <cta-button button-text="হাজারো শিক্ষার্থীদের সাথে যুক্ত হও" />
     </div>
-<!--    <div>-->
-<!--      <swiper-slide :data-array="playStoreReviews" slide-type="playStoreReview"/>-->
-<!--    </div>-->
-<!--    <div>-->
-<!--      <swiper-slide :data-array="reviewImage" slide-type="review"/>-->
-<!--    </div>-->
+    <div>
+      <swiper-slide :data-array="playStoreReviews" slide-type="playStoreReview"/>
+    </div>
   </div>
 </template>
 
@@ -51,11 +51,11 @@ const studentReviews = ref([
 
 const reviewImage = ref([
   { link:'/review/review1.png' },
-  { link:'/review/review2.png' },
-  { link:'/review/review3.png' },
-  { link:'/review/review4.png' },
-  { link:'/review/review5.png' },
-  { link:'/review/review6.png' }
+  { link:'/review/review1.png' },
+  { link:'/review/review1.png' },
+  { link:'/review/review1.png' },
+  { link:'/review/review1.png' },
+  { link:'/review/review1.png' }
 ])
 
 </script>
