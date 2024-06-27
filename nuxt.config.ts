@@ -7,9 +7,6 @@ export default defineNuxtConfig({
             charset: 'utf-16',
             viewport: 'width=device-width, initial-scale=1',
             title: 'E-test Paper',
-            meta: [
-                {name: 'description', content: 'E-test Paper'}
-            ],
         }
     },
     imports: {
