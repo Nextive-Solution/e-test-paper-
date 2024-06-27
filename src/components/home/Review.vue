@@ -10,7 +10,7 @@
 <!--    </div>-->
     <div class="hidden md:grid grid-cols-1 md:grid-cols-3 ">
       <div v-for="(item ,i) in reviewImage" :key="i" class="p-6">
-        <img :src="item.link" alt="review"/>
+        <img loading="lazy" :src="item.link" alt="review"/>
       </div>
     </div>
     <div class="block md:hidden">

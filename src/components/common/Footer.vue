@@ -22,7 +22,7 @@
           <p class="text-[#0381e0] text-[22px] md:text-[26px] font-[600] pb-2 md:pb-4">ডাউনলোড করুন</p>
           <div class="flex justify-center pb-4 cursor-pointer">
             <a href="https://play.google.com/store/apps/details?id=com.nextive.eTestPaper" target="_blank">
-              <img class="h-[30px] md:h-[50px]" src="/banner/gp.svg" alt="ssl"/>
+              <img loading="lazy" class="h-[30px] md:h-[50px]" src="/banner/gp.svg" alt="ssl"/>
             </a>
           </div>
           <div class="flex justify-center gap-x-4">
@@ -37,7 +37,7 @@
     </div>
     <div class="text-center pb-4 px-2">
       <div class="flex justify-center pb-4">
-        <img class="" src="/banner/sslBanner.jpg" alt="ssl"/>
+        <img loading="lazy" class="" src="/banner/sslBanner.jpg" alt="ssl"/>
       </div>
       <p class="text-black text-[14px] md:text-[18px] font-[600]" to="/">স্বত্ব ২০২৪ ইটেস্টপেপার কর্তৃক সর্বস্বত্ব সংরক্ষিত</p>
     </div>

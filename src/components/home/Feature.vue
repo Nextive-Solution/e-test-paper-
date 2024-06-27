@@ -5,7 +5,7 @@
      </div>
     <div class="md:flex justify-center gap-x-8 pt-8">
       <div class="text-center md:text-left">
-        <img class="h-[280px] md:h-[420px]" src="/images/cover.jpg" alt="image"/>
+        <img loading="lazy" class="h-[280px] md:h-[420px]" src="/images/cover.jpg" alt="image"/>
       </div>
       <div class="pt-4 md:pt-0">
         <div v-for="(item , i) in features" :key="i" class="py-2">

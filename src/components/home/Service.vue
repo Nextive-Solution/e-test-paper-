@@ -9,7 +9,7 @@
           <div class="container mx-auto p-4 md:p-0 md:flex justify-evenly items-center">
             <div class=" flex items-center gap-x-3">
               <div class="bg-[#0381e0] p-2 md:p-4 rounded-md">
-                <img class="h-[40px] md:h-[60px]" src="/icon/icon4.png" alt="icon"/>
+                <img loading="lazy" class="h-[40px] md:h-[60px]" src="/icon/icon4.png" alt="icon"/>
               </div>
               <div>
                 <p class="text-[24px] md:text-[34px] font-[600] font-['Hind_Siliguri'] text-[#0381e0]">Board Question</p>
@@ -18,7 +18,7 @@
             </div>
             <div class="pl-16">
               <div class="">
-                <img src="/media/board.gif" alt="gif"/>
+                <img loading="lazy" src="/media/board.gif" alt="gif"/>
               </div>
             </div>
           </div>
@@ -28,12 +28,12 @@
           <div class="container mx-auto p-4 md:p-0 md:flex justify-evenly items-center">
             <div>
               <div class="">
-                <img src="/media/college.gif" alt="gif"/>
+                <img loading="lazy" src="/media/college.gif" alt="gif"/>
               </div>
             </div>
             <div class="flex items-center gap-x-3">
               <div class="bg-[#0381e0] p-2 md:p-4 rounded-md">
-                <img class="h-[40px] md:h-[60px]" src="/icon/icon3.png" alt="icon"/>
+                <img loading="lazy" class="h-[40px] md:h-[60px]" src="/icon/icon3.png" alt="icon"/>
               </div>
               <div>
                 <p class="text-[24px] md:text-[34px] font-[600] font-['Hind_Siliguri'] text-[#0381e0]">College Question</p>
@@ -47,7 +47,7 @@
           <div class="container mx-auto p-4 md:p-0 md:flex justify-evenly items-center">
             <div class="flex items-center gap-x-3">
               <div class="bg-[#0381e0] p-2 md:p-4 rounded-md">
-                <img class="h-[40px] md:h-[60px]" src="/icon/icon5.png" alt="icon"/>
+                <img loading="lazy" class="h-[40px] md:h-[60px]" src="/icon/icon5.png" alt="icon"/>
               </div>
               <div>
                 <p class="text-[24px] md:text-[34px] font-[600] font-['Hind_Siliguri'] text-[#0381e0]">Chapter Wise Preparation</p>
@@ -56,7 +56,7 @@
             </div>
             <div class="pl-12">
               <div class="">
-                <img src="/media/chapterwise.gif" alt="gif"/>
+                <img loading="lazy" src="/media/chapterwise.gif" alt="gif"/>
               </div>
             </div>
           </div>
@@ -66,12 +66,12 @@
           <div class="container mx-auto p-4 md:p-0 md:flex justify-evenly items-center">
             <div class="pl-14">
               <div class="">
-                <img src="/media/modeltest.gif" alt="gif"/>
+                <img loading="lazy" src="/media/modeltest.gif" alt="gif"/>
               </div>
             </div>
             <div class="flex items-center gap-x-3">
               <div class="bg-[#0381e0] p-2 md:p-4 rounded-md">
-                <img class="h-[40px] md:h-[60px]" src="/icon/icon2.png" alt="icon"/>
+                <img loading="lazy" class="h-[40px] md:h-[60px]" src="/icon/icon2.png" alt="icon"/>
               </div>
               <div>
                 <p class="text-[24px] md:text-[34px] font-[600] font-['Hind_Siliguri'] text-[#0381e0]">Model Test</p>
@@ -86,7 +86,7 @@
           <div v-for="(item, i) in services" :key="i" class="container mx-auto p-4 md:p-0">
             <div class="flex items-center gap-x-3 pb-4">
               <div class="bg-[#0381e0] p-4 md:p-4 rounded-md">
-                <img class="h-[50px] md:h-[60px]" :src="item.icon" alt="icon"/>
+                <img loading="lazy" class="h-[50px] md:h-[60px]" :src="item.icon" alt="icon"/>
               </div>
               <div>
                 <p class="text-[20px] md:text-[34px] font-[600] font-['Hind_Siliguri'] text-[#0381e0]">{{ item.title }}</p>
