@@ -1,7 +1,9 @@
 <template>
   <div class="container mx-auto py-6 md:py-12 px-4 md:px-0">
     <div class="text-center">
-      <p class="text-[26px] 2xl:text-[46px] font-[700] text-[#0381e0]">প্রয়োজনে কল করুন- 8801646664222</p>
+      <p class="text-[26px] 2xl:text-[46px] font-[700] text-[#0381e0]">
+        প্রয়োজনে কল করুন- <a href="tel:+8801646664222" class="text-[#0381e0]">8801646664222</a>
+      </p>
     </div>
     <div class="text-center pt-2 md:pt-4">
       <p class="2xl:text-[26px]  text-[#000000] font-[600]">ই-টেস্টেপেপার এর পূর্নাঙ্গ এক্সেস পেতে আপনার ব্যাচ, নাম,ফোন নাম্বার এবং গ্রুপ সিলেক্ট করে "কনফার্ম অর্ডার" বাটনে ক্লিক করুন</p>
@@ -32,8 +34,8 @@
     <div class="md:flex justify-center md:pt-8">
       <div class="grid grid-cols-1 md:grid-cols-2 w-full md:w-[70%] gap-x-12">
         <div class="order-2 md:order-1">
-          <div>
-            <p class="text-[24px] md:text-[24px] text-center md:text-left font-[600]">Order Details</p>
+          <div class="text-center">
+            <p class="text-[24px] md:text-[24px] text-center md:text-center font-[600] border-b-2 border-black">Order Details</p>
           </div>
           <div class="pt-4">
             <label for="name" class="text-[16px] font-[600]">Name <span class="text-red-500">*</span></label>
@@ -117,12 +119,14 @@
     <div class="flex justify-center pt-8">
       <button @click="submit" :disabled="buttonDisabled"
               :class="buttonDisabled ? 'bg-[#9fa4a8] cursor-not-allowed' : 'bg-[#0381e0] cursor-pointer'"
-              class=" text-white text-[22px] font-[600] rounded-md px-12 py-2 mt-4">অর্ডার কনফার্ম</button>
+              class=" text-white text-[22px] font-[600] rounded-md px-12 py-2 mt-4">কনফার্ম অর্ডার</button>
     </div>
   </div>
 </template>
 
 <script setup>
+
+
 const productInfo = ref([
   { name: 'HSC BATCH 2025', value: 'HSC 2025', discount_price: 999, price: 1500,
     features: [
@@ -134,8 +138,8 @@ const productInfo = ref([
       { label: 'গুরুত্বপূর্ন প্রশ্ন মার্ক করে রাখা এবং ভুলকরা প্রশ্নে আলাদা প্র্যাকটিস' },
       { label: 'এছাড়া তোমার পূর্নাঙ্গ প্রস্তুতি সহায়ক যাবতীয় সমাধান একসাথে'}
     ],
-    price_text:'প্রতি বিষয়ের জন্য আলাদা আলাদা টাকা দিতে হয় না ৯৯৯ টাকায় সকল সাবজেক্ট একসাথে পাবেন।',
-    headline: 'HSC 25 ব্যাচের ই-টেস্টপেপার সাবস্ক্রিপশনে যা যা পাচ্ছেনঃ'
+    price_text:'প্রতি বিষয়ের জন্য আলাদা আলাদা টাকা দিতে হয় না, ৯৯৯ টাকায় সকল সাবজেক্ট একসাথে পাবেন।',
+    headline: 'HSC 25 ব্যাচের ই-টেস্টপেপার সাবস্ক্রিপশনে যা যা পাচ্ছোঃ'
   },
   { name: 'HSC BATCH 2026', value: 'HSC 2026', discount_price: 1499, price: 2500,
     features: [
@@ -147,8 +151,8 @@ const productInfo = ref([
       { label: 'গুরুত্বপূর্ন প্রশ্ন মার্ক করে রাখা এবং ভুলকরা প্রশ্নে আলাদা প্র্যাকটিস' },
       { label: 'এছাড়া তোমার পূর্নাঙ্গ প্রস্তুতি সহায়ক যাবতীয় সমাধান একসাথে'}
     ],
-    price_text:'প্রতি বিষয়ের জন্য আলাদা আলাদা টাকা দিতে হয় না ১৪৯৯ টাকায় সকল সাবজেক্ট একসাথে পাবেন।',
-    headline: 'HSC 26 ব্যাচের ই-টেস্টপেপার সাবস্ক্রিপশনে যা যা পাচ্ছেনঃ'
+    price_text:'প্রতি বিষয়ের জন্য আলাদা আলাদা টাকা দিতে হয় না, ১৪৯৯ টাকায় সকল সাবজেক্ট একসাথে পাবেন।',
+    headline: 'HSC 26 ব্যাচের ই-টেস্টপেপার সাবস্ক্রিপশনে যা যা পাচ্ছোঃ'
   },
 ])
 const groups = [{ name: 'Science', value: 'Science' }, { name: 'Commerce', value: 'Commerce' }, { name: 'Arts', value: 'Arts' }];

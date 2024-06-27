@@ -13,7 +13,7 @@
               </div>
               <div>
                 <p class="text-[24px] md:text-[34px] font-[600] font-['Hind_Siliguri'] text-[#0381e0]">Board Question</p>
-                <p class="text-[16px] md:text-[24px] font-[600] font-['Hind_Siliguri'] text-[#000000]">সকল বিষয়ের ৩ বছরের বোর্ড প্রশ্ন ও সমাধান</p>
+                <p class="text-[16px] md:text-[24px] font-[600] font-['Hind_Siliguri'] text-[#000000]">সকল বিষয়ের ৬ /৭  বছরের বোর্ড প্রশ্ন ও সমাধান</p>
               </div>
             </div>
             <div class="pl-16">
@@ -37,7 +37,7 @@
               </div>
               <div>
                 <p class="text-[24px] md:text-[34px] font-[600] font-['Hind_Siliguri'] text-[#0381e0]">College Question</p>
-                <p class="text-[16px] md:text-[24px] font-[600] font-['Hind_Siliguri'] text-[#000000]">সকল বিষয়ের কলেজের প্রশ্ন ও সমাধান</p>
+                <p class="text-[16px] md:text-[24px] font-[600] font-['Hind_Siliguri'] text-[#000000]">সকল বিষয়ের ৩/৪ বছরের কলেজের প্রশ্ন ও সমাধান</p>
               </div>
             </div>
           </div>

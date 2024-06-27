@@ -7,7 +7,7 @@
 <!--      <div class="bg-[#0381e0] rounded-[30px] text-center text-white p-3 2xl:w-[650px]">-->
 <!--        <p class="font-[600] text-[16px] 2xl:text-[24px]">অফার ফুরিয়ে যাবার আগেই সাবস্ক্রিপশন করুন</p>-->
 <!--      </div>-->
-      <div class="pt-4 md:pt-4 text-center">
+      <div class="pt-0 md:pt-0 text-center">
         <p class="text-[26px] md:text-[56px] text-[#f32120] font-[700] font-['Hind_Siliguri']">দেশের প্রথম এবং একমাত্র ডিজিটাল টেস্টপেপার</p>
       </div>
       <div class="pt-4 md:pt-4 text-center">

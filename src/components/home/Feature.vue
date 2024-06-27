@@ -1,9 +1,9 @@
 <template>
   <div class="container mx-auto py-6 md:py-12 px-4 md:px-0">
      <div class="text-center">
-       <p class="text-[26px] 2xl:text-[46px] font-[700] text-[#0381e0] font-['Hind_Siliguri']">ই-টেস্ট পেপার কেনো পড়বো ?</p>
+       <p class="text-[24px] 2xl:text-[46px] font-[700] text-[#0381e0] font-['Hind_Siliguri']">ই-টেস্ট পেপার কেনো পড়বো ?</p>
      </div>
-    <div class="md:flex justify-center gap-x-8 pt-8">
+    <div class="md:flex justify-center gap-x-8 pt-4 md:pt-8">
       <div class="text-center md:text-left">
         <img loading="lazy" class="h-[280px] md:h-[420px]" src="/images/cover.jpg" alt="image"/>
       </div>
