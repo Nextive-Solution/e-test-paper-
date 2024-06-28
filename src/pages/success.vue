@@ -3,14 +3,14 @@
      <div class="flex justify-center py-2 bg-[#b8e0fc]">
        <img src="/icon/logo.svg" alt="logo"/>
      </div>
-     <div class="container mx-auto">
+     <div class="container mx-auto px-2">
        <div class="flex justify-center py-4">
-         <img loading="lazy" class="h-[30px] md:h-[90px]" src="/icon/success.png" alt="ssl"/>
+         <img loading="lazy" class="h-[60px] md:h-[90px]" src="/icon/success.png" alt="ssl"/>
        </div>
-       <div class="flex justify-center flex-col items-center">
+       <div class="flex text-center flex-col items-center">
          <p class="text-[24px] font-[600]">পেমেন্ট সফল!</p>
-         <p class="text-[18px] font-[500] text-[#878d97]">তোমার সাবস্ক্রিপশন টি সফলভাবে চালু হয়েছে।</p>
-         <p class="text-[18px] font-[500] text-black">পড়ালেখা শুরু করে আমাদের অ্যাপ অথবা ওয়েবসাইট থেকে</p>
+         <p class="text-[18px] font-[500] text-[#878d97] pt-2">তোমার সাবস্ক্রিপশন টি সফলভাবে চালু হয়েছে।</p>
+         <p class="text-[18px] font-[500] text-black pt-2">পড়ালেখা শুরু করে আমাদের অ্যাপ অথবা ওয়েবসাইট থেকে</p>
        </div>
        <div class="pt-8">
          <p class="text-[24px] font-[600] text-center pb-4">ডাউনলোড করুন</p>
