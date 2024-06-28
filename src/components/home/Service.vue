@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="text-center bg-[#0062a8] py-6">
-      <p class="text-[22px] 2xl:text-[46px] font-[700] text-[#ffffff] ">একমাত্র E-TestPaper এই তুমি পাচ্ছো</p>
+      <p class="text-[22px] md:text-[46px] font-[700] text-[#ffffff] ">একমাত্র E-TestPaper এই তুমি পাচ্ছো</p>
     </div>
     <div class="py-0 md:py-0  md:px-0">
       <div class="hidden md:block">

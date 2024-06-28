@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <img loading="lazy" src="/banner/banner.jpg" alt="image"/>
+      <img loading="lazy" src="/banner/banner.png" alt="image"/>
     </div>
     <div class="container mx-auto flex flex-col items-center py-4 md:py-8 px-4 md:px-0">
       <div>

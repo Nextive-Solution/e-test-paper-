@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto py-6 md:py-12 px-4 md:px-0">
     <div class="text-center">
-      <p class="text-[26px] 2xl:text-[46px] font-[700] text-[#0381e0]">প্রাক্তন শিক্ষার্থীদের রিভিউ</p>
+      <p class="text-[26px] md:text-[46px] font-[700] text-[#0381e0]">প্রাক্তন শিক্ষার্থীদের রিভিউ</p>
     </div>
 <!--    <div class="grid grid-cols-3">-->
 <!--      <div v-for="(item ,i) in studentReviews" :key="i" class="p-4 mt-16" >-->
