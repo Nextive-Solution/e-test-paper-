@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="text-center bg-[#0062a8] py-6">
-      <p class="text-[22px] 2xl:text-[46px] font-[700] text-[#ffffff] font-['Hind_Siliguri']">একমাত্র E-TestPaper এই তুমি পাচ্ছো</p>
+      <p class="text-[22px] 2xl:text-[46px] font-[700] text-[#ffffff] ">একমাত্র E-TestPaper এই তুমি পাচ্ছো</p>
     </div>
     <div class="py-0 md:py-0  md:px-0">
       <div class="hidden md:block">
@@ -12,14 +12,14 @@
                 <img loading="lazy" class="h-[40px] md:h-[60px]" src="/icon/icon4.png" alt="icon"/>
               </div>
               <div>
-                <p class="text-[24px] md:text-[34px] font-[600] font-['Hind_Siliguri'] text-[#0381e0]">Board Question</p>
-                <p class="text-[16px] md:text-[24px] font-[600] font-['Hind_Siliguri'] text-[#000000]">সকল বিষয়ের ৬ /৭  বছরের বোর্ড প্রশ্ন ও সমাধান</p>
+                <p class="text-[24px] md:text-[34px] font-[600]  text-[#0381e0]">Board Question</p>
+                <p class="text-[16px] md:text-[24px] font-[600]  text-[#000000]">সকল বিষয়ের ৬ /৭  বছরের বোর্ড প্রশ্ন ও সমাধান</p>
               </div>
             </div>
             <div class="pl-16">
-              <div class="">
+              <a href="https://play.google.com/store/apps/details?id=com.nextive.eTestPaper" target="_blank">
                 <img loading="lazy" src="/media/board.gif" alt="gif"/>
-              </div>
+              </a>
             </div>
           </div>
         </div>
@@ -27,17 +27,17 @@
         <div class="bg-[#b8e0fc]">
           <div class="container mx-auto p-4 md:p-0 md:flex justify-evenly items-center">
             <div>
-              <div class="">
+              <a href="https://play.google.com/store/apps/details?id=com.nextive.eTestPaper" target="_blank">
                 <img loading="lazy" src="/media/college.gif" alt="gif"/>
-              </div>
+              </a>
             </div>
             <div class="flex items-center gap-x-3">
               <div class="bg-[#0381e0] p-2 md:p-4 rounded-md">
                 <img loading="lazy" class="h-[40px] md:h-[60px]" src="/icon/icon3.png" alt="icon"/>
               </div>
               <div>
-                <p class="text-[24px] md:text-[34px] font-[600] font-['Hind_Siliguri'] text-[#0381e0]">College Question</p>
-                <p class="text-[16px] md:text-[24px] font-[600] font-['Hind_Siliguri'] text-[#000000]">সকল বিষয়ের ৩/৪ বছরের কলেজের প্রশ্ন ও সমাধান</p>
+                <p class="text-[24px] md:text-[34px] font-[600]  text-[#0381e0]">College Question</p>
+                <p class="text-[16px] md:text-[24px] font-[600] text-[#000000]">সকল বিষয়ের ৩/৪ বছরের কলেজের প্রশ্ন ও সমাধান</p>
               </div>
             </div>
           </div>
@@ -50,14 +50,14 @@
                 <img loading="lazy" class="h-[40px] md:h-[60px]" src="/icon/icon5.png" alt="icon"/>
               </div>
               <div>
-                <p class="text-[24px] md:text-[34px] font-[600] font-['Hind_Siliguri'] text-[#0381e0]">Chapter Wise Preparation</p>
-                <p class="text-[16px] md:text-[24px] font-[600] font-['Hind_Siliguri'] text-[#000000]">সকল বিষয়ের সকল অধ্যায় এর CQ & MCQ</p>
+                <p class="text-[24px] md:text-[34px] font-[600]  text-[#0381e0]">Chapter Wise Preparation</p>
+                <p class="text-[16px] md:text-[24px] font-[600]  text-[#000000]">সকল বিষয়ের সকল অধ্যায় এর CQ & MCQ</p>
               </div>
             </div>
             <div class="pl-12">
-              <div class="">
+              <a href="https://play.google.com/store/apps/details?id=com.nextive.eTestPaper" target="_blank">
                 <img loading="lazy" src="/media/chapterwise.gif" alt="gif"/>
-              </div>
+              </a>
             </div>
           </div>
         </div>
@@ -66,7 +66,9 @@
           <div class="container mx-auto p-4 md:p-0 md:flex justify-evenly items-center">
             <div class="pl-14">
               <div class="">
-                <img loading="lazy" src="/media/modeltest.gif" alt="gif"/>
+                <a href="https://play.google.com/store/apps/details?id=com.nextive.eTestPaper" target="_blank">
+                  <img loading="lazy" src="/media/modeltest.gif" alt="gif"/>
+                </a>
               </div>
             </div>
             <div class="flex items-center gap-x-3">
@@ -74,8 +76,8 @@
                 <img loading="lazy" class="h-[40px] md:h-[60px]" src="/icon/icon2.png" alt="icon"/>
               </div>
               <div>
-                <p class="text-[24px] md:text-[34px] font-[600] font-['Hind_Siliguri'] text-[#0381e0]">Model Test</p>
-                <p class="text-[16px] md:text-[24px] font-[600] font-['Hind_Siliguri'] text-[#000000]">ডে চ্যালেঞ্জ এবং বোর্ড স্ট্যান্ডার্ড ফাইনাল মডেল টেস্ট</p>
+                <p class="text-[24px] md:text-[34px] font-[600]  text-[#0381e0]">Model Test</p>
+                <p class="text-[16px] md:text-[24px] font-[600] text-[#000000]">ডে চ্যালেঞ্জ এবং বোর্ড স্ট্যান্ডার্ড ফাইনাল মডেল টেস্ট</p>
               </div>
             </div>
           </div>
@@ -89,14 +91,14 @@
                 <img loading="lazy" class="h-[50px] w-[50px] md:w-auto md:h-[60px]" :src="item.icon" alt="icon"/>
               </div>
               <div class="">
-                <p class="text-[20px] md:text-[34px] font-[600] font-['Hind_Siliguri'] text-[#0381e0]">{{ item.title }}</p>
-                <p class="text-[16px] md:text-[24px] font-[600] font-['Hind_Siliguri'] text-[#000000]">{{ item.content }}</p>
+                <p class="text-[20px] md:text-[34px] font-[600]  text-[#0381e0]">{{ item.title }}</p>
+                <p class="text-[16px] md:text-[24px] font-[600]  text-[#000000]">{{ item.content }}</p>
               </div>
             </div>
             <div>
-              <div class="">
+              <a href="https://play.google.com/store/apps/details?id=com.nextive.eTestPaper" target="_blank">
                 <img :src="item.video" alt="gif"/>
-              </div>
+              </a>
             </div>
           </div>
         </div>
