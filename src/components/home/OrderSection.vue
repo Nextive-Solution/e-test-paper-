@@ -2,7 +2,7 @@
   <div class="container mx-auto py-6 md:py-12 px-4 md:px-0">
     <div class="text-center">
       <p class="text-[26px] md:text-[46px] font-[700] text-[#0381e0]">
-        প্রয়োজনে কল করুন- <a href="tel:+8801646664222" class="text-[#0381e0]">8801646664222</a>
+        প্রয়োজনে কল করুন- <a href="tel:+8801646664222" class="text-[#0381e0]">01646664222</a>
       </p>
     </div>
     <div class="text-center pt-2 md:pt-4">
