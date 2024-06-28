@@ -105,7 +105,7 @@
       </div>
 
       <div class="pt-4 md:pt-12 flex justify-center">
-        <cta-button button-text="ই-টেস্টেপেপার এর সবগুলো ফিচার এক্সেস করুন" />
+        <cta-button button-text="ই-টেস্টপেপার এর সবগুলো ফিচার এক্সেস করুন" />
       </div>
     </div>
   </div>

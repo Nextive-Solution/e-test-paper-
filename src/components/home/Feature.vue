@@ -15,7 +15,7 @@
           </div>
         </div>
         <div class="pt-4 md:pt-8 flex justify-center md:justify-start">
-          <cta-button button-text="এখন ই সবস্ক্রাইব করুন" />
+          <cta-button button-text="এখন ই সাবস্ক্রাইব করুন" />
         </div>
       </div>
     </div>
