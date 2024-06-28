@@ -10,7 +10,7 @@
        <div class="flex text-center flex-col items-center">
          <p class="text-[24px] font-[600]">পেমেন্ট সফল!</p>
          <p class="text-[18px] font-[500] text-[#878d97] pt-2">তোমার সাবস্ক্রিপশন টি সফলভাবে চালু হয়েছে।</p>
-         <p class="text-[18px] font-[500] text-black pt-2">পড়ালেখা শুরু করে আমাদের অ্যাপ অথবা ওয়েবসাইট থেকে</p>
+         <p class="text-[18px] font-[500] text-black pt-2">পড়ালেখা শুরু করো আমাদের অ্যাপ অথবা ওয়েবসাইট থেকে</p>
        </div>
        <div class="pt-8">
          <p class="text-[24px] font-[600] text-center pb-4">ডাউনলোড করুন</p>
