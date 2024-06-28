@@ -78,7 +78,7 @@ const contact = ([
 ])
 const footerSocialInfo = ([
   { 'link': 'https://www.facebook.com/etestpaper', 'icon':'ph:facebook-logo-fill'},
-  { 'link': 'https://wa.me/+8801980004222', 'icon':'ph:whatsapp-logo-fill'},
+  { 'link': 'https://wa.me/+8801646664222', 'icon':'ph:whatsapp-logo-fill'},
   // { 'link': '/', 'icon':'ph:linkedin-logo-fill'},
   { 'link': 'https://www.youtube.com/@eTestPaperBD', 'icon':'ph:youtube-logo-fill'},
 ])
