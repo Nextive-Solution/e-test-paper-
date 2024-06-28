@@ -45,7 +45,7 @@
           </div>
           <div class="pt-4">
             <label for="name" class="text-[16px] font-[600]">Phone Number<span class="text-red-500">*</span></label>
-            <input v-model="phone" type="number"
+            <input v-model="phone" type="text"
                    class="border-2 border-[#0381e0] text-[16px] rounded-md px-2 py-1 md:py-2 flex items-center w-full"
                    placeholder="01XXXXXXXXX" />
           </div>
@@ -164,6 +164,7 @@ const phone = ref(null);
 const group = ref('Science');
 const coupon = ref(null)
 const checkText = ref('')
+const isLoading = ref(false);
 
 const subtotal = computed(() => {
   return selectedProduct.value?.price * quantity.value;
@@ -181,7 +182,7 @@ const select = (product) => {
 };
 
 const submit = async () => {
-
+  isLoading.value = true;
   const payload = {
     name: name.value,
     phone: `0${phone.value}`,
@@ -202,6 +203,7 @@ const submit = async () => {
   if(data.value && data.value.GatewayPageURL){
     window.location.href =data?.value?.GatewayPageURL;
   }
+  isLoading.value = false;
 };
 
 </script>

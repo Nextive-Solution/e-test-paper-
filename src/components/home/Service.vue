@@ -84,11 +84,11 @@
       <div class="block md:hidden">
         <div class="bg-[#fff]">
           <div v-for="(item, i) in services" :key="i" class="container mx-auto p-4 md:p-0">
-            <div class="flex items-center gap-x-3 pb-4">
-              <div class="bg-[#0381e0] p-4 md:p-4 rounded-md">
-                <img loading="lazy" class="h-[50px] md:h-[60px]" :src="item.icon" alt="icon"/>
+            <div class="flex items-center justify-evenly flex-warp gap-x-3 pb-4">
+              <div class="bg-[#0381e0] px-4 py-3 rounded-md">
+                <img loading="lazy" class="h-[50px] w-[50px] md:w-auto md:h-[60px]" :src="item.icon" alt="icon"/>
               </div>
-              <div>
+              <div class="">
                 <p class="text-[20px] md:text-[34px] font-[600] font-['Hind_Siliguri'] text-[#0381e0]">{{ item.title }}</p>
                 <p class="text-[16px] md:text-[24px] font-[600] font-['Hind_Siliguri'] text-[#000000]">{{ item.content }}</p>
               </div>
