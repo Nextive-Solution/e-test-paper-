@@ -15,7 +15,7 @@
       </div>
       <div class="pt-4 md:pt-12 pb-4 md:pb-8">
         <iframe class="h-[220px] w-full md:h-[512px] md:w-[1024px] rounded-xl md:rounded-3xl"
-                src="https://www.youtube.com/embed/pRYcDAdytKY?si=YLgZpJDlLFbjri4K">
+                src="https://www.youtube.com/embed/w8S_r1jgkl4?si=dnFUpTDu5YAVc7yt">
         </iframe>
       </div>
     </div>
