@@ -51,11 +51,11 @@ const studentReviews = ref([
 
 const reviewImage = ref([
   { link:'/review/review1.png' },
-  { link:'/review/review1.png' },
-  { link:'/review/review1.png' },
-  { link:'/review/review1.png' },
-  { link:'/review/review1.png' },
-  { link:'/review/review1.png' }
+  { link:'/review/review2.png' },
+  { link:'/review/review3.png' },
+  { link:'/review/review4.png' },
+  { link:'/review/review5.png' },
+  { link:'/review/review6.png' }
 ])
 
 </script>
