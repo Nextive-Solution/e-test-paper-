@@ -6,7 +6,7 @@
       </p>
     </div>
     <div class="text-center pt-2 md:pt-4">
-      <p class="md:text-[26px]  text-[#000000] font-[600]">ই-টেস্টেপেপার এর পূর্নাঙ্গ এক্সেস পেতে আপনার ব্যাচ, নাম,ফোন নাম্বার এবং গ্রুপ সিলেক্ট করে "কনফার্ম অর্ডার" বাটনে ক্লিক করুন</p>
+      <p class="text-[16px] md:text-[26px]  text-[#000000] font-[600]">ই-টেস্টেপেপার এর পূর্নাঙ্গ এক্সেস পেতে আপনার ব্যাচ, নাম,ফোন নাম্বার এবং গ্রুপ সিলেক্ট করে "কনফার্ম অর্ডার" বাটনে ক্লিক করুন</p>
     </div>
     <div class="pt-2 md:pt-8">
       <div class="md:flex justify-center gap-x-4">
@@ -104,10 +104,10 @@
         <div class="pt-0 md:pt-0 order-1 md:order-2">
           <div v-if="selectedProduct">
             <div>
-              <p class="text-[20px] md:text-[28px] text-center font-[600] font-['Hind_Siliguri'] text-green-600 py-2">{{ selectedProduct.headline }}</p>
+              <p class="text-[22px] md:text-[28px] text-center font-[600] font-['Hind_Siliguri'] text-green-600 py-2">{{ selectedProduct.headline }}</p>
             </div>
             <div v-for="(feature ,i) in selectedProduct.features" :key="i" class="flex gap-x-2">
-              <p class="md:text-[22px] font-[600] font-['Hind_Siliguri'] py-2">▶️ {{ feature.label }}</p>
+              <p class="text-[16px] md:text-[22px] font-[600] font-['Hind_Siliguri'] py-2">▶️ {{ feature.label }}</p>
             </div>
             <div>
               <p class="md:text-[22px] font-[600] font-['Hind_Siliguri'] text-red-600 py-2">{{ selectedProduct.price_text }}</p>
