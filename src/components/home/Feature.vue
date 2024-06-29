@@ -1,21 +1,21 @@
 <template>
   <div class="container mx-auto py-6 md:py-12 px-4 md:px-0">
      <div class="text-center">
-       <p class="text-[26px] 2xl:text-[46px] font-[700] text-[#0381e0]">ই-টেস্ট পেপার কেনো পড়বো ?</p>
+       <p class="text-[24px] md:text-[46px] font-[700] text-[#0381e0] font-['Hind_Siliguri']">ই-টেস্ট পেপার কেনো পড়বো ?</p>
      </div>
-    <div class="md:flex justify-center gap-x-8 pt-8">
+    <div class="md:flex justify-center gap-x-8 pt-4 md:pt-8">
       <div class="text-center md:text-left">
-        <img class="h-[280px] md:h-[420px]" src="/images/cover.jpg" alt="image"/>
+        <img loading="lazy" class="h-[280px] md:h-[420px]" src="/images/cover.jpg" alt="image"/>
       </div>
       <div class="pt-4 md:pt-0">
         <div v-for="(item , i) in features" :key="i" class="py-2">
           <div class="flex items-center gap-x-3">
-            <Icon class="text-[#0381e0]" name="ph:star-of-david-bold"/>
-            <p class="2xl:text-[22px] font-[600]">{{ item.label }}</p>
+            <Icon class="text-[#0381e0] text-[24px]" name="material-symbols:layers"/>
+            <p class="md:text-[22px] font-[600]">{{ item.label }}</p>
           </div>
         </div>
         <div class="pt-4 md:pt-8 flex justify-center md:justify-start">
-          <cta-button button-text="পড়ালেখা শুরু করুন" />
+          <cta-button button-text="এখন ই সাবস্ক্রাইব করুন" />
         </div>
       </div>
     </div>

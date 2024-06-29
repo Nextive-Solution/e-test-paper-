@@ -6,27 +6,34 @@ import SpecialFeature from "~/components/home/SpecialFeature.vue";
 import Review from "~/components/home/Review.vue";
 import TeachersOpinion from "~/components/home/TeachersOpinion.vue";
 import OrderSection from "~/components/home/OrderSection.vue";
+import Service from "~/components/home/Service.vue";
 </script>
 
 <template>
     <div class="bg-[#f6fcfd]">
         <banner/>
     </div>
-    <div>
+    <div class="bg-[#b8e0fc]">
       <feature/>
     </div>
-    <div class="bg-[#e7f3fc]">
-      <cover/>
+    <div>
+      <service/>
     </div>
-   <div>
-     <special-feature/>
-   </div>
-  <div class="bg-[#e7f3fc]">
+<!--    <div class="bg-[#e7f3fc]">-->
+<!--      <cover/>-->
+<!--    </div>-->
+<!--   <div>-->
+<!--     <special-feature/>-->
+<!--   </div>-->
+  <div>
     <review/>
   </div>
-  <div>
-    <teachers-opinion/>
+  <div class="w-full">
+    <img loading="lazy" class="w-full" src="/banner/eidsalamicover.jpg" alt="cover"/>
   </div>
+<!--  <div>-->
+<!--    <teachers-opinion/>-->
+<!--  </div>-->
   <div id="orderSection" class="bg-[#e7f3fc]">
     <order-section/>
   </div>
