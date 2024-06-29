@@ -7,7 +7,16 @@ export default defineNuxtConfig({
             charset: 'utf-16',
             viewport: 'width=device-width, initial-scale=1',
             title: 'E-test Paper',
-            script: [
+            script: [ { src: 'https://www.googletagmanager.com/gtag/js?id=G-3XRSF2EG1W', async: true },
+                {
+                    innerHTML: `
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'G-3XRSF2EG1W');`,
+                    type: 'text/javascript',
+                    charset: 'utf-8'
+                },
                 {
                     innerHTML: `
                         (function(c,l,a,r,i,t,y){
@@ -19,6 +28,7 @@ export default defineNuxtConfig({
                     charset: 'utf-8'
                 },
                 { src: "https://www.facebook.com/tr?id=1527387001207075&ev=PageView&noscript=1", async: true },
+
             ]
         },
     },
