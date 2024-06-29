@@ -14,8 +14,8 @@
         <p class="text-[18px] md:text-[30px] md:text-justify text-[#000000] font-[600] font-['Hind_Siliguri']">যা এইচএসসি শিক্ষার্থীদের <span class="text-blue-500 font-[700]">গাইডবই, সাপ্লিমেন্ট</span> এবং <span class="text-blue-500 font-[700]">টেস্টপেপার</span> এর একমাত্র ডিজিটাল বিকল্প</p>
       </div>
       <div class="pt-4 md:pt-12 pb-4 md:pb-8">
-        <iframe class="h-[220px] w-full md:h-[512px] md:w-[1024px] rounded-xl md:rounded-3xl"
-                src="https://www.youtube.com/embed/w8S_r1jgkl4?si=dnFUpTDu5YAVc7yt">
+        <iframe class="h-[220px] w-full md:h-[650px] md:w-[1300px] rounded-xl md:rounded-3xl" allow="autoplay"
+                src="https://www.youtube.com/embed/SW4UteiYzV8?autoplay=1&mute=1&si=DzqmKioZztzTfDJC">
         </iframe>
       </div>
     </div>

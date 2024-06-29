@@ -77,7 +77,7 @@
               </div>
               <div>
                 <p class="text-[24px] md:text-[34px] font-[600]  text-[#0381e0]">Model Test</p>
-                <p class="text-[16px] md:text-[24px] font-[600] text-[#000000]">ডে চ্যালেঞ্জ এবং বোর্ড স্ট্যান্ডার্ড ফাইনাল মডেল টেস্ট</p>
+                <p class="text-[16px] md:text-[24px] font-[600] text-[#000000]">৫০ ডে চ্যালেঞ্জ এবং বোর্ড স্ট্যান্ডার্ড ফাইনাল মডেল টেস্ট</p>
               </div>
             </div>
           </div>
@@ -104,8 +104,8 @@
         </div>
       </div>
 
-      <div class="pt-4 md:pt-12 flex justify-center">
-        <cta-button button-text="ই-টেস্টপেপার এর সবগুলো ফিচার এক্সেস করুন" />
+      <div class="pt-4 md:pt-12 flex justify-center px-2">
+        <cta-button button-text="ই-টেস্টপেপার এর সবগুলো ফিচার এক্সেস করুন" button-design="text-[18px] bg-[#f7a201] hover:bg-[#ffffff] hover:ring-2 hover:ring-[#f7a201] text-[#ffffff] hover:text-[#000000]"  />
       </div>
     </div>
   </div>
@@ -118,7 +118,7 @@ const services = ref([
   { title:'Board Question', content:'সকল বিষয়ের ৬ /৭ বছরের বোর্ড প্রশ্ন ও সমাধান', icon:'/icon/icon4.png',video:'/media/board.gif' },
   { title:'College Question', content:'সকল বিষয়ের ৩/৪ বছরের কলেজের প্রশ্ন ও সমাধান', icon: '/icon/icon3.png',video:'/media/college.gif' },
   { title:'Chapter Wise Preparation', content:'সকল বিষয়ের সকল অধ্যায় এর CQ & MCQ', icon: '/icon/icon5.png',video:'/media/chapterwise.gif' },
-  { title:'Model Test', content:'ডে চ্যালেঞ্জ এবং বোর্ড স্ট্যান্ডার্ড ফাইনাল মডেল টেস্ট', icon: '/icon/icon2.png',video:'/media/modeltest.gif' },
+  { title:'Model Test', content:'৫০ ডে চ্যালেঞ্জ এবং বোর্ড স্ট্যান্ডার্ড ফাইনাল মডেল টেস্ট', icon: '/icon/icon2.png',video:'/media/modeltest.gif' },
 ])
 const servicesTwo = ref([
   { title:'Model Test', content:'ডে চ্যালেঞ্জ এবং বোর্ড স্ট্যান্ডার্ড ফাইনাল মডেল টেস্ট', icon: '/icon/icon2.png' },
