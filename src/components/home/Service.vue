@@ -105,7 +105,7 @@
       </div>
 
       <div class="pt-4 md:pt-12 flex justify-center px-2">
-        <cta-button button-text="ই-টেস্টপেপার এর সবগুলো ফিচার এক্সেস করুন" button-design="text-[18px] bg-[#f7a201] hover:bg-[#ffffff] hover:ring-2 hover:ring-[#f7a201] text-[#ffffff] hover:text-[#000000]"  />
+        <cta-button button-text="ই-টেস্টপেপার এর সবগুলো ফিচার এক্সেস করো" button-design="text-[18px] bg-[#f7a201] hover:bg-[#ffffff] hover:ring-2 hover:ring-[#f7a201] text-[#ffffff] hover:text-[#000000]"  />
       </div>
     </div>
   </div>

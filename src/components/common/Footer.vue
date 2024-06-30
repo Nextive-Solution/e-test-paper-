@@ -38,10 +38,10 @@
           </ul>
         </div>
         <div class="text-center">
-          <p class="text-[#0381e0] text-[22px] md:text-[26px] font-[600] pb-2 md:pb-4">ডাউনলোড করুন</p>
+          <p class="text-[#0381e0] text-[22px] md:text-[26px] font-[600] pb-2 md:pb-4">ডাউনলোড করো</p>
           <div class="flex justify-center pb-4 cursor-pointer">
             <a href="https://play.google.com/store/apps/details?id=com.nextive.eTestPaper" target="_blank">
-              <img loading="lazy" class="h-[30px] md:h-[50px]" src="/banner/gp.svg" alt="ssl"/>
+              <img loading="lazy" class="h-[80px] md:h-[100px]" src="/banner/DownloadETP.png" alt="ssl"/>
             </a>
           </div>
           <div class="flex justify-center gap-x-4">

@@ -15,7 +15,7 @@
           </div>
         </div>
         <div class="pt-4 md:pt-8 flex justify-center md:justify-start">
-          <cta-button button-text="সকল বিষয়ের টেস্টপেপার একত্রে পেতে ক্লিক করুন" button-design="text-[16px] bg-[#CD131D] hover:bg-[#ffffff] hover:ring-2 hover:ring-[#CD131D] text-[#ffffff] hover:text-[#000000]" />
+          <cta-button button-text="সকল বিষয়ের টেস্টপেপার একত্রে পেতে ক্লিক করো" button-design="text-[16px] bg-[#CD131D] hover:bg-[#ffffff] hover:ring-2 hover:ring-[#CD131D] text-[#ffffff] hover:text-[#000000]" />
         </div>
       </div>
     </div>

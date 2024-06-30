@@ -2,11 +2,11 @@
   <div class="container mx-auto py-6 md:py-12 px-4 md:px-0">
     <div class="text-center">
       <p class="text-[26px] md:text-[46px] font-[700] text-[#0381e0]">
-        প্রয়োজনে কল করুন- <a href="tel:+8801646664222" class="text-[#0381e0]">01646664222</a>
+        প্রয়োজনে কল করো- <a href="tel:+8801646664222" class="text-[#0381e0]">01646664222</a>
       </p>
     </div>
     <div class="text-center pt-2 md:pt-4">
-      <p class="text-[16px] md:text-[26px]  text-[#000000] font-[600]">ই-টেস্টেপেপার এর পূর্নাঙ্গ এক্সেস পেতে আপনার ব্যাচ, নাম,ফোন নাম্বার এবং গ্রুপ সিলেক্ট করে "কনফার্ম অর্ডার" বাটনে ক্লিক করুন</p>
+      <p class="text-[16px] md:text-[26px]  text-[#000000] font-[600]">ই-টেস্টপেপার এর পূর্নাঙ্গ এক্সেস পেতে আপনার ব্যাচ, নাম,ফোন নাম্বার এবং গ্রুপ সিলেক্ট করে "কনফার্ম অর্ডার" বাটনে ক্লিক করুন</p>
     </div>
     <div class="pt-2 md:pt-8">
       <div class="md:flex justify-center gap-x-4">
@@ -60,7 +60,7 @@
           </div>
           <div class="pt-4">
             <input v-model="checkText" type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-            <label for="vehicle1" class="text-[14px] md:text-[18px] pl-2">I Agree to the <a href="https://www.etestpaper.net/about/terms" target="_blank" class="text-blue-500 underline">Terms & Conditions</a> ,<a href="https://www.etestpaper.net/about/privacy" target="_blank" class="text-blue-500 underline">Privacy Police</a> & <a href="https://www.etestpaper.net/about/refund" target="_blank" class="text-blue-500 underline">Refound Policy</a></label>
+            <label for="vehicle1" class="text-[14px] md:text-[18px] pl-2">I Agree to the <a href="https://www.etestpaper.net/about/terms" target="_blank" class="text-blue-500 underline">Terms & Conditions</a> ,<a href="https://www.etestpaper.net/about/privacy" target="_blank" class="text-blue-500 underline">Privacy Policy</a> & <a href="https://www.etestpaper.net/about/refund" target="_blank" class="text-blue-500 underline">Refund Policy</a></label>
           </div>
 <!--          <div class="pt-4">-->
 <!--            <div>-->
@@ -128,13 +128,13 @@
 
 
 const productInfo = ref([
-  { name: 'HSC BATCH 2025', value: 'HSC 2025', discount_price: 999, price: 1500,
+  { name: 'HSC BATCH 2025', value: 'HSC 2025', discount_price: 999, price: 2000,
     features: [
       { label: 'সকল বিষয়ের ৬ বছরের  বোর্ড প্রশ্ন ও সমাধান' },
       { label: 'সকল বিষয়ের ৩ বছরের কলেজ প্রশ্ন ও সমাধান' },
       { label: 'সকল বিষয় এর অধ্যায় ভিত্তিক হাজারো CQ & MCQ' },
       { label: '৫০ ডে চ্যালেঞ্জ প্রোগ্রাম ও ফাইনাল মডেল টেস্ট' },
-      { label: 'সকল CQ & MCQ অনলিমিটেড প্র্যাকটিস' },
+      { label: 'সকল CQ & MCQ আনলিমিটেড প্র্যাকটিস' },
       { label: 'গুরুত্বপূর্ন প্রশ্ন মার্ক করে রাখা এবং ভুলকরা প্রশ্নে আলাদা প্র্যাকটিস' },
       { label: 'এছাড়া তোমার পূর্নাঙ্গ প্রস্তুতি সহায়ক যাবতীয় সমাধান একসাথে'}
     ],
@@ -147,7 +147,7 @@ const productInfo = ref([
       { label: 'সকল বিষয়ের ৪ বছরের কলেজ প্রশ্ন ও সমাধান' },
       { label: 'সকল বিষয় এর অধ্যায় ভিত্তিক হাজারো CQ & MCQ' },
       { label: '৫০ ডে চ্যালেঞ্জ প্রোগ্রাম ও ফাইনাল মডেল টেস্ট' },
-      { label: 'সকল CQ & MCQ অনলিমিটেড প্র্যাকটিস' },
+      { label: 'সকল CQ & MCQ আনলিমিটেড প্র্যাকটিস' },
       { label: 'গুরুত্বপূর্ন প্রশ্ন মার্ক করে রাখা এবং ভুলকরা প্রশ্নে আলাদা প্র্যাকটিস' },
       { label: 'এছাড়া তোমার পূর্নাঙ্গ প্রস্তুতি সহায়ক যাবতীয় সমাধান একসাথে'}
     ],
