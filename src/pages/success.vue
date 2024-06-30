@@ -16,7 +16,7 @@
          <p class="text-[24px] font-[600] text-center pb-4">ডাউনলোড করুন</p>
          <div class="flex justify-center pb-4 cursor-pointer">
            <a href="https://play.google.com/store/apps/details?id=com.nextive.eTestPaper" target="_blank">
-             <img loading="lazy" class="h-[30px] md:h-[50px]" src="/banner/gp.svg" alt="ssl"/>
+             <img loading="lazy" class="h-[100px] md:h-[120px]" src="/banner/DownloadETP.png" alt="ssl"/>
            </a>
          </div>
        </div>
@@ -28,7 +28,7 @@
            </a>
          </div>
        </div>
-       <div>
+       <div class="pb-8">
          <p class="text-[18px] font-[500] text-[#878d97] text-center pt-4">যে কোন প্রয়োজনে যোগাযোগ করুন</p>
          <p class="text-[18px] font-[500] text-[#878d97] text-center pt-4"><a href="tel:+8801646664222" class="text-[#0381e0]">+8801646664222</a></p>
        </div>
