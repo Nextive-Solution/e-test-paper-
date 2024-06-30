@@ -6,7 +6,7 @@
           <p class="text-[#0381e0] text-[22px] md:text-[26px] font-[600] pb-2 md:pb-4">কোম্পানী</p>
           <ul v-for="(item,i) in company" class="text-gray-700 dark:text-gray-400 font-[500]">
             <li class="mb-2">
-              <nuxt-link :to="item.link" class="text-black text-[14px] md:text-[18px] font-[600]" target="_blank">{{ item.label }}</nuxt-link>
+              <nuxt-link :to="item.link" class="text-black text-[16px] md:text-[18px] font-[600]" target="_blank">{{ item.label }}</nuxt-link>
             </li>
           </ul>
         </div>
@@ -14,18 +14,18 @@
           <p class="text-[#0381e0] text-[22px] md:text-[26px] font-[600] pb-2 md:pb-4">কোম্পানী</p>
           <div class="flex justify-center gap-x-4 pb-2">
             <div>
-              <nuxt-link to="https://www.etestpaper.net/about" class="text-black text-[14px] md:text-[18px] font-[600]" target="_blank">আমাদের সম্পর্কে</nuxt-link>
+              <nuxt-link to="https://www.etestpaper.net/about" class="text-black text-[16px] md:text-[18px] font-[600]" target="_blank">আমাদের সম্পর্কে</nuxt-link>
             </div>
             <div>
-              <nuxt-link to="https://www.etestpaper.net/about/privacy" class="text-black text-[14px] md:text-[18px] font-[600]" target="_blank">প্রাইভেসি পলিসি</nuxt-link>
+              <nuxt-link to="https://www.etestpaper.net/about/privacy" class="text-black text-[16px] md:text-[18px] font-[600]" target="_blank">প্রাইভেসি পলিসি</nuxt-link>
             </div>
           </div>
           <div class="flex justify-center gap-x-4">
             <div>
-              <nuxt-link to="https://www.etestpaper.net/about/terms" class="text-black text-[14px] md:text-[18px] font-[600]" target="_blank">টার্মস অ্যান্ড কন্ডিশন</nuxt-link>
+              <nuxt-link to="https://www.etestpaper.net/about/terms" class="text-black text-[16px] md:text-[18px] font-[600]" target="_blank">টার্মস অ্যান্ড কন্ডিশন</nuxt-link>
             </div>
             <div>
-              <nuxt-link to="https://www.etestpaper.net/about/refund" class="text-black text-[14px] md:text-[18px] font-[600]" target="_blank">রিফান্ড পলিসি</nuxt-link>
+              <nuxt-link to="https://www.etestpaper.net/about/refund" class="text-black text-[16px] md:text-[18px] font-[600]" target="_blank">রিফান্ড পলিসি</nuxt-link>
             </div>
           </div>
         </div>
@@ -33,7 +33,7 @@
           <p class="text-[#0381e0] text-[22px] md:text-[26px] font-[600] pb-2 md:pb-4">যোগাযোগ</p>
           <ul v-for="(item,i) in contact" class="text-gray-700 dark:text-gray-400 font-[500]">
             <li class="mb-2">
-              <p class="text-black ext-[14px] md:text-[18px] font-[600]">{{ item.label }} : {{ item.link }}</p>
+              <p class="text-black text-[16px] md:text-[18px] font-[600]">{{ item.label }} : {{ item.link }}</p>
             </li>
           </ul>
         </div>

@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto py-6 md:py-12 px-4 md:px-0">
      <div class="text-center">
-       <p class="text-[24px] md:text-[46px] font-[700] text-[#0381e0] font-['Hind_Siliguri']">ই-টেস্ট পেপার কেনো পড়বো ?</p>
+       <p class="text-[26px] md:text-[46px] font-[700] text-[#0381e0] font-['Hind_Siliguri']">ই-টেস্ট পেপার কেনো পড়বো ?</p>
      </div>
     <div class="md:flex justify-center gap-x-8 pt-4 md:pt-8">
       <div class="text-center md:text-left">
@@ -11,11 +11,11 @@
         <div v-for="(item , i) in features" :key="i" class="py-2">
           <div class="flex items-center gap-x-3">
             <Icon class="text-[#0381e0] text-[24px]" name="material-symbols:layers"/>
-            <p class="md:text-[22px] font-[600]">{{ item.label }}</p>
+            <p class="text-[16px] md:text-[22px] font-[600]">{{ item.label }}</p>
           </div>
         </div>
         <div class="pt-4 md:pt-8 flex justify-center md:justify-start">
-          <cta-button button-text="এখন ই সাবস্ক্রাইব করুন" />
+          <cta-button button-text="সকল বিষয়ের টেস্টপেপার একত্রে পেতে ক্লিক করুন" button-design="text-[16px] bg-[#CD131D] hover:bg-[#ffffff] hover:ring-2 hover:ring-[#CD131D] text-[#ffffff] hover:text-[#000000]" />
         </div>
       </div>
     </div>
@@ -32,7 +32,7 @@ const features = ref([
   { label:'যত খুশি তত অনুশীলন এর সুযোগ' },
   { label:'প্রতিযোগিতা মূলক প্রস্তুতি নিতে পারবে' },
   { label:'যেকোনো সমস্যা সমাধানে রয়েছে ডেটিকেটেড প্রবলেম সলভিং কমিউনিটি' },
-  { label:'মাত্র ১ টি সাবস্ক্রিপশনেই পরীক্ষা পর্যন্ত পূর্নাঙ্গ এক্সেস পাবে।' },
+  { label:'একবার পেমেন্ট করেই এডমিশন টেস্ট  পর্যন্ত  এক্সেস' },
 ])
 
 </script>

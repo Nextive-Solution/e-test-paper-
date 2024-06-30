@@ -29,7 +29,7 @@ import Service from "~/components/home/Service.vue";
     <review/>
   </div>
   <div class="w-full">
-    <img loading="lazy" class="w-full" src="/banner/eidsalamicover.jpg" alt="cover"/>
+    <img loading="lazy" class="w-full" src="/banner/offerBanner.jpg" alt="cover"/>
   </div>
 <!--  <div>-->
 <!--    <teachers-opinion/>-->
