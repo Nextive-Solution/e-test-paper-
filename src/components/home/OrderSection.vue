@@ -202,11 +202,27 @@ const submit = async () => {
     body: JSON.stringify(payload)
   })
   console.log(data)
-  if(data.value && data.value.GatewayPageURL){
-    window.location.href =data?.value?.GatewayPageURL;
+  if (data.value && data.value.GatewayPageURL) {
+    if (typeof fbq === 'function') {
+      fbq('track', 'Purchase', {
+        category_name: "Uncategorized",
+        event_url: 'hostname',
+      });
+    }
+    window.location.href = data?.value?.GatewayPageURL;
   }
   isLoading.value = false;
 };
+
+// watch name and  phone
+watch([name, phone], () => {
+  if (typeof fbq === 'function') {
+    fbq('track', 'AddToCart', {
+      category_name: "Uncategorized",
+      event_url: 'hostname',
+    });
+  }
+}, {deep: true});
 
 </script>
 
