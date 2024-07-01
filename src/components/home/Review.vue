@@ -17,7 +17,7 @@
       <swiper-slide :data-array="reviewImage" slide-type="review"/>
     </div>
     <div class="pt-4 md:pt-10 flex justify-center">
-      <cta-button button-text="হাজারো শিক্ষার্থীদের সাথে যুক্ত হও" button-design="text-[18px] bg-[#007c00] hover:bg-[#ffffff] hover:ring-2 hover:ring-[#007c00] text-[#ffffff] hover:text-[#000000]"  />
+      <cta-button button-text="বন্ধুদের থেকে এগিয়ে থাকতে যুক্ত হও এখনই" button-design="text-[18px] bg-[#007c00] hover:bg-[#ffffff] hover:ring-2 hover:ring-[#007c00] text-[#ffffff] hover:text-[#000000]"  />
     </div>
     <div>
       <swiper-slide :data-array="playStoreReviews" slide-type="playStoreReview"/>

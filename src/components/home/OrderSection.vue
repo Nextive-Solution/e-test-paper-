@@ -6,7 +6,9 @@
       </p>
     </div>
     <div class="text-center pt-2 md:pt-4">
-      <p class="text-[16px] md:text-[26px]  text-[#000000] font-[600]">ই-টেস্টপেপার এর পূর্নাঙ্গ এক্সেস পেতে আপনার ব্যাচ, নাম,ফোন নাম্বার এবং গ্রুপ সিলেক্ট করে "কনফার্ম অর্ডার" বাটনে ক্লিক করো</p>
+      <p class="text-[16px] md:text-[26px]  text-[#000000] font-[600]">ই-টেস্টপেপার এর পূর্নাঙ্গ এক্সেস পেতে</p>
+      <p class="text-[16px] md:text-[26px]  text-[#000000] font-[600]">আপনার <span class="text-[#d30163]">ব্যাচ</span>, <span class="text-[#7b37f4]">নাম</span>, <span class="text-[#d30163]">ফোন নাম্বার</span> এবং <span class="text-[#7b37f4]">গ্রুপ</span> সিলেক্ট করে</p>
+      <p class="text-[16px] md:text-[26px]  text-[#000000] font-[600]">কনফার্ম অর্ডার" বাটনে ক্লিক করো</p>
     </div>
     <div class="pt-2 md:pt-8">
       <div class="md:flex justify-center gap-x-4">
