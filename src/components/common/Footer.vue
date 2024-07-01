@@ -58,7 +58,7 @@
       <div class="flex justify-center pb-4">
         <img loading="lazy" class="" src="/banner/sslBanner.jpg" alt="ssl"/>
       </div>
-      <p class="text-black text-[14px] md:text-[18px] font-[600]" to="/">স্বত্ব ২০২৪ ইটেস্টপেপার কর্তৃক সর্বস্বত্ব সংরক্ষিত</p>
+      <p class="text-black text-[14px] md:text-[18px] font-[600]" to="/">স্বত্ব ২০২৪ ই-টেস্টপেপার কর্তৃক সর্বস্বত্ব সংরক্ষিত</p>
     </div>
   </div>
 </template>
