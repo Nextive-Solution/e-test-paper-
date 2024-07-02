@@ -13,7 +13,7 @@
               </div>
               <div>
                 <p class="text-[24px] md:text-[34px] font-[600]  text-[#0381e0]">Board Question</p>
-                <p class="text-[16px] md:text-[24px] font-[600]  text-[#000000]">সকল বিষয়ের ৬ /৭  বছরের বোর্ড প্রশ্ন ও সমাধান</p>
+                <p class="text-[16px] md:text-[24px] font-[600]  text-[#000000]">সকল বিষয়ের ৬/৭  বছরের বোর্ড প্রশ্ন ও সমাধান</p>
               </div>
             </div>
             <div class="pl-16">
@@ -115,7 +115,7 @@
 import CtaButton from "~/components/common/CtaButton.vue";
 
 const services = ref([
-  { title:'Board Question', content:'সকল বিষয়ের ৬ /৭ বছরের বোর্ড প্রশ্ন ও সমাধান', icon:'/icon/icon4.png',video:'/media/board.gif' },
+  { title:'Board Question', content:'সকল বিষয়ের ৬/৭ বছরের বোর্ড প্রশ্ন ও সমাধান', icon:'/icon/icon4.png',video:'/media/board.gif' },
   { title:'College Question', content:'সকল বিষয়ের ৩/৪ বছরের কলেজের প্রশ্ন ও সমাধান', icon: '/icon/icon3.png',video:'/media/college.gif' },
   { title:'Chapter Wise Preparation', content:'সকল বিষয়ের সকল অধ্যায় এর CQ & MCQ', icon: '/icon/icon5.png',video:'/media/chapterwise.gif' },
   { title:'Model Test', content:'৫০ ডে চ্যালেঞ্জ এবং বোর্ড স্ট্যান্ডার্ড ফাইনাল মডেল টেস্ট', icon: '/icon/icon2.png',video:'/media/modeltest.gif' },
