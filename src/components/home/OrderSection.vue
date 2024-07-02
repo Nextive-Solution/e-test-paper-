@@ -168,7 +168,7 @@ const submit = async () => {
   isLoading.value = true;
   const payload = {
     name: name.value,
-    phone: `0${phone.value}`,
+    phone: phone.value,
     group: group.value,
     level: selectedProduct.value.value,
     coupon: coupon.value,
@@ -186,8 +186,10 @@ const submit = async () => {
   if (data.value && data.value.GatewayPageURL) {
     if (typeof fbq === 'function') {
       fbq('track', 'Purchase', {
-        category_name: "Uncategorized",
-        event_url: 'hostname',
+        category_name: "HSC E-testPaper",
+        event_url: 'LandPage',
+        phone: phone.value,
+        name: name.value,
       });
     }
     window.location.href = data?.value?.GatewayPageURL;
@@ -204,8 +206,10 @@ watch(typing, () => {
   if (typeof fbq === 'function') {
     console.log('track')
     fbq('track', 'AddToCart', {
-      category_name: "Uncategorized",
-      event_url: 'hostname',
+      category_name: "HSC E-testPaper",
+      phone: phone.value,
+      name: name.value,
+      event_url: 'LandPage',
     });
   }
 }, {deep: true})
