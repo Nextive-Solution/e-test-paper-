@@ -7,10 +7,10 @@
     </div>
     <div class="text-center pt-2 md:pt-4">
       <p class="text-[16px] md:text-[26px]  text-[#000000] font-[600]">ই-টেস্টপেপার এর পূর্নাঙ্গ এক্সেস পেতে</p>
-      <p class="text-[16px] md:text-[26px]  text-[#000000] font-[600]">আপনার <span class="text-[#d30163]">ব্যাচ</span>,
+      <p class="text-[16px] md:text-[26px]  text-[#000000] font-[600]">তোমার <span class="text-[#d30163]">ব্যাচ</span>,
         <span class="text-[#7b37f4]">নাম</span>, <span class="text-[#d30163]">ফোন নাম্বার</span> এবং <span
             class="text-[#7b37f4]">গ্রুপ</span> সিলেক্ট করে</p>
-      <p class="text-[16px] md:text-[26px]  text-[#000000] font-[600]">কনফার্ম অর্ডার" বাটনে ক্লিক করো</p>
+      <p class="text-[16px] md:text-[26px]  text-[#000000] font-[600]"><span class="text-[#ad00df]">"কনফার্ম অর্ডার"</span> বাটনে ক্লিক করো</p>
     </div>
     <div class="pt-2 md:pt-8">
       <div class="md:flex justify-center gap-x-4">
@@ -75,44 +75,12 @@
                 href="https://www.etestpaper.net/about/refund" target="_blank" class="text-blue-500 underline">Refund
               Policy</a></label>
           </div>
-          <!--          <div class="pt-4">-->
-          <!--            <div>-->
-          <!--              <p class="text-[24px] font-[600]">Your order</p>-->
-          <!--            </div>-->
-          <!--            <div class="ring-2 ring-[#0381e0] p-4 mt-6 rounded-md">-->
-          <!--              <div class="flex items-center gap-x-6 md:gap-x-12">-->
-          <!--                <div class="flex items-center gap-x-4">-->
-          <!--                  <img class="h-[50px]" src="/images/product.jpg" alt="image" />-->
-          <!--                  <p class="text-[18px]">{{ selectedProduct?.name }}</p>-->
-          <!--                </div>-->
-          <!--                <div class="text-[18px]">৳ {{ selectedProduct?.price }} × {{ quantity }}</div>-->
-          <!--              </div>-->
-          <!--              <div class="pt-2">-->
-          <!--                <hr />-->
-          <!--              </div>-->
-          <!--              <div class="flex items-center gap-x-12 pt-2">-->
-          <!--                <div class="">-->
-          <!--                  <p class="text-[18px] font-[600]">Subtotal</p>-->
-          <!--                </div>-->
-          <!--                <div class="text-[18px] font-[600]">৳ {{ subtotal }}</div>-->
-          <!--              </div>-->
-          <!--              <div class="pt-2">-->
-          <!--                <hr />-->
-          <!--              </div>-->
-          <!--              <div class="flex items-center gap-x-12 pt-2">-->
-          <!--                <div class="">-->
-          <!--                  <p class="text-[18px] font-[600]">Total</p>-->
-          <!--                </div>-->
-          <!--                <div class="text-[18px] font-[600]">৳ {{ total }}</div>-->
-          <!--              </div>-->
-          <!--            </div>-->
-          <!--            <div class="mt-4">-->
-          <!--              <p class="flex items-center mt-2 text-[18px]"><icon size="30" color="#0381E0" name="material-symbols:play-arrow-rounded"/> <span class="font-bold ml-2">কুপন আছে ?</span></p>-->
-          <!--              <div class="mt-2">-->
-          <!--                <input v-model="coupon" type="text" class="border-2 border-[#0381e0] text-[16px] rounded-md px-2 py-2 flex items-center w-full" placeholder="কুপন নাম্বার" />-->
-          <!--              </div>-->
-          <!--            </div>-->
-          <!--          </div>-->
+          <div class="hidden md:flex justify-center pt-0">
+            <button @click="submit" :disabled="buttonDisabled"
+                    :class="buttonDisabled ? 'bg-[#9fa4a8] cursor-not-allowed' : 'bg-[#0381e0] cursor-pointer'"
+                    class=" text-white text-[22px] font-[600] rounded-md px-12 py-2 mt-4">কনফার্ম অর্ডার
+            </button>
+          </div>
         </div>
         <div class="pt-0 md:pt-0 order-1 md:order-2">
           <div v-if="selectedProduct">
@@ -131,7 +99,7 @@
         </div>
       </div>
     </div>
-    <div class="flex justify-center pt-0">
+    <div class="flex md:hidden justify-center pt-0">
       <button @click="submit" :disabled="buttonDisabled"
               :class="buttonDisabled ? 'bg-[#9fa4a8] cursor-not-allowed' : 'bg-[#0381e0] cursor-pointer'"
               class=" text-white text-[22px] font-[600] rounded-md px-12 py-2 mt-4">কনফার্ম অর্ডার
