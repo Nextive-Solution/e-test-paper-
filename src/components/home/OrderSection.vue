@@ -175,7 +175,7 @@ const submit = async () => {
     source: 'etestpaper-fb-campaign'
   }
 
-  const {data, error} = await useFetch('https://api.v2.e-testpaper.com/api/v1/payment/bkash-thirdparty', {
+  const {data, error} = await useFetch('https://prod.etestpaper.net/api/v1/payment/bkash-thirdparty', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
