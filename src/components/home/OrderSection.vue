@@ -75,10 +75,10 @@
                 href="https://www.etestpaper.net/about/refund" target="_blank" class="text-blue-500 underline">Refund
               Policy</a></label>
           </div>
-          <div class="hidden md:flex justify-center pt-0">
+          <div class="flex justify-center pt-0">
             <button @click="submit" :disabled="buttonDisabled"
                     :class="buttonDisabled ? 'bg-[#9fa4a8] cursor-not-allowed' : 'bg-[#0381e0] cursor-pointer'"
-                    class=" text-white text-[22px] font-[600] rounded-md px-12 py-2 mt-4">কনফার্ম অর্ডার
+                    class=" text-white text-[22px] font-[600] rounded-md px-12 w-full py-2 mt-4">কনফার্ম অর্ডার
             </button>
           </div>
         </div>
@@ -98,12 +98,6 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="flex md:hidden justify-center pt-0">
-      <button @click="submit" :disabled="buttonDisabled"
-              :class="buttonDisabled ? 'bg-[#9fa4a8] cursor-not-allowed' : 'bg-[#0381e0] cursor-pointer'"
-              class=" text-white text-[22px] font-[600] rounded-md px-12 py-2 mt-4">কনফার্ম অর্ডার
-      </button>
     </div>
   </div>
 </template>
