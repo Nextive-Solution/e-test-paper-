@@ -32,8 +32,7 @@
       </div>
       <div class="pb-8">
         <p class="text-[18px] font-[500] text-[#878d97] text-center pt-4">যে কোন প্রয়োজনে যোগাযোগ করুন</p>
-        <p class="text-[18px] font-[500] text-[#878d97] text-center pt-4"><a href="tel:+8801646664222"
-                                                                             class="text-[#0381e0]">+8801646664222</a>
+        <p class="text-[18px] font-[500] text-[#878d97] text-center pt-4"><a href="tel:+8801646664222"   class="text-[#0381e0]">+8801646664222</a>
         </p>
       </div>
     </div>
@@ -50,8 +49,7 @@ onMounted(() => {
       event_url: 'LandPage',
       group: order.group,
       product_name: product.name,
-      product_id: product.id,
-      product_price: order.discount_price,
+      product_price: product.discount_price,
       currency: 'BDT',
       level: order.level,
       phone: order.phone,
