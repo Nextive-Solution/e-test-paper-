@@ -175,10 +175,8 @@ const submit = async () => {
     coupon: coupon.value,
     source: 'etestpaper-fb-campaign'
   }
-
+  localStorage.setItem('product', JSON.stringify(selectedProduct.value));
   localStorage.setItem('order', JSON.stringify(payload));
-  window.location.href = '\success';
-
   const {data, error} = await useFetch('https://prod.etestpaper.net/api/v1/payment/bkash-thirdparty', {
     method: 'POST',
     headers: {

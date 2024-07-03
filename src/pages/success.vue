@@ -43,11 +43,16 @@
 <script setup>
 onMounted(() => {
   const order = JSON.parse(localStorage.getItem('order'))
+  const product = JSON.parse(localStorage.getItem('product'))
   if (typeof fbq === 'function') {
     fbq('track', 'Purchase', {
       category_name: "HSC E-testPaper",
       event_url: 'LandPage',
       group: order.group,
+      product_name: product.name,
+      product_id: product.id,
+      product_price: order.discount_price,
+      currency: 'BDT',
       level: order.level,
       phone: order.phone,
       name: order.name,
