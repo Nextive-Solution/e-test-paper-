@@ -10,7 +10,8 @@
       <p class="text-[16px] md:text-[26px]  text-[#000000] font-[600]">তোমার <span class="text-[#d30163]">ব্যাচ</span>,
         <span class="text-[#7b37f4]">নাম</span>, <span class="text-[#d30163]">ফোন নাম্বার</span> এবং <span
             class="text-[#7b37f4]">গ্রুপ</span> সিলেক্ট করে</p>
-      <p class="text-[16px] md:text-[26px]  text-[#000000] font-[600]"><span class="text-[#ad00df]">"কনফার্ম অর্ডার"</span> বাটনে ক্লিক করো</p>
+      <p class="text-[16px] md:text-[26px]  text-[#000000] font-[600]"><span
+          class="text-[#ad00df]">"কনফার্ম অর্ডার"</span> বাটনে ক্লিক করো</p>
     </div>
     <div class="pt-2 md:pt-8">
       <div class="md:flex justify-center gap-x-4">
@@ -175,6 +176,9 @@ const submit = async () => {
     source: 'etestpaper-fb-campaign'
   }
 
+  localStorage.setItem('order', JSON.stringify(payload));
+  window.location.href = '\success';
+
   const {data, error} = await useFetch('https://prod.etestpaper.net/api/v1/payment/bkash-thirdparty', {
     method: 'POST',
     headers: {
@@ -182,16 +186,8 @@ const submit = async () => {
     },
     body: JSON.stringify(payload)
   })
-  console.log(data)
   if (data.value && data.value.GatewayPageURL) {
-    if (typeof fbq === 'function') {
-      fbq('track', 'Purchase', {
-        category_name: "HSC E-testPaper",
-        event_url: 'LandPage',
-        phone: phone.value,
-        name: name.value,
-      });
-    }
+    localStorage.setItem('order', JSON.stringify(payload));
     window.location.href = data?.value?.GatewayPageURL;
   }
   isLoading.value = false;
