@@ -90,7 +90,7 @@
                 {{ selectedProduct.headline }}</p>
             </div>
             <div v-for="(feature ,i) in selectedProduct.features" :key="i" class="flex gap-x-2">
-              <p class="text-[16px] md:text-[20px] xl:text-[22px] font-[600] font-['Hind_Siliguri'] py-2">▶️ {{ feature.label }}</p>
+              <p class="text-[16px] md:text-[18px] xl:text-[20px] font-[600] font-['Hind_Siliguri'] py-2">▶️ {{ feature.label }}</p>
             </div>
             <div>
               <p class="md:text-[22px] font-[600] font-['Hind_Siliguri'] text-red-600 py-2">
