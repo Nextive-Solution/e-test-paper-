@@ -10,11 +10,12 @@
       <p class="text-[16px] md:text-[26px]  text-[#000000] font-[600]">তোমার <span class="text-[#d30163]">ব্যাচ</span>,
         <span class="text-[#7b37f4]">নাম</span>, <span class="text-[#d30163]">ফোন নাম্বার</span> এবং <span
             class="text-[#7b37f4]">গ্রুপ</span> সিলেক্ট করে</p>
-      <p class="text-[16px] md:text-[26px]  text-[#000000] font-[600]"><span class="text-[#ad00df]">"কনফার্ম অর্ডার"</span> বাটনে ক্লিক করো</p>
+      <p class="text-[16px] md:text-[26px]  text-[#000000] font-[600]"><span
+          class="text-[#ad00df]">"কনফার্ম অর্ডার"</span> বাটনে ক্লিক করো</p>
     </div>
     <div class="pt-2 md:pt-8">
       <div class="md:flex justify-center gap-x-4">
-        <div v-for="(item, i) in productInfo" :key="i" class="w-full py-2 md:py-0 md:w-[35%]">
+        <div v-for="(item, i) in productInfo" :key="i" class="w-full py-2 md:py-0 md:w-[40%]">
           <div @click="selectedProduct = item"
                :class="selectedProduct === item ? 'text-[#0381e0] ring-2 ring-[#0381e0]' : 'ring-2 ring-[#9fa4a8]'"
                class="cursor-pointer rounded-md  bg-white p-2  flex items-center gap-x-4 w-full">
@@ -37,7 +38,7 @@
       </div>
     </div>
     <div class="md:flex justify-center md:pt-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 w-full md:w-[70%] gap-x-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 w-full md:w-[80%] gap-x-12">
         <div class="order-2 md:order-1">
           <div class="text-center">
             <p class="text-[24px] md:text-[24px] text-center md:text-center font-[600] border-b-2 border-black">Order
@@ -168,13 +169,14 @@ const submit = async () => {
   isLoading.value = true;
   const payload = {
     name: name.value,
-    phone: `0${phone.value}`,
+    phone: phone.value,
     group: group.value,
     level: selectedProduct.value.value,
     coupon: coupon.value,
     source: 'etestpaper-fb-campaign'
   }
-
+  localStorage.setItem('product', JSON.stringify(selectedProduct.value));
+  localStorage.setItem('order', JSON.stringify(payload));
   const {data, error} = await useFetch('https://prod.etestpaper.net/api/v1/payment/bkash-thirdparty', {
     method: 'POST',
     headers: {
@@ -182,14 +184,8 @@ const submit = async () => {
     },
     body: JSON.stringify(payload)
   })
-  console.log(data)
   if (data.value && data.value.GatewayPageURL) {
-    if (typeof fbq === 'function') {
-      fbq('track', 'Purchase', {
-        category_name: "Uncategorized",
-        event_url: 'hostname',
-      });
-    }
+    localStorage.setItem('order', JSON.stringify(payload));
     window.location.href = data?.value?.GatewayPageURL;
   }
   isLoading.value = false;
@@ -204,8 +200,10 @@ watch(typing, () => {
   if (typeof fbq === 'function') {
     console.log('track')
     fbq('track', 'AddToCart', {
-      category_name: "Uncategorized",
-      event_url: 'hostname',
+      category_name: "HSC E-testPaper",
+      phone: phone.value,
+      name: name.value,
+      event_url: 'LandPage',
     });
   }
 }, {deep: true})
