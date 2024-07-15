@@ -15,7 +15,7 @@
     </div>
     <div class="pt-2 md:pt-8">
       <div class="md:flex justify-center gap-x-4">
-        <div v-for="(item, i) in productInfo" :key="i" class="w-full py-2 md:py-0 md:w-[35%]">
+        <div v-for="(item, i) in productInfo" :key="i" class="w-full py-2 md:py-0 md:w-[40%]">
           <div @click="selectedProduct = item"
                :class="selectedProduct === item ? 'text-[#0381e0] ring-2 ring-[#0381e0]' : 'ring-2 ring-[#9fa4a8]'"
                class="cursor-pointer rounded-md  bg-white p-2  flex items-center gap-x-4 w-full">
@@ -38,7 +38,7 @@
       </div>
     </div>
     <div class="md:flex justify-center md:pt-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 w-full md:w-[70%] gap-x-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 w-full md:w-[80%] gap-x-12">
         <div class="order-2 md:order-1">
           <div class="text-center">
             <p class="text-[24px] md:text-[24px] text-center md:text-center font-[600] border-b-2 border-black">Order
