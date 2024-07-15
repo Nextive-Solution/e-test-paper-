@@ -15,7 +15,7 @@
     </div>
     <div class="pt-2 md:pt-8">
       <div class="md:flex justify-center gap-x-4">
-        <div v-for="(item, i) in productInfo" :key="i" class="w-full py-2 md:py-0 md:w-[40%]">
+        <div v-for="(item, i) in productInfo" :key="i" class="w-full py-2 md:py-0 xl:w-[40%]">
           <div @click="selectedProduct = item"
                :class="selectedProduct === item ? 'text-[#0381e0] ring-2 ring-[#0381e0]' : 'ring-2 ring-[#9fa4a8]'"
                class="cursor-pointer rounded-md  bg-white p-2  flex items-center gap-x-4 w-full">
@@ -38,7 +38,7 @@
       </div>
     </div>
     <div class="md:flex justify-center md:pt-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 w-full md:w-[80%] gap-x-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 w-full xl:w-[80%] gap-x-12">
         <div class="order-2 md:order-1">
           <div class="text-center">
             <p class="text-[24px] md:text-[24px] text-center md:text-center font-[600] border-b-2 border-black">Order
@@ -90,7 +90,7 @@
                 {{ selectedProduct.headline }}</p>
             </div>
             <div v-for="(feature ,i) in selectedProduct.features" :key="i" class="flex gap-x-2">
-              <p class="text-[16px] md:text-[22px] font-[600] font-['Hind_Siliguri'] py-2">▶️ {{ feature.label }}</p>
+              <p class="text-[16px] md:text-[20px] xl:text-[22px] font-[600] font-['Hind_Siliguri'] py-2">▶️ {{ feature.label }}</p>
             </div>
             <div>
               <p class="md:text-[22px] font-[600] font-['Hind_Siliguri'] text-red-600 py-2">
@@ -115,7 +115,7 @@ const productInfo = ref([
       {label: 'সকল বিষয় এর অধ্যায় ভিত্তিক হাজারো CQ & MCQ'},
       {label: '৫০ ডে চ্যালেঞ্জ প্রোগ্রাম ও ফাইনাল মডেল টেস্ট'},
       {label: 'সকল CQ & MCQ আনলিমিটেড প্র্যাকটিস'},
-      {label: 'গুরুত্বপূর্ন প্রশ্ন মার্ক করে রাখা এবং ভুল প্রশ্নে আলাদা প্র্যাকটিস'},
+      {label: 'গুরুত্বপূর্ণ প্রশ্ন মার্ক করে রাখা এবং ভুল প্রশ্নে আলাদা প্র্যাকটিস'},
       {label: 'এছাড়া তোমার পূর্নাঙ্গ প্রস্তুতি সহায়ক যাবতীয় সমাধান একসাথে'}
     ],
     // price_text:'প্রতি বিষয়ের জন্য আলাদা আলাদা টাকা দিতে হয় না, ৯৯৯ টাকায় সকল সাবজেক্ট একসাথে পাবেন।',
@@ -129,7 +129,7 @@ const productInfo = ref([
       {label: 'সকল বিষয় এর অধ্যায় ভিত্তিক হাজারো CQ & MCQ'},
       {label: '৫০ ডে চ্যালেঞ্জ প্রোগ্রাম ও ফাইনাল মডেল টেস্ট'},
       {label: 'সকল CQ & MCQ আনলিমিটেড প্র্যাকটিস'},
-      {label: 'গুরুত্বপূর্ন প্রশ্ন মার্ক করে রাখা এবং ভুল প্রশ্নে আলাদা প্র্যাকটিস'},
+      {label: 'গুরুত্বপূর্ণ প্রশ্ন মার্ক করে রাখা এবং ভুল প্রশ্নে আলাদা প্র্যাকটিস'},
       {label: 'এছাড়া তোমার পূর্নাঙ্গ প্রস্তুতি সহায়ক যাবতীয় সমাধান একসাথে'}
     ],
     // price_text:'প্রতি বিষয়ের জন্য আলাদা আলাদা টাকা দিতে হয় না, ১৪৯৯ টাকায় সকল সাবজেক্ট একসাথে পাবেন।',
