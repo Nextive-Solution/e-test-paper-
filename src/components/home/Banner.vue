@@ -1,7 +1,7 @@
 <template>
   <div>
     <div @click="findActiveLayer" class="cursor-pointer">
-      <img class="h-[90px] w-full md:h-auto" loading="lazy" src="/banner/banner.png" alt="image"/>
+      <img class="h-[90px] w-full md:h-auto" loading="lazy" src="/banner/topBanner.png" alt="image"/>
     </div>
     <div class="container mx-auto flex flex-col items-center py-4 md:py-8 px-2 md:px-0">
       <div>
