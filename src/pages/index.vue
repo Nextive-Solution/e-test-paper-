@@ -26,7 +26,7 @@ import Service from "~/components/home/Service.vue";
     <review/>
   </div>
   <div class="w-full">
-    <img loading="lazy" class="w-full" src="/banner/Liliputad.jpg" alt="cover"/>
+    <img loading="lazy" class="w-full" src="/banner/priceBanner.jpg" alt="cover"/>
   </div>
 <!--  <div>-->
 <!--    <teachers-opinion/>-->
