@@ -19,7 +19,7 @@
         </iframe>
       </div>
       <div class="pt-4 md:pt-4 flex justify-center md:justify-start">
-        <cta-button button-text="৫০ হাজার শিক্ষার্থীর সাথে যুক্ত হও তুমিও" button-design="text-[16px] bg-[#48017e] hover:bg-[#ffffff] hover:ring-2 hover:ring-[#48017e] text-[#ffffff] hover:text-[#000000]" />
+        <cta-button button-text="১ লাখ হাজার শিক্ষার্থীর সাথে যুক্ত হও তুমিও" button-design="text-[16px] bg-[#48017e] hover:bg-[#ffffff] hover:ring-2 hover:ring-[#48017e] text-[#ffffff] hover:text-[#000000]" />
       </div>
     </div>
   </div>

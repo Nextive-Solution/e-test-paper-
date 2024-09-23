@@ -25,8 +25,8 @@ import Service from "~/components/home/Service.vue";
   <div>
     <review/>
   </div>
-  <div class="w-full">
-    <img loading="lazy" class="w-full" src="/banner/priceBanner.jpg" alt="cover"/>
+  <div class="w-full flex justify-center md:mb-12">
+    <img loading="lazy" class=" md:w-[1200px] md:h-[640px]" src="/banner/priceBanner.jpg" alt="cover"/>
   </div>
 <!--  <div>-->
 <!--    <teachers-opinion/>-->
