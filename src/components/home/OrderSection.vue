@@ -108,7 +108,7 @@
 
 const productInfo = ref([
   {
-    name: 'HSC BATCH 2025', value: 'HSC 2025', discount_price: 649, price: 1000,
+    name: 'HSC BATCH 2025', value: 'HSC 2025', discount_price: 549, price: 1000,
     features: [
       {label: 'সকল বিষয়ের ৭ বছরের  বোর্ড প্রশ্ন ও সমাধান'},
       {label: 'সকল বিষয়ের ৩ বছরের কলেজ প্রশ্ন ও সমাধান'},
@@ -122,7 +122,7 @@ const productInfo = ref([
     headline: 'HSC 25 ব্যাচের ই-টেস্টপেপার সাবস্ক্রিপশনে যা যা পাচ্ছোঃ'
   },
   {
-    name: 'HSC BATCH 2026', value: 'HSC 2026', discount_price: 849, price: 1250,
+    name: 'HSC BATCH 2026', value: 'HSC 2026', discount_price: 749, price: 1250,
     features: [
       {label: 'সকল বিষয়ের ৮ বছরের  বোর্ড প্রশ্ন ও সমাধান'},
       {label: 'সকল বিষয়ের ৪ বছরের কলেজ প্রশ্ন ও সমাধান'},
