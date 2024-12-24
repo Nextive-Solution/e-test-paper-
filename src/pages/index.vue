@@ -26,7 +26,7 @@ import Service from "~/components/home/Service.vue";
     <review/>
   </div>
  <div class="w-full flex justify-center md:mb-12 cursor-pointer" @click="findActiveLayer">
-   <img loading="lazy" class=" md:w-[1200px] md:h-[640px] rounded-xl" src="/banner/priceBanner2.jpg" alt="cover"/>
+   <img loading="lazy" class=" md:w-[1200px] md:h-[640px] rounded-lg" src="/banner/priceBanner2.jpg" alt="cover"/>
  </div>
 <!--  <div>-->
 <!--    <teachers-opinion/>-->
