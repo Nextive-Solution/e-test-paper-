@@ -1,46 +1,54 @@
 <template>
-  <section class="flex justify-center items-center">
-    <div class="pb-4">
-      <div class="flex gap-4 md:gap-8">
-        <Clock label="Days" :value="days" />
-        <Clock label="Hours" :value="hours" />
-        <Clock label="Minutes" :value="minutes" />
-        <Clock label="Seconds" :value="seconds" />
+  <section class="countdown-wrapper">
+    <div class="countdown-header">
+      <div class="pulse-dot"></div>
+      <span class="countdown-label font-['Hind_Siliguri']">অফার শেষ হচ্ছে</span>
+      <div class="pulse-dot"></div>
+    </div>
+    <div class="countdown-grid">
+      <div v-for="(item, index) in timeUnits" :key="item.label" class="countdown-item">
+        <Clock :label="item.label" :value="item.value" />
+        <span v-if="index < timeUnits.length - 1" class="separator">:</span>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 import Clock from './Clock.vue';
 
-const days = ref('00');
+const banglaDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+const toBangla = (str) => String(str).replace(/[0-9]/g, (d) => banglaDigits[d]);
+
 const hours = ref('00');
 const minutes = ref('00');
 const seconds = ref('00');
 let interval;
 
+const timeUnits = computed(() => [
+  { label: 'ঘণ্টা', value: toBangla(hours.value) },
+  { label: 'মিনিট', value: toBangla(minutes.value) },
+  { label: 'সেকেন্ড', value: toBangla(seconds.value) },
+]);
+
 const startTimer = () => {
-  // Set the countdown date to 1 day (24 hours) from now
   const countDownDate = new Date().getTime() + 24 * 60 * 60 * 1000;
 
   interval = setInterval(() => {
     const now = new Date().getTime();
     const distance = countDownDate - now;
 
-    const day = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hour = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minute = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const second = Math.floor((distance % (1000 * 60)) / 1000);
-
     if (distance < 0) {
       clearInterval(interval);
     } else {
-      days.value = day < 10 ? '0' + day : day;
-      hours.value = hour < 10 ? '0' + hour : hour;
-      minutes.value = minute < 10 ? '0' + minute : minute;
-      seconds.value = second < 10 ? '0' + second : second;
+      const totalHours = Math.floor(distance / (1000 * 60 * 60));
+      const minute = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const second = Math.floor((distance % (1000 * 60)) / 1000);
+
+      hours.value = totalHours < 10 ? '0' + totalHours : String(totalHours);
+      minutes.value = minute < 10 ? '0' + minute : String(minute);
+      seconds.value = second < 10 ? '0' + second : String(second);
     }
   }, 1000);
 };
@@ -55,5 +63,107 @@ onBeforeUnmount(() => {
 </script>
 
 <style lang="scss" scoped>
+.countdown-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(13, 86, 139, 0.05), rgba(47, 140, 226, 0.08));
+  border: 1px solid rgba(13, 86, 139, 0.15);
 
+  @media (min-width: 768px) {
+    gap: 12px;
+    padding: 20px 140px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 20px 220px;
+  }
+}
+
+.countdown-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.countdown-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: #dc2626;
+  letter-spacing: 0.5px;
+
+  @media (min-width: 768px) {
+    font-size: 18px;
+  }
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #dc2626;
+  border-radius: 50%;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(0.7);
+  }
+}
+
+.countdown-grid {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  @media (min-width: 768px) {
+    gap: 12px;
+  }
+}
+
+.countdown-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  @media (min-width: 768px) {
+    gap: 12px;
+  }
+}
+
+.separator {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0d568b;
+  line-height: 1;
+  opacity: 0.6;
+  animation: blink 1s step-end infinite;
+
+  @media (min-width: 768px) {
+    font-size: 40px;
+  }
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
 </style>

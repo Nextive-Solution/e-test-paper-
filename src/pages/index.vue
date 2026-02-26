@@ -4,6 +4,7 @@ import Feature from "~/components/home/Feature.vue";
 import Review from "~/components/home/Review.vue";
 import OrderSection from "~/components/home/OrderSection.vue";
 import Service from "~/components/home/Service.vue";
+import SpecialFeature from "~/components/home/SpecialFeature.vue";
 </script>
 
 <template>
@@ -16,14 +17,14 @@ import Service from "~/components/home/Service.vue";
   <!-- <div>
       <service/>
     </div> -->
-  <!--    <div class="bg-[#e7f3fc]">-->
-  <!--      <cover/>-->
-  <!--    </div>-->
-  <!--   <div>-->
-  <!--     <special-feature/>-->
-  <!--   </div>-->
+  <!-- <div class="bg-[#e7f3fc]">
+       <cover/>
+     </div> -->
   <div>
     <review />
+  </div>
+  <div>
+    <special-feature />
   </div>
   <!-- <div class="w-full flex justify-center md:mb-12 cursor-pointer" @click="findActiveLayer">
    <img loading="lazy" class=" md:w-[1200px] md:h-[640px] rounded-lg" src="/banner/priceBanner.jpg" alt="cover"/>
