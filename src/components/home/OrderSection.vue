@@ -4,9 +4,11 @@
 
       <!-- Section Header -->
       <div class="text-center mb-6 md:mb-10 animate-fade-in-up">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/70 backdrop-blur border border-[#0d568b]/10 mb-4">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/70 backdrop-blur border border-[#0d568b]/10 mb-4">
           <div class="w-2 h-2 rounded-full bg-[#2f8ce2] animate-pulse-dot"></div>
-          <p class="text-[12px] md:text-[14px] font-[700] text-[#0d568b] uppercase tracking-widest font-['Hind_Siliguri']">
+          <p
+            class="text-[12px] md:text-[14px] font-[700] text-[#0d568b] uppercase tracking-widest font-['Hind_Siliguri']">
             Subscribe Now at Special Discount
           </p>
         </div>
@@ -61,9 +63,11 @@
                   </Transition>
                 </div>
                 <div class="flex items-center gap-x-2 mt-1">
-                  <span class="text-[13px] md:text-[17px] text-red-400 line-through italic font-[500]">{{ item.price }}৳</span>
+                  <span class="text-[13px] md:text-[17px] text-red-400 line-through italic font-[500]">{{ item.price
+                  }}৳</span>
                   <span class="text-[15px] md:text-[20px] text-[#0d568b] font-[800]">৳{{ item.discount_price }}</span>
-                  <span class="text-[10px] md:text-[12px] bg-green-100 text-green-700 font-[700] px-2 py-0.5 rounded-full">
+                  <span
+                    class="text-[10px] md:text-[12px] bg-green-100 text-green-700 font-[700] px-2 py-0.5 rounded-full">
                     {{ Math.round((1 - item.discount_price / item.price) * 100) }}% OFF
                   </span>
                 </div>
@@ -87,7 +91,8 @@
           <!-- Order Form -->
           <div class="order-2 md:order-1">
             <div class="form-card">
-              <p class="text-[20px] md:text-[24px] text-center font-[700] text-slate-800 pb-5 border-b border-slate-100 relative z-10 font-['Hind_Siliguri']">
+              <p
+                class="text-[20px] md:text-[24px] text-center font-[700] text-slate-800 pb-5 border-b border-slate-100 relative z-10 font-['Hind_Siliguri']">
                 Order Details
               </p>
 
@@ -129,9 +134,12 @@
                       class="mt-1 w-4 h-4 rounded accent-[#0d568b] transition-transform group-hover:scale-110">
                     <span class="text-[12px] md:text-[14px] text-slate-500 leading-snug">
                       I Agree to the
-                      <a href="https://www.etestpaper.net/about/terms" target="_blank" class="form-link">Terms & Conditions</a>,
-                      <a href="https://www.etestpaper.net/about/privacy" target="_blank" class="form-link">Privacy Policy</a> &
-                      <a href="https://www.etestpaper.net/about/refund" target="_blank" class="form-link">Refund Policy</a>
+                      <a href="https://www.etestpaper.net/about/terms" target="_blank" class="form-link">Terms &
+                        Conditions</a>,
+                      <a href="https://www.etestpaper.net/about/privacy" target="_blank" class="form-link">Privacy
+                        Policy</a> &
+                      <a href="https://www.etestpaper.net/about/refund" target="_blank" class="form-link">Refund
+                        Policy</a>
                     </span>
                   </label>
                 </div>
@@ -161,10 +169,10 @@
           <div class="order-1 md:order-2">
             <div v-if="selectedProduct">
               <div class="space-y-3">
-                <div v-for="(feature, i) in selectedProduct.features" :key="i"
-                  class="feature-item"
+                <div v-for="(feature, i) in selectedProduct.features" :key="i" class="feature-item"
                   :style="{ animationDelay: `${i * 60}ms` }">
-                  <div class="shrink-0 w-7 h-7 rounded-lg bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center mt-0.5 ring-1 ring-green-200/50">
+                  <div
+                    class="shrink-0 w-7 h-7 rounded-lg bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center mt-0.5 ring-1 ring-green-200/50">
                     <span class="text-green-600 text-[12px] font-bold">&#10003;</span>
                   </div>
                   <p class="text-[14px] md:text-[17px] font-[600] font-['Hind_Siliguri'] text-slate-700 leading-snug">
@@ -189,7 +197,7 @@
 
 const productInfo = ref([
   {
-    name: 'HSC BATCH 2026', value: 'HSC 2026', discount_price: 740, price: 1000,
+    name: 'HSC BATCH 2026', value: 'HSC 2026', discount_price: 740, price: 2500,
     features: [
       { label: 'সকল বিষয়ের ৮ বছরের  বোর্ড প্রশ্ন ও সমাধান' },
       { label: 'সকল বিষয়ের ৪ বছরের কলেজ প্রশ্ন ও সমাধান' },
@@ -202,7 +210,7 @@ const productInfo = ref([
     headline: 'HSC 26 ব্যাচের ই-টেস্টপেপার সাবস্ক্রিপশনে যা যা পাচ্ছোঃ'
   },
   {
-    name: 'HSC BATCH 2027', value: 'HSC 2027', discount_price: 990, price: 1250,
+    name: 'HSC BATCH 2027', value: 'HSC 2027', discount_price: 990, price: 3500,
     features: [
       { label: 'সকল বিষয়ের ৯ বছরের  বোর্ড প্রশ্ন ও সমাধান' },
       { label: 'সকল বিষয়ের ৫ বছরের কলেজ প্রশ্ন ও সমাধান' },
@@ -520,6 +528,7 @@ watch(typing, () => {
     opacity: 0;
     transform: translateY(24px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -531,6 +540,7 @@ watch(typing, () => {
     opacity: 0;
     transform: translateX(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -542,6 +552,7 @@ watch(typing, () => {
     width: 0;
     opacity: 0;
   }
+
   to {
     width: 5rem;
     opacity: 1;
@@ -549,16 +560,27 @@ watch(typing, () => {
 }
 
 @keyframes submit-sweep {
-  0% { left: -100%; }
-  50% { left: 150%; }
-  100% { left: 150%; }
+  0% {
+    left: -100%;
+  }
+
+  50% {
+    left: 150%;
+  }
+
+  100% {
+    left: 150%;
+  }
 }
 
 @keyframes pulse-dot {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.4;
     transform: scale(0.7);
