@@ -1,6 +1,6 @@
 <template>
   <div class="order-section">
-    <div class="container mx-auto py-8 md:py-16 px-4 md:px-6 relative z-10">
+    <div class="container mx-auto py-8 pb-36 md:py-16 md:pb-16 px-4 md:px-6 relative z-10">
 
       <!-- Section Header -->
       <div class="text-center mb-6 md:mb-10 animate-fade-in-up">
@@ -89,13 +89,12 @@
         <div class="grid grid-cols-1 md:grid-cols-2 w-full max-w-4xl gap-8 md:gap-12">
 
           <!-- Order Form -->
-          <div class="order-2 md:order-1">
+          <div ref="orderFormRef" class="order-2 md:order-1">
             <div class="form-card">
               <p
                 class="text-[20px] md:text-[24px] text-center font-[700] text-slate-800 pb-5 border-b border-slate-100 relative z-10 font-['Hind_Siliguri']">
                 Order Details
               </p>
-
               <div class="pt-6 space-y-5 relative z-10">
                 <div>
                   <label class="form-label font-['Hind_Siliguri']">
@@ -109,6 +108,28 @@
                     Phone Number <span class="text-[#e11d48]">*</span>
                   </label>
                   <input v-model="phone" type="text" class="form-input" placeholder="01XXXXXXXXX" />
+                </div>
+
+                <div class="relative z-10">
+                  <label class="form-label font-['Hind_Siliguri']">
+                    Batch <span class="text-[#e11d48]">*</span>
+                  </label>
+                  <div class="batch-toggle">
+                    <div class="batch-toggle-bg" :style="{ transform: `translateX(${selectedProductIndex * 100}%)` }">
+                    </div>
+                    <button v-for="(item, i) in productInfo" :key="i" @click="selectedProduct = item"
+                      :class="selectedProduct === item ? 'batch-toggle-active' : 'batch-toggle-idle'"
+                      class="batch-toggle-btn">
+                      <span class="text-[15px] md:text-[18px] font-[700] leading-none">{{ item.name }}</span>
+                      <span class="flex items-center gap-x-1.5 mt-1">
+                        <span :class="selectedProduct === item ? 'text-red-300' : 'text-red-400'"
+                          class="text-[14px] md:text-[14px] line-through font-[500] leading-none">{{ item.price
+                          }}৳</span>
+                        <span :class="selectedProduct === item ? 'text-white' : 'text-[#0d568b]'"
+                          class="text-[16px] md:text-[19px] font-[800] leading-none">৳{{ item.discount_price }}</span>
+                      </span>
+                    </button>
+                  </div>
                 </div>
 
                 <div>
@@ -190,6 +211,51 @@
         </div>
       </div>
     </div>
+
+    <!-- Sticky Bottom Bar (Mobile) -->
+    <Transition name="sticky-slide">
+      <div v-if="selectedProduct && !orderFormVisible" class="sticky-bar md:hidden">
+        <!-- Top accent line -->
+        <div class="sticky-bar-accent"></div>
+
+        <div class="px-4 pt-1 pb-1 space-y-2">
+          <!-- Batch Toggle -->
+          <div class="sticky-section">
+            <div class="sticky-toggle">
+              <div class="sticky-toggle-slider" :style="{ transform: `translateX(${selectedProductIndex * 100}%)` }">
+              </div>
+              <button v-for="(item, i) in productInfo" :key="'sb' + i" @click="selectedProduct = item"
+                :class="selectedProduct === item ? 'text-white' : 'text-slate-400'" class="sticky-toggle-btn">
+                <span class="text-[14px] font-[700] leading-none">{{ item.value }}</span>
+                <span class="flex items-center gap-x-1.5 mt-1">
+                  <span :class="selectedProduct === item ? 'text-red-300' : 'text-red-400/60'"
+                    class="text-[14px] line-through font-[500] leading-none">{{ item.price }}৳</span>
+                  <span class="text-[16px] font-[800] leading-none">৳{{ item.discount_price }}</span>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Group Toggle + Order Button -->
+          <div class="flex items-center gap-x-2.5">
+            <div class="sticky-group-toggle flex-1">
+              <button v-for="(gru, i) in groups" :key="'sg' + i" @click="group = gru.value" :class="group === gru.value
+                ? 'sticky-group-active'
+                : 'sticky-group-idle'" class="sticky-group-btn">
+                {{ gru.name }}
+              </button>
+            </div>
+            <button @click="scrollToOrderForm" class="sticky-order-btn">
+              <span class="sticky-order-shine"></span>
+              <span class="sticky-order-content font-['Hind_Siliguri']">
+                <span class="sticky-order-pulse"></span>
+                অর্ডার করুন
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </Transition>
   </div>
 </template>
 
@@ -228,6 +294,7 @@ const groups = [{ name: 'Science', value: 'Science' }, { name: 'Commerce', value
   value: 'Arts'
 }];
 const selectedProduct = ref(productInfo.value[0]);
+const selectedProductIndex = computed(() => productInfo.value.indexOf(selectedProduct.value));
 const quantity = ref(1);
 
 const name = ref('');
@@ -237,6 +304,24 @@ const coupon = ref(null)
 const checkText = ref(true)
 const isLoading = ref(false);
 const typing = ref(false);
+const orderFormRef = ref(null);
+const orderFormVisible = ref(false);
+
+const scrollToOrderForm = () => {
+  orderFormRef.value?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+};
+
+onMounted(() => {
+  if (!orderFormRef.value) return;
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      orderFormVisible.value = entry.isIntersecting;
+    },
+    { threshold: 0.2 }
+  );
+  observer.observe(orderFormRef.value);
+  onUnmounted(() => observer.disconnect());
+});
 const subtotal = computed(() => {
   return selectedProduct.value?.price * quantity.value;
 });
@@ -432,6 +517,54 @@ watch(typing, () => {
   }
 }
 
+/* Batch toggle */
+.batch-toggle {
+  display: flex;
+  position: relative;
+  background: #f1f5f9;
+  border-radius: 14px;
+  padding: 4px;
+  gap: 4px;
+  border: 2px solid #e2e8f0;
+}
+
+.batch-toggle-bg {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  height: calc(100% - 8px);
+  background: linear-gradient(135deg, #0d568b, #2f8ce2);
+  border-radius: 11px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(13, 86, 139, 0.3);
+}
+
+.batch-toggle-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 8px;
+  border-radius: 11px;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.batch-toggle-active {
+  color: #ffffff;
+}
+
+.batch-toggle-idle {
+  color: #64748b;
+
+  &:hover {
+    color: #0d568b;
+  }
+}
+
 /* Submit button */
 .submit-btn {
   background: linear-gradient(135deg, #0d568b, #2f8ce2);
@@ -497,6 +630,186 @@ watch(typing, () => {
 .check-leave-to {
   opacity: 0;
   transform: scale(0);
+}
+
+/* Sticky bottom bar */
+.sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(15, 23, 42, 0.97);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.sticky-bar-accent {
+  height: 3px;
+  background: linear-gradient(90deg, #0d568b, #2f8ce2, #0d568b);
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Sticky batch toggle */
+.sticky-toggle {
+  display: flex;
+  position: relative;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 3px;
+  gap: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sticky-toggle-slider {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: calc(50% - 3px);
+  height: calc(100% - 6px);
+  background: linear-gradient(135deg, #0d568b, #2f8ce2);
+  border-radius: 8px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(13, 86, 139, 0.4);
+}
+
+.sticky-toggle-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 7px 6px;
+  border-radius: 8px;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* Sticky group toggle */
+.sticky-group-toggle {
+  display: flex;
+  gap: 6px;
+}
+
+.sticky-group-btn {
+  flex: 1;
+  padding: 8px 4px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: 1.5px solid transparent;
+}
+
+.sticky-group-active {
+  background: linear-gradient(135deg, rgba(13, 86, 139, 0.2), rgba(47, 140, 226, 0.2));
+  border-color: #2f8ce2;
+  color: #60b5ff;
+}
+
+.sticky-group-idle {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.4);
+
+  &:hover {
+    border-color: rgba(47, 140, 226, 0.3);
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+/* Sticky order button */
+.sticky-order-btn {
+  position: relative;
+  padding: 10px 22px;
+  background: linear-gradient(135deg, #e11d48, #f43f5e);
+  color: #ffffff;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow:
+    0 4px 16px rgba(225, 29, 72, 0.4),
+    0 0 20px rgba(225, 29, 72, 0.2);
+  white-space: nowrap;
+  overflow: hidden;
+  animation: btnGlow 2s ease-in-out infinite;
+  flex-shrink: 0;
+
+  &:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 8px rgba(225, 29, 72, 0.4);
+  }
+}
+
+.sticky-order-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sticky-order-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffffff;
+  animation: pulse-dot 1.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.sticky-order-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  animation: submit-sweep 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes btnGlow {
+
+  0%,
+  100% {
+    box-shadow:
+      0 4px 16px rgba(225, 29, 72, 0.4),
+      0 0 20px rgba(225, 29, 72, 0.15);
+  }
+
+  50% {
+    box-shadow:
+      0 6px 24px rgba(225, 29, 72, 0.5),
+      0 0 32px rgba(225, 29, 72, 0.3);
+  }
+}
+
+/* Sticky bar transitions */
+.sticky-slide-enter-active,
+.sticky-slide-leave-active {
+  transition: transform 0.3s ease;
+}
+
+.sticky-slide-enter-from,
+.sticky-slide-leave-to {
+  transform: translateY(100%);
 }
 
 /* Hide number arrows */

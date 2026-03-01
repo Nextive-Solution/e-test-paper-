@@ -39,11 +39,13 @@
         <!-- Download & Social -->
         <div class="text-center md:text-right">
           <h3 class="footer-heading font-['Hind_Siliguri']">ডাউনলোড করো</h3>
-          <div class="flex justify-center md:justify-end mb-5">
+          <div class="flex justify-center md:justify-end gap-3 mb-5">
+            <a href="https://apps.apple.com/us/app/etestpaper/id6749287735" target="_blank" class="store-badge">
+              <img src="/icon/apple.webp" alt="Download on App Store" class="h-[42px] md:h-[48px] rounded-lg" />
+            </a>
             <a href="https://play.google.com/store/apps/details?id=com.nextive.eTestPaper" target="_blank"
-              class="download-btn">
-              <img loading="lazy" class="h-[60px] md:h-[70px]" src="/banner/DownloadETP.png"
-                alt="Download from Play Store" />
+              class="store-badge">
+              <img src="/icon/android.webp" alt="Get it on Google Play" class="h-[42px] md:h-[48px] rounded-lg" />
             </a>
           </div>
           <div class="flex justify-center md:justify-end gap-3">
@@ -170,12 +172,21 @@ const footerSocialInfo = [
   font-weight: 600;
 }
 
-.download-btn {
-  transition: transform 0.3s ease;
+.store-badge {
   display: inline-block;
+  transition: all 0.3s ease;
 
   &:hover {
     transform: translateY(-2px);
+    filter: brightness(1.1);
+
+    img {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  img {
+    transition: box-shadow 0.3s ease;
   }
 }
 
