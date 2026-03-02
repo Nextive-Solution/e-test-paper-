@@ -107,7 +107,8 @@
                   <label class="form-label font-['Hind_Siliguri']">
                     Phone Number <span class="text-[#e11d48]">*</span>
                   </label>
-                  <input v-model="phone" type="text" class="form-input" placeholder="01XXXXXXXXX" />
+                  <input v-model="phone" type="text" class="form-input" :class="{ '!border-red-400 !bg-red-50/50': phoneError && phone }" placeholder="01XXXXXXXXX" maxlength="11" />
+                  <p v-if="phoneError && phone" class="text-[12px] text-red-500 mt-1.5 font-[500]">{{ phoneError }}</p>
                 </div>
 
                 <div class="relative z-10">
@@ -330,8 +331,17 @@ const total = computed(() => {
   return subtotal.value;
 });
 
+const phoneError = computed(() => {
+  if (!phone.value) return '';
+  const p = phone.value.toString();
+  if (!/^01[3-9]/.test(p)) return 'Number must start with 013-019';
+  if (p.length < 11) return `${11 - p.length} more digit${11 - p.length > 1 ? 's' : ''} needed`;
+  if (!/^01[3-9]\d{8}$/.test(p)) return 'Enter a valid 11-digit phone number';
+  return '';
+});
+
 const buttonDisabled = computed(() => {
-  return !name.value || !phone.value || !group.value || !checkText.value;
+  return !name.value || !phone.value || !!phoneError.value || !group.value || !checkText.value;
 });
 const select = (product) => {
   selectedProduct.value = product;
