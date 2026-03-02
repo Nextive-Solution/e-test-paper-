@@ -4,13 +4,22 @@
       <img src="/icon/logo.svg" alt="logo"/>
     </div>
     <div class="container mx-auto px-2">
-      <div class="flex justify-center py-4">
-        <img loading="lazy" class="h-[60px] md:h-[90px]" src="/icon/success.png" alt="ssl"/>
+      <div class="flex justify-center py-6">
+        <div class="w-20 h-20 md:w-24 md:h-24 bg-red-100 rounded-full flex items-center justify-center">
+          <Icon class="text-red-500 text-[40px] md:text-[52px]" name="ph:x-circle-fill"/>
+        </div>
       </div>
       <div class="flex text-center flex-col items-center">
-        <p class="text-[24px] font-[600]">পেমেন্ট সফল!</p>
-        <p class="text-[18px] font-[500] text-[#878d97] pt-2">তোমার সাবস্ক্রিপশন টি সফলভাবে চালু হয়েছে।</p>
-        <p class="text-[18px] font-[500] text-black pt-2">পড়ালেখা শুরু করো আমাদের অ্যাপ অথবা ওয়েবসাইট থেকে</p>
+        <p class="text-[24px] font-[600] text-red-600">পেমেন্ট ব্যর্থ হয়েছে!</p>
+        <p class="text-[18px] font-[500] text-[#878d97] pt-2">দুঃখিত, তোমার পেমেন্ট সম্পন্ন হয়নি।</p>
+        <p class="text-[18px] font-[500] text-[#878d97] pt-1">অনুগ্রহ করে পুনরায় চেষ্টা করো।</p>
+      </div>
+      <div class="text-center pt-8">
+        <a href="/">
+          <button class="bg-gradient-to-r from-[#0d568b] to-[#2f8ce2] text-white text-[18px] font-[600] py-3 px-8 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+            আবার চেষ্টা করো
+          </button>
+        </a>
       </div>
       <div class="pt-8">
         <p class="text-[24px] font-[600] text-center pb-4">অ্যাপ ডাউনলোড করো</p>
@@ -25,7 +34,8 @@
       </div>
       <div class="pb-8">
         <p class="text-[18px] font-[500] text-[#878d97] text-center pt-4">যে কোন প্রয়োজনে যোগাযোগ করুন</p>
-        <p class="text-[18px] font-[500] text-[#878d97] text-center pt-4"><a href="tel:+8801646664222"   class="text-[#0381e0]">+8801646664222</a>
+        <p class="text-[18px] font-[500] text-[#878d97] text-center pt-4">
+          <a href="tel:+8801646664222" class="text-[#0381e0]">+8801646664222</a>
         </p>
       </div>
     </div>
@@ -33,25 +43,4 @@
 </template>
 
 <script setup>
-onMounted(() => {
-  const order = JSON.parse(localStorage.getItem('order'))
-  const product = JSON.parse(localStorage.getItem('product'))
-  if (typeof fbq === 'function') {
-    fbq('track', 'Purchase', {
-      category_name: "HSC E-testPaper",
-      event_url: 'LandPage',
-      group: order.group,
-      product_name: product.name,
-      product_price: product.discount_price,
-      currency: 'BDT',
-      level: order.level,
-      phone: order.phone,
-      name: order.name,
-    });
-  }
-})
 </script>
-
-<style lang="scss" scoped>
-
-</style>

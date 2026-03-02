@@ -1,381 +1,440 @@
 <template>
-  <div class="order-section">
-    <div class="container mx-auto py-8 pb-36 md:py-16 md:pb-16 px-4 md:px-6 relative z-10">
+  <div class="container mx-auto py-6 md:py-12 px-4 md:px-0" :class="showStickyBar ? 'pb-40 md:pb-44' : ''">
+    <div class="text-center">
+      <p class="text-[26px] md:text-[46px] font-[700] text-[#0381e0]">
+        প্রয়োজনে কল করো- <a href="tel:+8801646664222" class="text-[#0381e0]">01646664222</a>
+      </p>
+    </div>
+    <div class="text-center pt-2 md:pt-4">
+      <p class="text-[16px] md:text-[26px] text-[#000000] font-[600]">ই-টেস্টপেপার এর পূর্নাঙ্গ এক্সেস পেতে</p>
+      <p class="text-[16px] md:text-[26px] text-[#000000] font-[600]">তোমার <span class="text-[#d30163]">ব্যাচ</span>,
+        <span class="text-[#7b37f4]">গ্রুপ</span>, <span class="text-[#d30163]">নাম</span> এবং <span
+            class="text-[#7b37f4]">ফোন নাম্বার</span> দিয়ে</p>
+      <p class="text-[16px] md:text-[26px] text-[#000000] font-[600]"><span
+          class="text-[#ad00df]">"কনফার্ম অর্ডার"</span> বাটনে ক্লিক করো</p>
+    </div>
 
-      <!-- Section Header -->
-      <div class="text-center mb-6 md:mb-10 animate-fade-in-up">
-        <div
-          class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/70 backdrop-blur border border-[#0d568b]/10 mb-4">
-          <div class="w-2 h-2 rounded-full bg-[#2f8ce2] animate-pulse-dot"></div>
-          <p
-            class="text-[12px] md:text-[14px] font-[700] text-[#0d568b] uppercase tracking-widest font-['Hind_Siliguri']">
-            Subscribe Now at Special Discount
-          </p>
+    <!-- Already Subscribed Modal -->
+    <div v-if="alreadySubscribed" class="fixed inset-0 z-50 flex items-center justify-center px-4" @click.self="alreadySubscribed = false">
+      <div class="fixed inset-0 bg-black/50 backdrop-blur-sm"></div>
+      <div class="relative bg-white rounded-2xl p-6 md:p-8 max-w-sm w-full shadow-2xl text-center z-10">
+        <button @click="alreadySubscribed = false" class="absolute top-3 right-3 text-gray-400 hover:text-gray-600 transition-colors">
+          <Icon name="ph:x-bold" class="text-[20px]"/>
+        </button>
+        <div class="w-16 h-16 mx-auto bg-amber-100 rounded-full flex items-center justify-center">
+          <Icon class="text-amber-500 text-[32px]" name="ph:warning-circle-fill"/>
         </div>
-        <h2 class="section-title font-['Hind_Siliguri']">
-          প্রয়োজনে কল করো-
-          <a href="tel:+8801646664222" class="phone-link">01646664222</a>
-        </h2>
-        <div class="flex justify-center mt-4">
-          <div class="w-20 h-1 bg-gradient-to-r from-[#0d568b] to-[#2f8ce2] rounded-full section-line"></div>
-        </div>
-      </div>
-
-      <!-- Instructions -->
-      <div class="text-center max-w-2xl mx-auto mb-8 md:mb-12 animate-fade-in-up delay-100">
-        <p class="text-[14px] md:text-[20px] text-slate-600 font-[500] leading-relaxed font-['Hind_Siliguri']">
-          ই-টেস্টপেপার এর পূর্নাঙ্গ এক্সেস পেতে তোমার
-          <span class="text-[#e11d48] font-[700]">ব্যাচ</span>,
-          <span class="text-[#0d568b] font-[700]">নাম</span>,
-          <span class="text-[#e11d48] font-[700]">ফোন নাম্বার</span> এবং
-          <span class="text-[#0d568b] font-[700]">গ্রুপ</span> সিলেক্ট করে
-          <span class="text-[#2f8ce2] font-[700]">"কনফার্ম অর্ডার"</span> বাটনে ক্লিক করো
-        </p>
-      </div>
-
-      <!-- Product Selection Cards -->
-      <div class="animate-fade-in-up delay-200">
-        <div class="flex flex-col md:flex-row justify-center gap-4 md:gap-6 max-w-3xl mx-auto">
-          <div v-for="(item, i) in productInfo" :key="i" class="w-full md:w-1/2 product-card-wrapper"
-            :style="{ animationDelay: `${i * 150}ms` }">
-            <div @click="selectedProduct = item" :class="selectedProduct === item
-              ? 'product-card-active'
-              : 'product-card-idle'"
-              class="product-card cursor-pointer rounded-2xl p-4 md:p-5 flex items-center gap-x-4 transition-all duration-300 relative overflow-hidden">
-              <!-- Selected glow -->
-              <div v-if="selectedProduct === item"
-                class="absolute inset-0 bg-gradient-to-r from-[#0d568b]/5 to-transparent pointer-events-none"></div>
-
-              <div class="shrink-0 relative z-10">
-                <div :class="selectedProduct === item ? 'shadow-lg shadow-[#2f8ce2]/30' : 'shadow-md'"
-                  class="bg-gradient-to-br from-[#0d568b] to-[#2f8ce2] text-[28px] md:text-[42px] font-[800] text-white w-16 h-16 md:w-20 md:h-20 rounded-xl flex items-center justify-center italic transition-all duration-300">
-                  {{ 26 + i }}
-                </div>
-              </div>
-
-              <div class="flex-1 min-w-0 relative z-10">
-                <div class="flex items-center gap-x-2">
-                  <p class="text-[16px] md:text-[22px] font-[700] text-slate-800 truncate">{{ item.name }}</p>
-                  <Transition name="check">
-                    <div v-if="selectedProduct === item" class="shrink-0">
-                      <Icon class="text-green-500 text-[22px] md:text-[26px]" name="ph:check-circle-fill" />
-                    </div>
-                  </Transition>
-                </div>
-                <div class="flex items-center gap-x-2 mt-1">
-                  <span class="text-[13px] md:text-[17px] text-red-400 line-through italic font-[500]">{{ item.price
-                  }}৳</span>
-                  <span class="text-[15px] md:text-[20px] text-[#0d568b] font-[800]">৳{{ item.discount_price }}</span>
-                  <span
-                    class="text-[10px] md:text-[12px] bg-green-100 text-green-700 font-[700] px-2 py-0.5 rounded-full">
-                    {{ Math.round((1 - item.discount_price / item.price) * 100) }}% OFF
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Feature Headline (above the grid) -->
-      <div v-if="selectedProduct" class="text-center pt-8 md:pt-12 mb-6 md:mb-8 animate-fade-in-up delay-300">
-        <p class="text-[20px] md:text-[30px] font-[700] font-['Hind_Siliguri'] feature-headline">
-          {{ selectedProduct.headline }}
-        </p>
-      </div>
-
-      <!-- Order Form and Features Grid -->
-      <div class="flex justify-center animate-fade-in-up delay-300">
-        <div class="grid grid-cols-1 md:grid-cols-2 w-full max-w-4xl gap-8 md:gap-12">
-
-          <!-- Order Form -->
-          <div ref="orderFormRef" class="order-2 md:order-1">
-            <div class="form-card">
-              <p
-                class="text-[20px] md:text-[24px] text-center font-[700] text-slate-800 pb-5 border-b border-slate-100 relative z-10 font-['Hind_Siliguri']">
-                Order Details
-              </p>
-              <div class="pt-6 space-y-5 relative z-10">
-                <div>
-                  <label class="form-label font-['Hind_Siliguri']">
-                    Name <span class="text-[#e11d48]">*</span>
-                  </label>
-                  <input v-model="name" type="text" class="form-input" placeholder="Enter your name" />
-                </div>
-
-                <div>
-                  <label class="form-label font-['Hind_Siliguri']">
-                    Phone Number <span class="text-[#e11d48]">*</span>
-                  </label>
-                  <input v-model="phone" type="text" class="form-input" :class="{ '!border-red-400 !bg-red-50/50': phoneError && phone }" placeholder="01XXXXXXXXX" maxlength="11" />
-                  <p v-if="phoneError && phone" class="text-[12px] text-red-500 mt-1.5 font-[500]">{{ phoneError }}</p>
-                </div>
-
-                <div class="relative z-10">
-                  <label class="form-label font-['Hind_Siliguri']">
-                    Batch <span class="text-[#e11d48]">*</span>
-                  </label>
-                  <div class="batch-toggle">
-                    <div class="batch-toggle-bg" :style="{ transform: `translateX(${selectedProductIndex * 100}%)` }">
-                    </div>
-                    <button v-for="(item, i) in productInfo" :key="i" @click="selectedProduct = item"
-                      :class="selectedProduct === item ? 'batch-toggle-active' : 'batch-toggle-idle'"
-                      class="batch-toggle-btn">
-                      <span class="text-[15px] md:text-[18px] font-[700] leading-none">{{ item.name }}</span>
-                      <span class="flex items-center gap-x-1.5 mt-1">
-                        <span :class="selectedProduct === item ? 'text-red-300' : 'text-red-400'"
-                          class="text-[14px] md:text-[14px] line-through font-[500] leading-none">{{ item.price
-                          }}৳</span>
-                        <span :class="selectedProduct === item ? 'text-white' : 'text-[#0d568b]'"
-                          class="text-[16px] md:text-[19px] font-[800] leading-none">৳{{ item.discount_price }}</span>
-                      </span>
-                    </button>
-                  </div>
-                </div>
-
-                <div>
-                  <label class="form-label mb-2.5 font-['Hind_Siliguri']">
-                    Group <span class="text-[#e11d48]">*</span>
-                  </label>
-                  <div class="flex gap-x-2.5 md:gap-x-3">
-                    <div v-for="(gru, i) in groups" :key="i">
-                      <button @click="group = gru.value"
-                        :class="group === gru.value
-                          ? 'bg-gradient-to-r from-[#0d568b] to-[#2f8ce2] text-white border-transparent shadow-lg shadow-[#2f8ce2]/30 scale-105'
-                          : 'border-slate-200 text-slate-600 bg-slate-50/50 hover:border-[#2f8ce2] hover:text-[#0d568b] hover:bg-blue-50/30'"
-                        class="border-2 px-4 py-2.5 md:px-5 md:py-2.5 rounded-xl text-[13px] md:text-[15px] font-[700] transition-all duration-300">
-                        {{ gru.name }}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="pt-1">
-                  <label class="flex items-start gap-x-3 cursor-pointer group">
-                    <input v-model="checkText" type="checkbox"
-                      class="mt-1 w-4 h-4 rounded accent-[#0d568b] transition-transform group-hover:scale-110">
-                    <span class="text-[12px] md:text-[14px] text-slate-500 leading-snug">
-                      I Agree to the
-                      <a href="https://www.etestpaper.net/about/terms" target="_blank" class="form-link">Terms &
-                        Conditions</a>,
-                      <a href="https://www.etestpaper.net/about/privacy" target="_blank" class="form-link">Privacy
-                        Policy</a> &
-                      <a href="https://www.etestpaper.net/about/refund" target="_blank" class="form-link">Refund
-                        Policy</a>
-                    </span>
-                  </label>
-                </div>
-
-                <button @click="submit" :disabled="buttonDisabled"
-                  :class="buttonDisabled
-                    ? 'bg-gray-200 cursor-not-allowed text-gray-400'
-                    : 'submit-btn cursor-pointer text-white hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]'"
-                  class="w-full text-[18px] md:text-[20px] font-[700] rounded-xl px-8 py-3.5 md:py-4 mt-2 transition-all duration-300 relative overflow-hidden font-['Hind_Siliguri']">
-                  <span class="relative z-10 flex items-center justify-center gap-x-2">
-                    <svg v-if="isLoading" class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none"
-                      viewBox="0 0 24 24">
-                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                      <path class="opacity-75" fill="currentColor"
-                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                      </path>
-                    </svg>
-                    কনফার্ম অর্ডার
-                  </span>
-                  <span v-if="!buttonDisabled" class="submit-shine"></span>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Features List -->
-          <div class="order-1 md:order-2">
-            <div v-if="selectedProduct">
-              <div class="space-y-3">
-                <div v-for="(feature, i) in selectedProduct.features" :key="i" class="feature-item"
-                  :style="{ animationDelay: `${i * 60}ms` }">
-                  <div
-                    class="shrink-0 w-7 h-7 rounded-lg bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center mt-0.5 ring-1 ring-green-200/50">
-                    <span class="text-green-600 text-[12px] font-bold">&#10003;</span>
-                  </div>
-                  <p class="text-[14px] md:text-[17px] font-[600] font-['Hind_Siliguri'] text-slate-700 leading-snug">
-                    {{ feature.label }}
-                  </p>
-                </div>
-              </div>
-              <div v-if="selectedProduct.price_text" class="mt-5">
-                <p class="md:text-[20px] font-[600] font-['Hind_Siliguri'] text-[#e11d48]">
-                  {{ selectedProduct.price_text }}
-                </p>
-              </div>
-            </div>
-          </div>
+        <p class="text-[16px] md:text-[18px] font-[700] text-gray-800 mt-4 font-['Hind_Siliguri']">{{ alreadySubscribedMsg }}</p>
+        <div class="flex flex-col gap-2 mt-5">
+          <a href="https://www.etestpaper.net" class="block px-6 py-2.5 bg-gradient-to-r from-[#0d568b] to-[#2f8ce2] text-white font-[600] rounded-xl text-[14px] md:text-[16px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+            ওয়েবসাইটে যান
+          </a>
+          <button @click="alreadySubscribed = false" class="px-6 py-2.5 text-gray-500 font-[600] rounded-xl text-[14px] md:text-[16px] hover:bg-gray-100 transition-colors">
+            বন্ধ করুন
+          </button>
         </div>
       </div>
     </div>
 
-    <!-- Sticky Bottom Bar (Mobile) -->
-    <Transition name="sticky-slide">
-      <div v-if="selectedProduct && !orderFormVisible" class="sticky-bar md:hidden">
-        <!-- Top accent line -->
-        <div class="sticky-bar-accent"></div>
+    <!-- Loading State -->
+    <div v-if="plansLoading" class="flex justify-center py-8">
+      <div class="flex flex-col items-center gap-3">
+        <div class="w-10 h-10 border-4 border-[#0381e0] border-t-transparent rounded-full animate-spin"></div>
+        <p class="text-[14px] md:text-[16px] text-gray-500 font-[500]">প্ল্যান লোড হচ্ছে...</p>
+      </div>
+    </div>
 
-        <div class="px-4 pt-1 pb-1 space-y-2">
-          <!-- Batch Toggle -->
-          <div class="sticky-section">
-            <div class="sticky-toggle">
-              <div class="sticky-toggle-slider" :style="{ transform: `translateX(${selectedProductIndex * 100}%)` }">
+    <template v-else>
+      <!-- Step 1: Batch Selection -->
+      <div class="pt-4 md:pt-8">
+        <p class="text-center text-[16px] md:text-[20px] font-[700] text-gray-700 mb-4">তোমার ব্যাচ সিলেক্ট করো</p>
+        <div class="md:flex justify-center gap-x-4">
+          <div v-for="(batch, i) in batchList" :key="i" class="w-full py-2 md:py-0 xl:w-[40%]">
+            <div @click="selectBatch(batch)"
+                 :class="selectedBatch === batch
+                   ? 'ring-2 ring-[#0381e0] bg-white shadow-lg shadow-blue-100'
+                   : 'ring-1 ring-[#c8cdd2] bg-white hover:ring-[#0381e0] hover:shadow-md'"
+                 class="cursor-pointer rounded-xl p-3 md:p-4 flex items-center gap-x-4 w-full transition-all duration-300">
+              <div class="bg-gradient-to-br from-[#0d568b] to-[#2f8ce2] text-[28px] md:text-[46px] font-extrabold text-white px-4 py-1 rounded-lg italic shrink-0 shadow-md">
+                {{ batch.batchYear }}
               </div>
-              <button v-for="(item, i) in productInfo" :key="'sb' + i" @click="selectedProduct = item"
-                :class="selectedProduct === item ? 'text-white' : 'text-slate-400'" class="sticky-toggle-btn">
-                <span class="text-[14px] font-[700] leading-none">{{ item.value }}</span>
-                <span class="flex items-center gap-x-1.5 mt-1">
-                  <span :class="selectedProduct === item ? 'text-red-300' : 'text-red-400/60'"
-                    class="text-[14px] line-through font-[500] leading-none">{{ item.price }}৳</span>
-                  <span class="text-[16px] font-[800] leading-none">৳{{ item.discount_price }}</span>
-                </span>
-              </button>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-x-2">
+                  <p class="text-[16px] md:text-[22px] font-[700] truncate" :class="selectedBatch === batch ? 'text-[#0381e0]' : 'text-gray-800'">{{ batch.displayName }}</p>
+                  <div v-if="selectedBatch === batch" class="shrink-0">
+                    <Icon class="text-green-500 text-[22px] md:text-[26px]" name="ph:check-circle-fill"/>
+                  </div>
+                </div>
+                <div class="flex items-center gap-x-2 mt-1">
+                  <span class="text-red-400 line-through text-[13px] md:text-[17px] font-[500]">৳{{ batch.originalPrice }}</span>
+                  <span class="text-[18px] md:text-[24px] font-[800] text-[#047857]">৳{{ batch.displayPrice }}</span>
+                </div>
+              </div>
             </div>
-          </div>
-
-          <!-- Group Toggle + Order Button -->
-          <div class="flex items-center gap-x-2.5">
-            <div class="sticky-group-toggle flex-1">
-              <button v-for="(gru, i) in groups" :key="'sg' + i" @click="group = gru.value" :class="group === gru.value
-                ? 'sticky-group-active'
-                : 'sticky-group-idle'" class="sticky-group-btn">
-                {{ gru.name }}
-              </button>
-            </div>
-            <button @click="scrollToOrderForm" class="sticky-order-btn">
-              <span class="sticky-order-shine"></span>
-              <span class="sticky-order-content font-['Hind_Siliguri']">
-                <span class="sticky-order-pulse"></span>
-                অর্ডার করুন
-              </span>
-            </button>
           </div>
         </div>
       </div>
-    </Transition>
+
+
+      <!-- Step 3: Form + Features (always visible) -->
+      <div class="md:flex justify-center md:pt-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 w-full xl:w-[80%] gap-x-12">
+          <!-- Order Form -->
+          <div ref="orderFormRef" class="order-2 md:order-1 pt-4 md:pt-0">
+            <div class="bg-[#f0f7ff] rounded-2xl p-5 md:p-7">
+              <p class="text-[20px] md:text-[24px] text-center font-[700] pb-5">
+                Order Details
+              </p>
+
+              <!-- Name -->
+              <div>
+                <label class="text-[13px] md:text-[14px] font-[700] text-gray-700 uppercase tracking-wide">Name <span class="text-red-500">*</span></label>
+                <input v-model="name" type="text"
+                       class="mt-1.5 border border-gray-200 bg-white focus:border-[#0381e0] text-[15px] md:text-[16px] rounded-xl px-4 py-3 w-full outline-none transition-colors duration-200"
+                       placeholder="Enter your name"/>
+              </div>
+
+              <!-- Phone -->
+              <div class="pt-5">
+                <label class="text-[13px] md:text-[14px] font-[700] text-gray-700 uppercase tracking-wide">Phone Number <span class="text-red-500">*</span></label>
+                <input v-model="phone" type="text"
+                       class="mt-1.5 border border-gray-200 bg-white focus:border-[#0381e0] text-[15px] md:text-[16px] rounded-xl px-4 py-3 w-full outline-none transition-colors duration-200"
+                       placeholder="01XXXXXXXXX"/>
+              </div>
+
+              <!-- Batch selector inside form -->
+              <div class="pt-5">
+                <label class="text-[13px] md:text-[14px] font-[700] text-gray-700 uppercase tracking-wide">Batch <span class="text-red-500">*</span></label>
+                <div class="flex gap-2 mt-1.5">
+                  <button
+                    v-for="batch in batchList"
+                    :key="batch.name"
+                    @click="selectBatch(batch)"
+                    class="flex-1 rounded-xl py-2.5 px-3 text-center transition-all duration-200"
+                    :class="selectedBatch === batch
+                      ? 'bg-gradient-to-r from-[#0d568b] to-[#2f8ce2] text-white shadow-md'
+                      : 'bg-white border border-gray-200 text-gray-700 hover:border-[#0381e0]'"
+                  >
+                    <p class="text-[13px] md:text-[14px] font-[700]">HSC BATCH {{ batch.name.replace('HSC ', '') }}</p>
+                    <div class="flex items-center justify-center gap-1 mt-0.5">
+                      <span class="line-through text-[11px] font-[500]" :class="selectedBatch === batch ? 'text-white/60' : 'text-gray-400'">৳{{ batch.originalPrice }}</span>
+                      <span class="text-[14px] font-[800]">৳{{ batch.displayPrice }}</span>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Group selector inside form -->
+              <div class="pt-5">
+                <label class="text-[13px] md:text-[14px] font-[700] text-gray-700 uppercase tracking-wide">Group <span class="text-red-500">*</span></label>
+                <div class="flex gap-2 mt-1.5">
+                  <button
+                    v-for="g in (selectedBatch?.groups || allGroups)"
+                    :key="g"
+                    @click="selectedBatch && selectGroup(g)"
+                    class="px-5 py-2 rounded-xl text-[13px] md:text-[14px] font-[700] transition-all duration-200"
+                    :class="selectedGroup === g
+                      ? 'bg-[#0381e0] text-white shadow-md'
+                      : selectedBatch
+                        ? 'bg-white border border-gray-200 text-gray-700 hover:border-[#0381e0]'
+                        : 'bg-white border border-gray-200 text-gray-300 cursor-not-allowed'"
+                  >{{ g }}</button>
+                </div>
+              </div>
+
+              <!-- Terms -->
+              <div class="pt-5">
+                <label class="flex items-start gap-x-2 cursor-pointer">
+                  <input v-model="checkText" type="checkbox" class="mt-0.5 w-[18px] h-[18px] accent-[#0381e0] rounded">
+                  <span class="text-[13px] md:text-[14px] text-gray-600 leading-tight">I Agree to the
+                    <a href="https://www.etestpaper.net/about/terms" target="_blank" class="text-[#0381e0] font-[600]">Terms & Conditions</a>,
+                    <a href="https://www.etestpaper.net/about/privacy" target="_blank" class="text-[#0381e0] font-[600]">Privacy Policy</a> &
+                    <a href="https://www.etestpaper.net/about/refund" target="_blank" class="text-[#0381e0] font-[600]">Refund Policy</a>
+                  </span>
+                </label>
+              </div>
+
+              <!-- Submit -->
+              <button @click="submit" :disabled="buttonDisabled || isLoading"
+                      :class="buttonDisabled || isLoading ? 'bg-gray-300 text-gray-400 cursor-not-allowed' : 'bg-gradient-to-r from-[#0d568b] to-[#2f8ce2] text-white hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-200 cursor-pointer'"
+                      class="w-full text-[18px] md:text-[22px] font-[700] rounded-xl py-3.5 mt-5 transition-all duration-300 flex items-center justify-center gap-2">
+                <div v-if="isLoading" class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                <span>{{ isLoading ? 'প্রসেসিং...' : 'কনফার্ম অর্ডার' }}</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Features -->
+          <div v-if="selectedBatch" class="pt-4 md:pt-0 order-1 md:order-2">
+            <div class="bg-white rounded-xl p-4 md:p-6 shadow-sm border border-gray-100">
+              <p class="text-[18px] md:text-[24px] text-center font-[700] font-['Hind_Siliguri'] text-[#047857] pb-3">
+                {{ selectedBatch.name }} ব্যাচের ই-টেস্টপেপার সাবস্ক্রিপশনে যা যা পাচ্ছোঃ</p>
+              <div class="space-y-2 md:space-y-3">
+                <div v-for="(feature, i) in selectedBatch.features" :key="i"
+                     class="flex items-start gap-x-2.5 bg-green-50/60 rounded-lg px-3 py-2">
+                  <Icon class="text-[#047857] text-[18px] md:text-[20px] shrink-0 mt-0.5" name="ph:check-circle-fill"/>
+                  <p class="text-[14px] md:text-[16px] font-[500] font-['Hind_Siliguri'] text-gray-700">{{ feature.label }}</p>
+                </div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-gray-100 text-center">
+                <p class="text-[13px] md:text-[14px] text-gray-400 font-[500]">সর্বমোট মূল্য</p>
+                <div class="flex items-center justify-center gap-x-3 mt-1">
+                  <span class="text-red-400 line-through text-[16px] md:text-[20px] font-[500]">৳{{ selectedBatch.originalPrice }}</span>
+                  <span class="text-[24px] md:text-[32px] font-[800] text-[#047857]">৳{{ selectedBatch.displayPrice }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
   </div>
+
+  <!-- Sticky Bottom Bar (hidden when order form is in view) -->
+  <Transition name="sticky-bar">
+  <div v-if="showStickyBar" class="fixed bottom-0 left-0 right-0 z-40">
+    <!-- Glassmorphism backdrop -->
+    <div class="bg-white/80 backdrop-blur-xl border-t border-white/50 shadow-[0_-8px_32px_rgba(0,0,0,0.12)]">
+
+      <!-- Batch Tabs -->
+      <div class="flex gap-2 px-3 pt-3">
+        <button
+          v-for="batch in batchList"
+          :key="batch.name"
+          @click="selectBatch(batch)"
+          class="flex-1 rounded-xl py-2 px-2 text-center transition-all duration-300"
+          :class="selectedBatch === batch
+            ? 'bg-gradient-to-br from-[#0d568b] via-[#1a6fba] to-[#2f8ce2] text-white shadow-lg shadow-blue-500/25 scale-[1.02]'
+            : 'bg-gray-50/80 text-gray-600 hover:bg-gray-100'"
+        >
+          <p class="text-[12px] md:text-[14px] font-[800] tracking-wide">HSC {{ batch.name.replace('HSC ', '') }}</p>
+          <div class="flex items-center justify-center gap-1.5 mt-0.5">
+            <span class="line-through text-[10px] md:text-[12px] font-[500]" :class="selectedBatch === batch ? 'text-white/50' : 'text-gray-400'">৳{{ batch.originalPrice }}</span>
+            <span class="text-[15px] md:text-[17px] font-[900]" :class="selectedBatch === batch ? 'text-white' : 'text-gray-800'">৳{{ batch.displayPrice }}</span>
+          </div>
+        </button>
+      </div>
+
+      <!-- Divider -->
+      <div class="mx-3 my-2 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+
+      <!-- Group + Order Button -->
+      <div class="flex items-center justify-between px-3 pb-3 gap-3">
+        <div class="flex gap-1.5 flex-1 min-w-0">
+          <button
+            v-for="g in (selectedBatch?.groups || [])"
+            :key="g"
+            @click="selectGroup(g)"
+            class="px-3 md:px-4 py-2 rounded-xl text-[11px] md:text-[12px] font-[700] transition-all duration-200 uppercase tracking-wide"
+            :class="selectedGroup === g
+              ? 'bg-[#0d568b] text-white shadow-md shadow-blue-500/20'
+              : 'bg-gray-50/80 text-gray-500 hover:bg-gray-100 border border-gray-200/60'"
+          >{{ g }}</button>
+        </div>
+
+        <button
+          @click="scrollToFormOrSubmit"
+          :disabled="isLoading"
+          class="flex items-center gap-2 bg-gradient-to-r from-[#d30163] to-[#e8266d] text-white pl-4 pr-5 md:pl-5 md:pr-6 py-2.5 rounded-xl text-[13px] md:text-[14px] font-[800] shrink-0 transition-all duration-300 hover:shadow-xl hover:shadow-pink-500/25 hover:scale-[1.02] active:scale-[0.98]"
+        >
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-300 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400"></span>
+          </span>
+          অর্ডার করুন
+        </button>
+      </div>
+    </div>
+
+    <!-- Safe area for phones with gesture bar -->
+    <div class="bg-white/80 backdrop-blur-xl h-[env(safe-area-inset-bottom)]"></div>
+  </div>
+  </Transition>
 </template>
 
 <script setup>
 
-const productInfo = ref([
-  {
-    name: 'HSC BATCH 2026', value: 'HSC 2026', discount_price: 740, price: 2500,
-    features: [
-      { label: 'সকল বিষয়ের ৮ বছরের  বোর্ড প্রশ্ন ও সমাধান' },
-      { label: 'সকল বিষয়ের ৪ বছরের কলেজ প্রশ্ন ও সমাধান' },
-      { label: 'সকল বিষয় এর অধ্যায় ভিত্তিক হাজারো CQ & MCQ' },
-      { label: '৫০ ডে চ্যালেঞ্জ প্রোগ্রাম ও ফাইনাল মডেল টেস্ট' },
-      { label: 'সকল CQ & MCQ আনলিমিটেড প্র্যাকটিস' },
-      { label: 'গুরুত্বপূর্ণ প্রশ্ন মার্ক করে রাখা এবং ভুল প্রশ্নে আলাদা প্র্যাকটিস' },
-      { label: 'এছাড়া তোমার পূর্নাঙ্গ প্রস্তুতি সহায়ক যাবতীয় সমাধান একসাথে' }
-    ],
-    headline: 'HSC 26 ব্যাচের ই-টেস্টপেপার সাবস্ক্রিপশনে যা যা পাচ্ছোঃ'
-  },
-  {
-    name: 'HSC BATCH 2027', value: 'HSC 2027', discount_price: 990, price: 3500,
-    features: [
-      { label: 'সকল বিষয়ের ৯ বছরের  বোর্ড প্রশ্ন ও সমাধান' },
-      { label: 'সকল বিষয়ের ৫ বছরের কলেজ প্রশ্ন ও সমাধান' },
-      { label: 'সকল বিষয় এর অধ্যায় ভিত্তিক হাজারো CQ & MCQ' },
-      { label: '৫০ ডে চ্যালেঞ্জ প্রোগ্রাম ও ফাইনাল মডেল টেস্ট' },
-      { label: 'সকল CQ & MCQ আনলিমিটেড প্র্যাকটিস' },
-      { label: 'গুরুত্বপূর্ণ প্রশ্ন মার্ক করে রাখা এবং ভুল প্রশ্নে আলাদা প্র্যাকটিস' },
-      { label: 'এছাড়া তোমার পূর্নাঙ্গ প্রস্তুতি সহায়ক যাবতীয় সমাধান একসাথে' }
-    ],
-    headline: 'HSC 27 ব্যাচের ই-টেস্টপেপার সাবস্ক্রিপশনে যা যা পাচ্ছোঃ'
-  },
-])
-const groups = [{ name: 'Science', value: 'Science' }, { name: 'Commerce', value: 'Commerce' }, {
-  name: 'Arts',
-  value: 'Arts'
-}];
-const selectedProduct = ref(productInfo.value[0]);
-const selectedProductIndex = computed(() => productInfo.value.indexOf(selectedProduct.value));
-const quantity = ref(1);
+const config = useRuntimeConfig()
+const apiBase = config.public.apiBase
 
-const name = ref('');
-const phone = ref(null);
-const group = ref('Science');
+const featuresByBatch = {
+  'HSC 2027': [
+    {label: 'সকল বিষয়ের ৯ বছরের  বোর্ড প্রশ্ন ও সমাধান'},
+    {label: 'সকল বিষয়ের ৪ বছরের কলেজ প্রশ্ন ও সমাধান'},
+    {label: 'সকল বিষয় এর অধ্যায় ভিত্তিক হাজারো CQ & MCQ'},
+    {label: '৫০ ডে চ্যালেঞ্জ প্রোগ্রাম ও ফাইনাল মডেল টেস্ট'},
+    {label: 'সকল CQ & MCQ আনলিমিটেড প্র্যাকটিস'},
+    {label: 'গুরুত্বপূর্ণ প্রশ্ন মার্ক করে রাখা এবং ভুল প্রশ্নে আলাদা প্র্যাকটিস'},
+    {label: 'এছাড়া তোমার পূর্নাঙ্গ প্রস্তুতি সহায়ক যাবতীয় সমাধান একসাথে'}
+  ],
+  'HSC 2026': [
+    {label: 'সকল বিষয়ের ৮ বছরের  বোর্ড প্রশ্ন ও সমাধান'},
+    {label: 'সকল বিষয়ের ৪ বছরের কলেজ প্রশ্ন ও সমাধান'},
+    {label: 'সকল বিষয় এর অধ্যায় ভিত্তিক হাজারো CQ & MCQ'},
+    {label: '৫০ ডে চ্যালেঞ্জ প্রোগ্রাম ও ফাইনাল মডেল টেস্ট'},
+    {label: 'সকল CQ & MCQ আনলিমিটেড প্র্যাকটিস'},
+    {label: 'গুরুত্বপূর্ণ প্রশ্ন মার্ক করে রাখা এবং ভুল প্রশ্নে আলাদা প্র্যাকটিস'},
+    {label: 'এছাড়া তোমার পূর্নাঙ্গ প্রস্তুতি সহায়ক যাবতীয় সমাধান একসাথে'}
+  ],
+}
+
+const getDisplayPrice = (plan) => {
+  if (plan.offer_price != null) return plan.offer_price
+  if (plan.discount_expired_at > Date.now()) return plan.price - plan.discount
+  return plan.price
+}
+
+const getBatchYear = (batch) => {
+  const match = batch.match(/\d{4}/)
+  return match ? match[0].slice(-2) : ''
+}
+
+const allGroups = ['Science', 'Commerce', 'Arts']
+const batchList = ref([])
+const plansLoading = ref(true)
+const selectedBatch = ref(null)
+const selectedGroup = ref(null)
+
+const name = ref('')
+const phone = ref(null)
 const coupon = ref(null)
-const checkText = ref(true)
-const isLoading = ref(false);
-const typing = ref(false);
-const orderFormRef = ref(null);
-const orderFormVisible = ref(false);
+const checkText = ref('')
+const isLoading = ref(false)
+const typing = ref(false)
+const alreadySubscribed = ref(false)
+const alreadySubscribedMsg = ref('')
 
-const scrollToOrderForm = () => {
-  orderFormRef.value?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-};
-
-onMounted(() => {
-  if (!orderFormRef.value) return;
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      orderFormVisible.value = entry.isIntersecting;
-    },
-    { threshold: 0.2 }
-  );
-  observer.observe(orderFormRef.value);
-  onUnmounted(() => observer.disconnect());
-});
-const subtotal = computed(() => {
-  return selectedProduct.value?.price * quantity.value;
-});
-
-const total = computed(() => {
-  return subtotal.value;
-});
-
-const phoneError = computed(() => {
-  if (!phone.value) return '';
-  const p = phone.value.toString();
-  if (!/^01[3-9]/.test(p)) return 'Number must start with 013-019';
-  if (p.length < 11) return `${11 - p.length} more digit${11 - p.length > 1 ? 's' : ''} needed`;
-  if (!/^01[3-9]\d{8}$/.test(p)) return 'Enter a valid 11-digit phone number';
-  return '';
-});
+const showStickyBar = computed(() => {
+  return !plansLoading.value && batchList.value.length > 0 && !formVisible.value
+})
 
 const buttonDisabled = computed(() => {
-  return !name.value || !phone.value || !!phoneError.value || !group.value || !checkText.value;
-});
-const select = (product) => {
-  selectedProduct.value = product;
-};
+  return !name.value || !phone.value || !selectedBatch.value || !selectedGroup.value || !checkText.value || alreadySubscribed.value
+})
+
+const selectBatch = (batch) => {
+  selectedBatch.value = batch
+  selectedGroup.value = batch.groups.includes('Science') ? 'Science' : batch.groups[0] || null
+}
+
+const orderFormRef = ref(null)
+const formVisible = ref(false)
+
+const selectGroup = (g) => {
+  selectedGroup.value = g
+}
+
+const scrollToFormOrSubmit = () => {
+  if (!selectedBatch.value || !selectedGroup.value) {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+    return
+  }
+  if (orderFormRef.value) {
+    orderFormRef.value.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  }
+}
+
+// Watch the order form visibility with IntersectionObserver
+let observer = null
+watch(orderFormRef, (el) => {
+  if (observer) observer.disconnect()
+  if (el) {
+    observer = new IntersectionObserver(
+      ([entry]) => { formVisible.value = entry.isIntersecting },
+      { threshold: 0.15 }
+    )
+    observer.observe(el)
+  }
+}, { immediate: true })
+
+onUnmounted(() => {
+  if (observer) observer.disconnect()
+})
+
+onMounted(async () => {
+  try {
+    plansLoading.value = true
+    const { data } = await useFetch(`${apiBase}/subscription/plans`)
+    if (data.value?.subscriptions) {
+      const offerPlans = data.value.subscriptions.filter(s => s.show_on_offer === true)
+
+      // Group by batch
+      const batchMap = {}
+      for (const plan of offerPlans) {
+        if (!batchMap[plan.batch]) {
+          const origPrice = plan.base_offer_price ?? plan.price
+          const dispPrice = getDisplayPrice(plan)
+          const discPct = origPrice > 0 ? Math.round(((origPrice - dispPrice) / origPrice) * 100) : 0
+          batchMap[plan.batch] = {
+            name: plan.batch,
+            displayName: `HSC BATCH ${plan.batch.replace('HSC ', '')}`,
+            batchYear: getBatchYear(plan.batch),
+            originalPrice: origPrice,
+            displayPrice: dispPrice,
+            discountPercent: discPct > 0 ? discPct : 0,
+            features: featuresByBatch[plan.batch] || [],
+            groups: [],
+            plans: []
+          }
+        }
+        if (!batchMap[plan.batch].groups.includes(plan.group)) {
+          batchMap[plan.batch].groups.push(plan.group)
+        }
+        batchMap[plan.batch].plans.push(plan)
+      }
+
+      batchList.value = Object.values(batchMap).sort((a, b) => a.name.localeCompare(b.name))
+
+      if (batchList.value.length > 0) {
+        selectBatch(batchList.value[0])
+      }
+    }
+  } catch (e) {
+    console.error('Failed to fetch subscription plans', e)
+  } finally {
+    plansLoading.value = false
+  }
+})
 
 const submit = async () => {
-  isLoading.value = true;
+  isLoading.value = true
+  alreadySubscribed.value = false
   const payload = {
     name: name.value,
     phone: phone.value,
-    group: group.value,
-    level: selectedProduct.value.value,
+    group: selectedGroup.value,
+    level: selectedBatch.value.name,
     coupon: coupon.value,
     source: 'etestpaper-fb-campaign'
   }
-  localStorage.setItem('product', JSON.stringify(selectedProduct.value));
-  localStorage.setItem('order', JSON.stringify(payload));
-  const { data, error } = await useFetch('https://prod.etestpaper.net/api/v1/payment/bkash-thirdparty', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(payload)
-  })
-  if (data.value && data.value.GatewayPageURL) {
-    localStorage.setItem('order', JSON.stringify(payload));
-    window.location.href = data?.value?.GatewayPageURL;
+  localStorage.setItem('product', JSON.stringify(selectedBatch.value))
+  localStorage.setItem('order', JSON.stringify(payload))
+  try {
+    const res = await $fetch(`${apiBase}/payment/bkash-thirdparty`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: payload
+    })
+    if (res?.GatewayPageURL) {
+      localStorage.setItem('order', JSON.stringify(payload))
+      window.location.href = res.GatewayPageURL
+    }
+  } catch (err) {
+    const errData = err?.data || err?.response?._data
+    if (errData?.already_subscribed) {
+      alreadySubscribed.value = true
+      alreadySubscribedMsg.value = errData.message
+    }
   }
-  isLoading.value = false;
-};
+  isLoading.value = false
+}
 
+// watch name and phone
 watch([name, phone], () => {
-  typing.value = true;
-}, { deep: true });
+  typing.value = true
+}, {deep: true})
 
 watch(typing, () => {
   if (typeof fbq === 'function') {
@@ -385,528 +444,31 @@ watch(typing, () => {
       phone: phone.value,
       name: name.value,
       event_url: 'LandPage',
-    });
+    })
   }
-}, { deep: true })
+}, {deep: true})
+
 </script>
 
 <style lang="scss" scoped>
-/* Section title */
-.section-title {
-  font-size: 22px;
-  font-weight: 800;
-  color: #0f172a;
-  line-height: 1.3;
-
-  @media (min-width: 768px) {
-    font-size: 44px;
-  }
-}
-
-.phone-link {
-  background: linear-gradient(135deg, #0d568b, #2f8ce2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  transition: all 0.3s ease;
-
-  &:hover {
-    filter: brightness(1.2);
-  }
-}
-
-.section-line {
-  animation: line-expand 1s ease-out 0.3s both;
-}
-
-.animate-pulse-dot {
-  animation: pulse-dot 1.5s ease-in-out infinite;
-}
-
-/* Product cards */
-.product-card-wrapper {
-  animation: fadeInUp 0.6s ease-out both;
-}
-
-.product-card-active {
-  border: 2px solid #2f8ce2;
-  box-shadow: 0 8px 32px rgba(13, 86, 139, 0.15);
-  background: #ffffff;
-  transform: scale(1.02);
-}
-
-.product-card-idle {
-  border: 1px solid #e2e8f0;
-  background: #ffffff;
-
-  &:hover {
-    border-color: #2f8ce2;
-    box-shadow: 0 4px 20px rgba(13, 86, 139, 0.1);
-  }
-}
-
-.product-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  opacity: 0;
-  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(13, 86, 139, 0.04) 0%, transparent 70%);
-  transition: opacity 0.3s ease;
-}
-
-.product-card:hover::after {
-  opacity: 1;
-}
-
-/* Form card */
-.form-card {
-  background: #ffffff;
-  border-radius: 24px;
-  padding: 24px;
-  box-shadow: 0 8px 40px rgba(13, 86, 139, 0.06);
-  border: 1px solid rgba(13, 86, 139, 0.08);
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 120px;
-    height: 120px;
-    background: linear-gradient(225deg, rgba(47, 140, 226, 0.06), transparent);
-    border-radius: 0 0 0 100%;
-    pointer-events: none;
-  }
-
-  @media (min-width: 768px) {
-    padding: 32px;
-  }
-}
-
-.form-label {
-  font-size: 13px;
-  font-weight: 700;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  display: block;
-  margin-bottom: 8px;
-
-  @media (min-width: 768px) {
-    font-size: 14px;
-  }
-}
-
-.form-input {
-  width: 100%;
-  border: 2px solid #f1f5f9;
-  border-radius: 12px;
-  padding: 12px 16px;
-  font-size: 15px;
-  outline: none;
-  background: #f8fafc;
-  transition: all 0.3s ease;
-
-  &:focus {
-    border-color: #2f8ce2;
-    box-shadow: 0 0 0 4px rgba(47, 140, 226, 0.08);
-    background: #ffffff;
-    transform: translateY(-1px);
-  }
-}
-
-.form-link {
-  color: #2f8ce2;
-  font-weight: 600;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
-/* Batch toggle */
-.batch-toggle {
-  display: flex;
-  position: relative;
-  background: #f1f5f9;
-  border-radius: 14px;
-  padding: 4px;
-  gap: 4px;
-  border: 2px solid #e2e8f0;
-}
-
-.batch-toggle-bg {
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  width: calc(50% - 4px);
-  height: calc(100% - 8px);
-  background: linear-gradient(135deg, #0d568b, #2f8ce2);
-  border-radius: 11px;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 12px rgba(13, 86, 139, 0.3);
-}
-
-.batch-toggle-btn {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px 8px;
-  border-radius: 11px;
-  position: relative;
-  z-index: 1;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.batch-toggle-active {
-  color: #ffffff;
-}
-
-.batch-toggle-idle {
-  color: #64748b;
-
-  &:hover {
-    color: #0d568b;
-  }
-}
-
-/* Submit button */
-.submit-btn {
-  background: linear-gradient(135deg, #0d568b, #2f8ce2);
-  box-shadow: 0 8px 24px rgba(13, 86, 139, 0.3);
-
-  &:hover {
-    box-shadow: 0 12px 32px rgba(13, 86, 139, 0.4);
-  }
-}
-
-.submit-shine {
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  animation: submit-sweep 3s ease-in-out infinite;
-  pointer-events: none;
-}
-
-/* Feature headline */
-.feature-headline {
-  background: linear-gradient(135deg, #15803d, #22c55e);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Feature items */
-.feature-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 14px;
-  border-radius: 16px;
-  background: #ffffff;
-  border: 1px solid rgba(13, 86, 139, 0.06);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-  transition: all 0.3s ease;
-  animation: slideInLeft 0.5s ease-out both;
-
-  &:hover {
-    box-shadow: 0 4px 16px rgba(13, 86, 139, 0.08);
-    transform: translateY(-2px);
-  }
-}
-
-/* Check icon transition */
-.check-enter-active {
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.check-leave-active {
-  transition: all 0.2s ease-in;
-}
-
-.check-enter-from {
-  opacity: 0;
-  transform: scale(0) rotate(-180deg);
-}
-
-.check-leave-to {
-  opacity: 0;
-  transform: scale(0);
-}
-
-/* Sticky bottom bar */
-.sticky-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 50;
-  background: rgba(15, 23, 42, 0.97);
-  backdrop-filter: blur(16px);
-  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.3);
-}
-
-.sticky-bar-accent {
-  height: 3px;
-  background: linear-gradient(90deg, #0d568b, #2f8ce2, #0d568b);
-  background-size: 200% 100%;
-  animation: shimmer 3s linear infinite;
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: 200% 0;
-  }
-
-  100% {
-    background-position: -200% 0;
-  }
-}
-
-/* Sticky batch toggle */
-.sticky-toggle {
-  display: flex;
-  position: relative;
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: 10px;
-  padding: 3px;
-  gap: 3px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.sticky-toggle-slider {
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: calc(50% - 3px);
-  height: calc(100% - 6px);
-  background: linear-gradient(135deg, #0d568b, #2f8ce2);
-  border-radius: 8px;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 8px rgba(13, 86, 139, 0.4);
-}
-
-.sticky-toggle-btn {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 7px 6px;
-  border-radius: 8px;
-  position: relative;
-  z-index: 1;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-/* Sticky group toggle */
-.sticky-group-toggle {
-  display: flex;
-  gap: 6px;
-}
-
-.sticky-group-btn {
-  flex: 1;
-  padding: 8px 4px;
-  border-radius: 8px;
-  font-size: 11px;
-  font-weight: 700;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  border: 1.5px solid transparent;
-}
-
-.sticky-group-active {
-  background: linear-gradient(135deg, rgba(13, 86, 139, 0.2), rgba(47, 140, 226, 0.2));
-  border-color: #2f8ce2;
-  color: #60b5ff;
-}
-
-.sticky-group-idle {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.4);
-
-  &:hover {
-    border-color: rgba(47, 140, 226, 0.3);
-    color: rgba(255, 255, 255, 0.6);
-  }
-}
-
-/* Sticky order button */
-.sticky-order-btn {
-  position: relative;
-  padding: 10px 22px;
-  background: linear-gradient(135deg, #e11d48, #f43f5e);
-  color: #ffffff;
-  border-radius: 12px;
-  font-weight: 800;
-  font-size: 15px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow:
-    0 4px 16px rgba(225, 29, 72, 0.4),
-    0 0 20px rgba(225, 29, 72, 0.2);
-  white-space: nowrap;
-  overflow: hidden;
-  animation: btnGlow 2s ease-in-out infinite;
-  flex-shrink: 0;
-
-  &:active {
-    transform: scale(0.95);
-    box-shadow: 0 2px 8px rgba(225, 29, 72, 0.4);
-  }
-}
-
-.sticky-order-content {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.sticky-order-pulse {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #ffffff;
-  animation: pulse-dot 1.5s ease-in-out infinite;
-  flex-shrink: 0;
-}
-
-.sticky-order-shine {
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
-  animation: submit-sweep 2s ease-in-out infinite;
-  pointer-events: none;
-}
-
-@keyframes btnGlow {
-
-  0%,
-  100% {
-    box-shadow:
-      0 4px 16px rgba(225, 29, 72, 0.4),
-      0 0 20px rgba(225, 29, 72, 0.15);
-  }
-
-  50% {
-    box-shadow:
-      0 6px 24px rgba(225, 29, 72, 0.5),
-      0 0 32px rgba(225, 29, 72, 0.3);
-  }
-}
-
-/* Sticky bar transitions */
-.sticky-slide-enter-active,
-.sticky-slide-leave-active {
-  transition: transform 0.3s ease;
-}
-
-.sticky-slide-enter-from,
-.sticky-slide-leave-to {
-  transform: translateY(100%);
-}
-
-/* Hide number arrows */
 ::-webkit-inner-spin-button,
 ::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-/* Animations */
-.animate-fade-in-up {
-  animation: fadeInUp 0.7s ease-out both;
+.sticky-bar-enter-active {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
 }
-
-.delay-100 {
-  animation-delay: 0.1s;
+.sticky-bar-leave-active {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 1, 1), opacity 0.2s ease;
 }
-
-.delay-200 {
-  animation-delay: 0.2s;
+.sticky-bar-enter-from {
+  transform: translateY(100%);
+  opacity: 0;
 }
-
-.delay-300 {
-  animation-delay: 0.3s;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes line-expand {
-  from {
-    width: 0;
-    opacity: 0;
-  }
-
-  to {
-    width: 5rem;
-    opacity: 1;
-  }
-}
-
-@keyframes submit-sweep {
-  0% {
-    left: -100%;
-  }
-
-  50% {
-    left: 150%;
-  }
-
-  100% {
-    left: 150%;
-  }
-}
-
-@keyframes pulse-dot {
-
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: 0.4;
-    transform: scale(0.7);
-  }
+.sticky-bar-leave-to {
+  transform: translateY(100%);
+  opacity: 0;
 }
 </style>
