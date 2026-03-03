@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto py-6 md:py-12 px-4 md:px-0" :class="showStickyBar ? 'pb-40 md:pb-44' : ''">
+  <div class="container mx-auto py-6 md:py-12 px-4 md:px-0" :class="showStickyBar ? 'pb-40 md:pb-12' : ''">
     <div class="text-center">
       <p class="text-[26px] md:text-[46px] font-[700] text-[#0381e0]">
         প্রয়োজনে কল করো- <a href="tel:+8801646664222" class="text-[#0381e0]">01646664222</a>
@@ -144,14 +144,14 @@
 
               <!-- Terms -->
               <div class="pt-5">
-                <label class="flex items-start gap-x-2 cursor-pointer">
-                  <input v-model="checkText" type="checkbox" class="mt-0.5 w-[18px] h-[18px] accent-[#0381e0] rounded">
+                <div class="flex items-start gap-x-2">
+                  <Icon class="text-[#0381e0] text-[18px] shrink-0 mt-0.5" name="ph:check-circle-fill"/>
                   <span class="text-[13px] md:text-[14px] text-gray-600 leading-tight">I Agree to the
                     <a href="https://www.etestpaper.net/about/terms" target="_blank" class="text-[#0381e0] font-[600]">Terms & Conditions</a>,
                     <a href="https://www.etestpaper.net/about/privacy" target="_blank" class="text-[#0381e0] font-[600]">Privacy Policy</a> &
                     <a href="https://www.etestpaper.net/about/refund" target="_blank" class="text-[#0381e0] font-[600]">Refund Policy</a>
                   </span>
-                </label>
+                </div>
               </div>
 
               <!-- Submit -->
@@ -192,7 +192,7 @@
 
   <!-- Sticky Bottom Bar (hidden when order form is in view) -->
   <Transition name="sticky-bar">
-  <div v-if="showStickyBar" class="fixed bottom-0 left-0 right-0 z-40">
+  <div v-if="showStickyBar" class="fixed bottom-0 left-0 right-0 z-40 md:hidden">
     <!-- Glassmorphism backdrop -->
     <div class="bg-white/80 backdrop-blur-xl border-t border-white/50 shadow-[0_-8px_32px_rgba(0,0,0,0.12)]">
 
@@ -298,7 +298,7 @@ const selectedGroup = ref(null)
 const name = ref('')
 const phone = ref(null)
 const coupon = ref(null)
-const checkText = ref('')
+const checkText = ref(true)
 const isLoading = ref(false)
 const typing = ref(false)
 const alreadySubscribed = ref(false)
