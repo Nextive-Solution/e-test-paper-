@@ -13,8 +13,29 @@
       <div class="container mx-auto flex flex-col items-center px-4 md:px-6 py-6 md:py-12 relative z-10">
 
         <!-- Countdown timer -->
-        <div class="w-full flex justify-center mb-6 md:mb-10 animate-fade-in-up">
+        <div class="w-full flex justify-center mb-4 md:mb-6 animate-fade-in-up">
           <CountDown />
+        </div>
+
+        <!-- Featured Plans below countdown -->
+        <div v-if="plans.length" class="w-full flex justify-center mb-6 md:mb-10 animate-fade-in-up delay-50">
+          <div class="flex gap-3 md:gap-4">
+            <div
+              v-for="plan in plans"
+              :key="plan.name"
+              @click="findActiveLayer"
+              class="plan-card cursor-pointer"
+            >
+              <div class="plan-batch-year">{{ plan.batchYear }}</div>
+              <div class="plan-info">
+                <p class="plan-name font-['Hind_Siliguri']">{{ plan.displayName }}</p>
+                <div class="plan-pricing">
+                  <span class="plan-original-price">৳{{ plan.originalPrice }}</span>
+                  <span class="plan-display-price">৳{{ plan.displayPrice }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Main heading -->
@@ -94,7 +115,50 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue';
 import CountDown from "~/components/common/CountDown.vue";
+
+const config = useRuntimeConfig();
+const apiBase = config.public.apiBase;
+
+const plans = ref([]);
+
+const getDisplayPrice = (plan) => {
+  if (plan.offer_price != null) return plan.offer_price;
+  if (plan.discount_expired_at > Date.now()) return plan.price - plan.discount;
+  return plan.price;
+};
+
+const getBatchYear = (batch) => {
+  const match = batch.match(/\d{4}/);
+  return match ? match[0].slice(-2) : '';
+};
+
+onMounted(async () => {
+  try {
+    const { data } = await useFetch(`${apiBase}/subscription/plans`);
+    if (data.value?.subscriptions) {
+      const offerPlans = data.value.subscriptions.filter(s => s.show_on_offer === true);
+      const batchMap = {};
+      for (const plan of offerPlans) {
+        if (!batchMap[plan.batch]) {
+          const origPrice = plan.base_offer_price ?? plan.price;
+          const dispPrice = getDisplayPrice(plan);
+          batchMap[plan.batch] = {
+            name: plan.batch,
+            displayName: plan.batch,
+            batchYear: getBatchYear(plan.batch),
+            originalPrice: origPrice,
+            displayPrice: dispPrice,
+          };
+        }
+      }
+      plans.value = Object.values(batchMap).sort((a, b) => a.name.localeCompare(b.name));
+    }
+  } catch (e) {
+    console.error('Failed to fetch plans for banner', e);
+  }
+});
 
 const findActiveLayer = () => {
   const currentActiveElement = document.getElementById('orderSection');
@@ -357,6 +421,96 @@ const findActiveLayer = () => {
     font-size: 15px;
     gap: 8px;
   }
+}
+
+/* Featured Plan Cards */
+.plan-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(13, 86, 139, 0.15);
+  border-radius: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 12px rgba(13, 86, 139, 0.08);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(13, 86, 139, 0.15);
+    border-color: rgba(13, 86, 139, 0.3);
+  }
+
+  @media (min-width: 768px) {
+    padding: 14px 20px;
+    gap: 14px;
+    border-radius: 16px;
+  }
+}
+
+.plan-batch-year {
+  background: linear-gradient(135deg, #0d568b, #2f8ce2);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 900;
+  font-style: italic;
+  padding: 4px 10px;
+  border-radius: 8px;
+  line-height: 1.2;
+  box-shadow: 0 2px 8px rgba(13, 86, 139, 0.25);
+
+  @media (min-width: 768px) {
+    font-size: 28px;
+    padding: 6px 14px;
+  }
+}
+
+.plan-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.plan-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1e3a5f;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
+}
+
+.plan-pricing {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.plan-original-price {
+  font-size: 12px;
+  font-weight: 500;
+  color: #ef4444;
+  text-decoration: line-through;
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
+}
+
+.plan-display-price {
+  font-size: 16px;
+  font-weight: 800;
+  color: #047857;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
+}
+
+.delay-50 {
+  animation-delay: 0.05s;
 }
 
 /* Animations */
