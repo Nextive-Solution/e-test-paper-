@@ -1,8 +1,8 @@
 <template>
-  <section class="countdown-wrapper">
+  <section v-if="isLoaded" class="countdown-wrapper">
     <div class="countdown-header">
       <div class="pulse-dot"></div>
-      <span class="countdown-label font-['Hind_Siliguri']">অফার শেষ হচ্ছে</span>
+      <span class="countdown-label font-['Hind_Siliguri']">স্পেশাল অফার শেষ হচ্ছে</span>
       <div class="pulse-dot"></div>
     </div>
     <div class="countdown-grid">
@@ -18,12 +18,16 @@
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 import Clock from './Clock.vue';
 
+const config = useRuntimeConfig();
+const apiBase = config.public.apiBase;
+
 const banglaDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
 const toBangla = (str) => String(str).replace(/[0-9]/g, (d) => banglaDigits[d]);
 
 const hours = ref('00');
 const minutes = ref('00');
 const seconds = ref('00');
+const isLoaded = ref(false);
 let interval;
 
 const timeUnits = computed(() => [
@@ -32,15 +36,16 @@ const timeUnits = computed(() => [
   { label: 'সেকেন্ড', value: toBangla(seconds.value) },
 ]);
 
-const startTimer = () => {
-  const countDownDate = new Date().getTime() + 24 * 60 * 60 * 1000;
-
+const startTimer = (countDownDate) => {
   interval = setInterval(() => {
     const now = new Date().getTime();
     const distance = countDownDate - now;
 
     if (distance < 0) {
       clearInterval(interval);
+      hours.value = '00';
+      minutes.value = '00';
+      seconds.value = '00';
     } else {
       const totalHours = Math.floor(distance / (1000 * 60 * 60));
       const minute = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -53,8 +58,27 @@ const startTimer = () => {
   }, 1000);
 };
 
+const fetchCountdown = async () => {
+  try {
+    const res = await $fetch(`${apiBase}/offer-site/countdown`);
+    const counterData = res?.data;
+
+    if (!counterData) return;
+
+    const countDownDate = new Date(counterData.targetDate).getTime();
+
+    isLoaded.value = true;
+    startTimer(countDownDate);
+  } catch (e) {
+    // Fallback to 24h countdown if API fails
+    isLoaded.value = true;
+    const fallback = new Date().getTime() + 24 * 60 * 60 * 1000;
+    startTimer(fallback);
+  }
+};
+
 onMounted(() => {
-  startTimer();
+  fetchCountdown();
 });
 
 onBeforeUnmount(() => {

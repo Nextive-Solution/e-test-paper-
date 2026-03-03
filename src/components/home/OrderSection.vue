@@ -97,9 +97,11 @@
               <!-- Phone -->
               <div class="pt-5">
                 <label class="text-[13px] md:text-[14px] font-[700] text-gray-700 uppercase tracking-wide">Phone Number <span class="text-red-500">*</span></label>
-                <input v-model="phone" type="text"
-                       class="mt-1.5 border border-gray-200 bg-white focus:border-[#0381e0] text-[15px] md:text-[16px] rounded-xl px-4 py-3 w-full outline-none transition-colors duration-200"
+                <input v-model="phone" type="text" maxlength="11"
+                       class="mt-1.5 border bg-white text-[15px] md:text-[16px] rounded-xl px-4 py-3 w-full outline-none transition-colors duration-200"
+                       :class="phone && !isValidPhone ? 'border-red-400 focus:border-red-400' : 'border-gray-200 focus:border-[#0381e0]'"
                        placeholder="01XXXXXXXXX"/>
+                <p v-if="phoneError" class="text-red-500 text-[12px] md:text-[13px] font-[500] mt-1">{{ phoneError }}</p>
               </div>
 
               <!-- Batch selector inside form -->
@@ -304,12 +306,18 @@ const typing = ref(false)
 const alreadySubscribed = ref(false)
 const alreadySubscribedMsg = ref('')
 
+const isValidPhone = computed(() => /^01[3-9]\d{8}$/.test(phone.value))
+const phoneError = computed(() => {
+  if (!phone.value) return ''
+  return isValidPhone.value ? '' : 'সঠিক ফোন নাম্বার দিন (01XXXXXXXXX)'
+})
+
 const showStickyBar = computed(() => {
   return !plansLoading.value && batchList.value.length > 0 && !formVisible.value
 })
 
 const buttonDisabled = computed(() => {
-  return !name.value || !phone.value || !selectedBatch.value || !selectedGroup.value || !checkText.value || alreadySubscribed.value
+  return !name.value || !isValidPhone.value || !selectedBatch.value || !selectedGroup.value || !checkText.value || alreadySubscribed.value
 })
 
 const selectBatch = (batch) => {

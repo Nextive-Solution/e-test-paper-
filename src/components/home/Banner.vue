@@ -2,7 +2,7 @@
   <div class="banner-root">
     <!-- Top promotional banner -->
     <div @click="findActiveLayer" class="top-banner cursor-pointer ">
-      <img class="w-full h-[70px] md:h-auto object-fill" loading="lazy" src="/banner/topBanner.png"
+      <img class="w-full h-[110px] md:h-auto object-fill" loading="lazy" src="/banner/topBanner.png"
         alt="Promotional banner" />
     </div>
 
