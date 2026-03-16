@@ -1,9 +1,6 @@
 <script setup>
 import OfferBanner from "~/components/offer/OfferBanner.vue";
-import Feature from "~/components/home/Feature.vue";
-import Review from "~/components/home/Review.vue";
 import OfferOrderSection from "~/components/offer/OfferOrderSection.vue";
-import SpecialFeature from "~/components/home/SpecialFeature.vue";
 
 const route = useRoute();
 const config = useRuntimeConfig();
@@ -60,15 +57,6 @@ await resolveOfferPage();
   <template v-else-if="offerId">
     <div class="bg-[#f6fcfd]">
       <OfferBanner :offer="offerId" :batch="offerBatch" />
-    </div>
-    <div class="bg-[#b8e0fc]">
-      <Feature />
-    </div>
-    <div>
-      <Review />
-    </div>
-    <div>
-      <SpecialFeature />
     </div>
     <div id="orderSection" class="bg-[#e7f3fc]">
       <OfferOrderSection :offer="offerId" :batch="offerBatch" />
