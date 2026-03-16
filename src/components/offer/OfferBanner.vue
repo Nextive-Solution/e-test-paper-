@@ -1,0 +1,481 @@
+<template>
+  <div class="banner-root">
+    <!-- Top promotional banner -->
+    <div @click="findActiveLayer" class="top-banner cursor-pointer">
+      <img class="w-full h-[110px] md:h-auto object-fill" loading="lazy" src="/banner/topBanner.png"
+        alt="Promotional banner" />
+    </div>
+
+    <!-- Hero section -->
+    <div class="hero-section">
+      <div class="container mx-auto flex flex-col items-center px-4 md:px-6 py-6 md:py-12 relative z-10">
+
+        <!-- Countdown timer -->
+        <div class="w-full flex justify-center mb-4 md:mb-6 animate-fade-in-up">
+          <OfferCountDown :offer="offer" />
+        </div>
+
+        <!-- Featured Plans below countdown -->
+        <div v-if="plans.length" class="w-full flex justify-center mb-6 md:mb-10 animate-fade-in-up delay-50">
+          <div class="flex gap-3 md:gap-4">
+            <div
+              v-for="plan in plans"
+              :key="plan.name"
+              @click="findActiveLayer"
+              class="plan-card cursor-pointer"
+            >
+              <div class="plan-batch-year">{{ plan.batchYear }}</div>
+              <div class="plan-info">
+                <p class="plan-name font-['Hind_Siliguri']">{{ plan.displayName }}</p>
+                <div class="plan-pricing">
+                  <span class="plan-original-price">৳{{ plan.originalPrice }}</span>
+                  <span class="plan-display-price">৳{{ plan.displayPrice }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main heading -->
+        <div class="text-center mb-4 md:mb-6 animate-fade-in-up delay-100">
+          <h1 class="text-[24px] md:text-[48px] lg:text-[56px] leading-tight font-['Siyam_Rupali']">
+            <span class="hero-title-gradient font-[800]">ই-টেস্টপেপার</span>
+          </h1>
+          <p
+            class="text-[18px] md:text-[32px] lg:text-[40px] text-slate-700 font-[700] font-['Siyam_Rupali'] mt-1 md:mt-2">
+            দেশের প্রথম এবং একমাত্র ডিজিটাল টেস্টপেপার
+          </p>
+        </div>
+
+        <!-- Subtitle -->
+        <div class="text-center max-w-5xl mb-6 md:mb-10 animate-fade-in-up delay-200">
+          <p
+            class="text-[15px] md:text-[24px] lg:text-[28px] text-slate-600 font-[600] font-['Hind_Siliguri'] leading-relaxed">
+            যা এইচএসসি শিক্ষার্থীদের
+            <span class="highlight-text">গাইডবই, সাপ্লিমেন্ট</span>
+            এবং
+            <span class="highlight-text">টেস্টপেপার</span>
+            এর একমাত্র ডিজিটাল বিকল্প
+          </p>
+        </div>
+
+        <!-- Video embed -->
+        <div class="video-wrapper animate-fade-in-up delay-300">
+          <div class="video-container">
+            <iframe class="video-iframe" src="https://www.youtube.com/embed/SW4UteiYzV8?si=DzqmKioZztzTfDJC"
+              title="E-Test Paper Introduction"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="mt-6 md:mt-10 animate-fade-in-up delay-400">
+          <button @click="findActiveLayer" class="cta-main group">
+            <span class="cta-text font-['Hind_Siliguri']">৫ লাখ শিক্ষার্থীর সাথে যুক্ত হও তুমিও</span>
+            <svg class="cta-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Trust badges -->
+        <div class="trust-badges mt-6 md:mt-8 animate-fade-in-up delay-500">
+          <div class="badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+            <span class="font-['Hind_Siliguri']">৫ লাখ+ শিক্ষার্থী</span>
+          </div>
+          <div class="badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+            </svg>
+            <span class="font-['Hind_Siliguri']">সেরা রেটিং</span>
+          </div>
+          <div class="badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+            <span class="font-['Hind_Siliguri']">নিরাপদ পেমেন্ট</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import OfferCountDown from "~/components/common/OfferCountDown.vue";
+
+const props = defineProps({
+  offer: {
+    type: String,
+    required: true
+  },
+  batch: {
+    type: String,
+    default: null
+  }
+});
+
+const config = useRuntimeConfig();
+const apiBase = config.public.apiBase;
+
+const plans = ref([]);
+
+const offerPriceKey = `offer_price_${props.offer}`;
+const baseOfferPriceKey = `base_offer_price_${props.offer}`;
+const showOnOfferKey = `show_on_offer_${props.offer}`;
+
+const getDisplayPrice = (plan) => {
+  if (plan[offerPriceKey] != null) return plan[offerPriceKey];
+  if (plan.offer_price != null) return plan.offer_price;
+  if (plan.discount_expired_at > Date.now()) return plan.price - plan.discount;
+  return plan.price;
+};
+
+const getBatchYear = (batch) => {
+  const match = batch.match(/\d{4}/);
+  return match ? match[0].slice(-2) : '';
+};
+
+onMounted(async () => {
+  try {
+    const { data } = await useFetch(`${apiBase}/subscription/plans`);
+    if (data.value?.subscriptions) {
+      let offerPlans = data.value.subscriptions.filter(s => s[showOnOfferKey] === true);
+      if (props.batch) {
+        offerPlans = offerPlans.filter(s => s.batch === props.batch);
+      }
+      const batchMap = {};
+      for (const plan of offerPlans) {
+        if (!batchMap[plan.batch]) {
+          const origPrice = plan[baseOfferPriceKey] ?? plan.base_offer_price ?? plan.price;
+          const dispPrice = getDisplayPrice(plan);
+          batchMap[plan.batch] = {
+            name: plan.batch,
+            displayName: plan.batch,
+            batchYear: getBatchYear(plan.batch),
+            originalPrice: origPrice,
+            displayPrice: dispPrice,
+          };
+        }
+      }
+      plans.value = Object.values(batchMap).sort((a, b) => a.name.localeCompare(b.name));
+    }
+  } catch (e) {
+    console.error('Failed to fetch plans for banner', e);
+  }
+});
+
+const findActiveLayer = () => {
+  const currentActiveElement = document.getElementById('orderSection');
+  if (currentActiveElement) {
+    currentActiveElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+};
+</script>
+
+<style lang="scss" scoped>
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #f6fcfd 0%, #e8f4fc 40%, #f6fcfd 100%);
+}
+
+.hero-title-gradient {
+  background: linear-gradient(135deg, #0d568b 0%, #2f8ce2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.highlight-text {
+  color: #2f8ce2;
+  font-weight: 700;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #e11d48, #f43f5e);
+    border-radius: 2px;
+    opacity: 0.7;
+  }
+}
+
+.video-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  padding: 4px;
+  background: linear-gradient(135deg, #0d568b, #2f8ce2);
+  border-radius: 16px;
+  box-shadow:
+    0 20px 60px rgba(13, 86, 139, 0.2),
+    0 8px 24px rgba(0, 0, 0, 0.08);
+
+  @media (min-width: 768px) {
+    padding: 5px;
+    border-radius: 24px;
+  }
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  border-radius: 13px;
+  overflow: hidden;
+  background: #000;
+
+  @media (min-width: 768px) {
+    border-radius: 20px;
+  }
+}
+
+.video-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.cta-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #0d568b, #2f8ce2);
+  color: #ffffff;
+  border: none;
+  border-radius: 60px;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow:
+    0 4px 20px rgba(13, 86, 139, 0.35),
+    0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow:
+      0 8px 32px rgba(13, 86, 139, 0.45),
+      0 4px 12px rgba(0, 0, 0, 0.15);
+
+    &::before {
+      left: 100%;
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+
+  @media (min-width: 768px) {
+    padding: 18px 42px;
+    font-size: 22px;
+    gap: 14px;
+  }
+}
+
+.cta-arrow {
+  transition: transform 0.3s ease;
+
+  .group:hover & {
+    transform: translateX(4px);
+  }
+
+  @media (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.trust-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+
+  @media (min-width: 768px) {
+    gap: 20px;
+  }
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(13, 86, 139, 0.12);
+  border-radius: 40px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #0d568b;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(13, 86, 139, 0.3);
+    transform: translateY(-1px);
+  }
+
+  svg {
+    color: #2f8ce2;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 768px) {
+    padding: 10px 20px;
+    font-size: 15px;
+    gap: 8px;
+  }
+}
+
+.plan-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(13, 86, 139, 0.15);
+  border-radius: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 12px rgba(13, 86, 139, 0.08);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(13, 86, 139, 0.15);
+    border-color: rgba(13, 86, 139, 0.3);
+  }
+
+  @media (min-width: 768px) {
+    padding: 14px 20px;
+    gap: 14px;
+    border-radius: 16px;
+  }
+}
+
+.plan-batch-year {
+  background: linear-gradient(135deg, #0d568b, #2f8ce2);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 900;
+  font-style: italic;
+  padding: 4px 10px;
+  border-radius: 8px;
+  line-height: 1.2;
+  box-shadow: 0 2px 8px rgba(13, 86, 139, 0.25);
+
+  @media (min-width: 768px) {
+    font-size: 28px;
+    padding: 6px 14px;
+  }
+}
+
+.plan-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.plan-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1e3a5f;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
+}
+
+.plan-pricing {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.plan-original-price {
+  font-size: 12px;
+  font-weight: 500;
+  color: #ef4444;
+  text-decoration: line-through;
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
+}
+
+.plan-display-price {
+  font-size: 16px;
+  font-weight: 800;
+  color: #047857;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
+}
+
+.delay-50 { animation-delay: 0.05s; }
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s ease-out both;
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.top-banner {
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.92;
+  }
+}
+</style>
