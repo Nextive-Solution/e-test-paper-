@@ -2,7 +2,7 @@
   <section v-if="isLoaded" class="countdown-wrapper">
     <div class="countdown-header">
       <div class="pulse-dot"></div>
-      <span class="countdown-label font-['Hind_Siliguri']">স্পেশাল অফার শেষ হচ্ছে</span>
+      <span class="countdown-label font-['Hind_Siliguri']">{{ countdownTitle }}</span>
       <div class="pulse-dot"></div>
     </div>
     <div class="countdown-grid">
@@ -35,6 +35,7 @@ const hours = ref('00');
 const minutes = ref('00');
 const seconds = ref('00');
 const isLoaded = ref(false);
+const countdownTitle = ref('স্পেশাল অফার শেষ হচ্ছে');
 let interval;
 
 const timeUnits = computed(() => [
@@ -72,6 +73,9 @@ const fetchCountdown = async () => {
 
     if (!counterData) return;
 
+    if (counterData.title) {
+      countdownTitle.value = counterData.title;
+    }
     const countDownDate = new Date(counterData.targetDate).getTime();
 
     isLoaded.value = true;

@@ -1,5 +1,8 @@
 <template>
-  <div class="w-full flex justify-center py-6 md:py-12">
+  <div class="w-full flex flex-col items-center py-6 md:py-12">
+    <h1 v-if="title" class="text-[22px] md:text-[40px] font-[800] text-[#0d568b] text-center mb-4 md:mb-6 font-['Hind_Siliguri']">
+      {{ title }}
+    </h1>
     <OfferCountDown :offer="offer" />
   </div>
 </template>
@@ -12,9 +15,9 @@ defineProps({
     type: String,
     required: true
   },
-  batch: {
+  title: {
     type: String,
-    default: null
+    default: ''
   }
 });
 </script>

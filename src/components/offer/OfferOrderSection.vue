@@ -251,10 +251,6 @@ const props = defineProps({
   offer: {
     type: String,
     required: true
-  },
-  batch: {
-    type: String,
-    default: null
   }
 });
 
@@ -375,10 +371,7 @@ onMounted(async () => {
     plansLoading.value = true
     const { data } = await useFetch(`${apiBase}/subscription/plans`)
     if (data.value?.subscriptions) {
-      let offerPlans = data.value.subscriptions.filter(s => s[showOnOfferKey] === true)
-      if (props.batch) {
-        offerPlans = offerPlans.filter(s => s.batch === props.batch)
-      }
+      const offerPlans = data.value.subscriptions.filter(s => s[showOnOfferKey] === true)
 
       const batchMap = {}
       for (const plan of offerPlans) {

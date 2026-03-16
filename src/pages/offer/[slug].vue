@@ -7,7 +7,6 @@ const config = useRuntimeConfig();
 const apiBase = config.public.apiBase;
 
 const offerId = ref(null);
-const offerBatch = ref(null);
 const pageTitle = ref('');
 const pageLoading = ref(true);
 
@@ -18,8 +17,8 @@ const resolveOfferPage = async () => {
   if (['2', '3'].includes(slug)) {
     try {
       const res = await $fetch(`${apiBase}/offer-site/offer-page/by-offer/${slug}`);
-      if (res?.data?.length > 0 && res.data[0].slug) {
-        navigateTo(`/offer/${res.data[0].slug}`, { redirectCode: 301, replace: true });
+      if (res?.data?.slug) {
+        navigateTo(`/offer/${res.data.slug}`, { redirectCode: 301, replace: true });
         return;
       }
     } catch (e) {
@@ -34,7 +33,6 @@ const resolveOfferPage = async () => {
     const data = await $fetch(`${apiBase}/offer-site/offer-page/by-slug/${slug}`);
     if (data?.data) {
       offerId.value = data.data.offer;
-      offerBatch.value = data.data.batch;
       pageTitle.value = data.data.title;
       useHead({ title: pageTitle.value });
     } else {
@@ -56,10 +54,10 @@ await resolveOfferPage();
   </div>
   <template v-else-if="offerId">
     <div class="bg-[#f6fcfd]">
-      <OfferBanner :offer="offerId" :batch="offerBatch" />
+      <OfferBanner :offer="offerId" :title="pageTitle" />
     </div>
     <div id="orderSection" class="bg-[#e7f3fc]">
-      <OfferOrderSection :offer="offerId" :batch="offerBatch" />
+      <OfferOrderSection :offer="offerId" />
     </div>
   </template>
 </template>
