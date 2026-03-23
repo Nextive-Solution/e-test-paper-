@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto py-8 md:py-12 px-4 md:px-0">
+  <div class="max-w-3xl mx-auto py-8 md:py-12 px-4 md:px-0">
     <swiper
       :slides-per-view="1"
       :space-between="20"
