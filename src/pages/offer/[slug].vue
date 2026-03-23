@@ -1,6 +1,7 @@
 <script setup>
 import OfferBanner from "~/components/offer/OfferBanner.vue";
 import OfferOrderSection from "~/components/offer/OfferOrderSection.vue";
+import ImageSlider from "~/components/home/ImageSlider.vue";
 
 const route = useRoute();
 const config = useRuntimeConfig();
@@ -58,6 +59,9 @@ await resolveOfferPage();
     </div>
     <div id="orderSection" class="bg-[#e7f3fc]">
       <OfferOrderSection :offer="offerId" />
+    </div>
+    <div>
+      <ImageSlider />
     </div>
   </template>
 </template>

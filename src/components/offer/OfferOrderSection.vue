@@ -308,7 +308,7 @@
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-300 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400"></span>
           </span>
-          অর্ডার করুন
+          পেমেন্ট করুন
         </button>
       </div>
     </div>
