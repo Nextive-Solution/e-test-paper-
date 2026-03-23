@@ -50,9 +50,19 @@ const images = [
 </script>
 
 <style scoped>
+.image-slider :deep(.swiper-pagination) {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
 .image-slider :deep(.swiper-pagination-bullet) {
   background: #0381e0;
   opacity: 0.4;
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  margin: 0 !important;
 }
 .image-slider :deep(.swiper-pagination-bullet-active) {
   opacity: 1;

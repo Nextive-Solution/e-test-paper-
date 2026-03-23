@@ -2,7 +2,7 @@
   <div class="container mx-auto py-6 md:py-12 px-4 md:px-0" :class="showStickyBar ? 'pb-40 md:pb-12' : ''">
     <div class="text-center">
       <p class="text-[26px] md:text-[46px] font-[700] text-[#0381e0]">
-        প্রয়োজনে কল করো- <a href="tel:+8801646664222" class="text-[#0381e0]">01646664222</a>
+        প্রয়োজনে কল/হোয়াটসঅ্যাপ করো- <a href="tel:+8801646664222" class="text-[#0381e0]">01646664222</a>
       </p>
     </div>
     <div class="text-center pt-2 md:pt-4">
@@ -69,6 +69,10 @@
                   <span class="text-red-400 line-through text-[13px] md:text-[17px] font-[500]">৳{{ batch.originalPrice }}</span>
                   <span class="text-[18px] md:text-[24px] font-[800] text-[#047857]">৳{{ batch.displayPrice }}</span>
                 </div>
+                <p v-if="batch.validity" class="text-[11px] md:text-[13px] font-[600] text-gray-400 mt-1">
+                  <Icon name="ph:calendar-blank-bold" class="inline-block text-[13px] md:text-[15px] align-text-bottom mr-0.5"/>
+                  {{ new Date(batch.validity).toLocaleDateString('bn-BD', { day: 'numeric', month: 'long', year: 'numeric' }) }} পর্যন্ত
+                </p>
               </div>
             </div>
           </div>
@@ -458,6 +462,7 @@ onMounted(async () => {
             originalPrice: origPrice,
             displayPrice: dispPrice,
             discountPercent: discPct > 0 ? discPct : 0,
+            validity: plan.validity,
             features: featuresByBatch[plan.batch] || [],
             groups: [],
             plans: []
