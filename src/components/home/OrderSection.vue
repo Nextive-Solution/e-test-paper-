@@ -2,7 +2,7 @@
   <div class="container mx-auto py-6 md:py-12 px-4 md:px-0" :class="showStickyBar ? 'pb-40 md:pb-12' : ''">
     <div class="text-center">
       <p class="text-[26px] md:text-[46px] font-[700] text-[#0381e0]">
-        প্রয়োজনে কল করো- <a href="tel:+8801646664222" class="text-[#0381e0]">01646664222</a>
+        প্রয়োজনে কল/হোয়াটসঅ্যাপ করো- <a href="tel:+8801646664222" class="text-[#0381e0]">01646664222</a>
       </p>
     </div>
     <div class="text-center pt-2 md:pt-4">
@@ -69,6 +69,10 @@
                   <span class="text-red-400 line-through text-[13px] md:text-[17px] font-[500]">৳{{ batch.originalPrice }}</span>
                   <span class="text-[18px] md:text-[24px] font-[800] text-[#047857]">৳{{ batch.displayPrice }}</span>
                 </div>
+                <p v-if="batch.validity" class="text-[11px] md:text-[13px] font-[600] text-gray-400 mt-1">
+                  <Icon name="ph:calendar-blank-bold" class="inline-block text-[13px] md:text-[15px] align-text-bottom mr-0.5"/>
+                  {{ new Date(batch.validity).toLocaleDateString('bn-BD', { day: 'numeric', month: 'long', year: 'numeric' }) }} পর্যন্ত
+                </p>
               </div>
             </div>
           </div>
@@ -144,13 +148,83 @@
                 </div>
               </div>
 
-              <!-- Terms -->
+              <!-- Payment Method Selection -->
               <div class="pt-5">
+                <p class="text-[16px] md:text-[18px] font-[700] text-gray-800 flex items-center gap-2">
+                  <Icon name="ph:credit-card-fill" class="text-[#0381e0] text-[20px]"/>
+                  Select Payment Method
+                </p>
+                <div class="mt-3 space-y-2.5">
+                  <!-- bKash Option -->
+                  <div
+                    @click="paymentMethod = 'bkash'"
+                    class="cursor-pointer rounded-xl p-3.5 md:p-4 flex items-center justify-between transition-all duration-200"
+                    :class="paymentMethod === 'bkash'
+                      ? 'ring-2 ring-[#E2136E] bg-pink-50/40'
+                      : 'ring-1 ring-gray-200 bg-white hover:ring-gray-300'"
+                  >
+                    <div class="flex items-center gap-3">
+                      <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0"
+                           :class="paymentMethod === 'bkash' ? 'border-[#E2136E]' : 'border-gray-300'">
+                        <div v-if="paymentMethod === 'bkash'" class="w-2.5 h-2.5 rounded-full bg-[#E2136E]"></div>
+                      </div>
+                      <span class="text-[14px] md:text-[16px] font-[600] text-gray-700">bKash</span>
+                    </div>
+                    <img src="/images/bkash.webp" alt="bKash" class="h-6 md:h-7 object-contain"/>
+                  </div>
+
+                  <!-- SSL Option -->
+                  <div
+                    @click="paymentMethod = 'ssl'"
+                    class="cursor-pointer rounded-xl p-3.5 md:p-4 flex items-center justify-between transition-all duration-200"
+                    :class="paymentMethod === 'ssl'
+                      ? 'ring-2 ring-[#0381e0] bg-blue-50/40'
+                      : 'ring-1 ring-gray-200 bg-white hover:ring-gray-300'"
+                  >
+                    <div class="flex items-center gap-3">
+                      <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0"
+                           :class="paymentMethod === 'ssl' ? 'border-[#0381e0]' : 'border-gray-300'">
+                        <div v-if="paymentMethod === 'ssl'" class="w-2.5 h-2.5 rounded-full bg-[#0381e0]"></div>
+                      </div>
+                      <span class="text-[14px] md:text-[16px] font-[600] text-gray-700">Nagad/Rocket/Visa/Master Card</span>
+                    </div>
+                    <img src="/images/gateway/SSLCommers.png" alt="SSLCommerz" class="h-6 md:h-7 object-contain"/>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Order Summary -->
+              <div v-if="selectedBatch" class="mt-5 bg-white rounded-xl border border-gray-200 p-4 md:p-5">
+                <p class="text-[16px] md:text-[18px] font-[700] text-gray-800 flex items-center gap-2 pb-3">
+                  <Icon name="ph:receipt-fill" class="text-[#0381e0] text-[20px]"/>
+                  Order Summary
+                </p>
+                <div class="space-y-2.5">
+                  <div class="flex items-center justify-between">
+                    <span class="text-[13px] md:text-[15px] text-gray-500 font-[500]">Price (Subtotal)</span>
+                    <span class="text-[14px] md:text-[16px] font-[600] text-gray-700">৳ {{ selectedBatch.originalPrice?.toLocaleString() }}</span>
+                  </div>
+                  <div v-if="selectedBatch.discountPercent > 0" class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <span class="text-[13px] md:text-[15px] text-gray-500 font-[500]">Discount</span>
+                      <span class="bg-[#047857] text-white text-[11px] md:text-[12px] font-[700] px-2 py-0.5 rounded-full">{{ selectedBatch.discountPercent }}% ছাড়</span>
+                    </div>
+                    <span class="text-[14px] md:text-[16px] font-[600] text-red-500">- ৳ {{ (selectedBatch.originalPrice - selectedBatch.displayPrice)?.toLocaleString() }}</span>
+                  </div>
+                </div>
+                <div class="border-t border-gray-200 mt-3 pt-3 flex items-center justify-between">
+                  <span class="text-[15px] md:text-[17px] font-[800] text-gray-800">Total Amount</span>
+                  <span class="text-[20px] md:text-[24px] font-[800] text-[#047857]">৳ {{ selectedBatch.displayPrice?.toLocaleString() }}</span>
+                </div>
+              </div>
+
+              <!-- Terms -->
+              <div class="pt-4">
                 <div class="flex items-start gap-x-2">
                   <Icon class="text-[#0381e0] text-[18px] shrink-0 mt-0.5" name="ph:check-circle-fill"/>
-                  <span class="text-[13px] md:text-[14px] text-gray-600 leading-tight">I Agree to the
+                  <span class="text-[13px] md:text-[14px] text-gray-600 leading-tight">I Have Read And Agree To The
                     <a href="https://www.etestpaper.net/about/terms" target="_blank" class="text-[#0381e0] font-[600]">Terms & Conditions</a>,
-                    <a href="https://www.etestpaper.net/about/privacy" target="_blank" class="text-[#0381e0] font-[600]">Privacy Policy</a> &
+                    <a href="https://www.etestpaper.net/about/privacy" target="_blank" class="text-[#0381e0] font-[600]">Privacy Policy</a>, And
                     <a href="https://www.etestpaper.net/about/refund" target="_blank" class="text-[#0381e0] font-[600]">Refund Policy</a>
                   </span>
                 </div>
@@ -158,10 +232,11 @@
 
               <!-- Submit -->
               <button @click="submit" :disabled="buttonDisabled || isLoading"
-                      :class="buttonDisabled || isLoading ? 'bg-gray-300 text-gray-400 cursor-not-allowed' : 'bg-gradient-to-r from-[#0d568b] to-[#2f8ce2] text-white hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-200 cursor-pointer'"
-                      class="w-full text-[18px] md:text-[22px] font-[700] rounded-xl py-3.5 mt-5 transition-all duration-300 flex items-center justify-center gap-2">
+                      :class="buttonDisabled || isLoading ? 'bg-gray-300 text-gray-400 cursor-not-allowed' : 'bg-gradient-to-r from-[#00b894] to-[#00cec9] text-white hover:-translate-y-0.5 hover:shadow-lg hover:shadow-green-200 cursor-pointer'"
+                      class="w-full text-[18px] md:text-[22px] font-[700] rounded-xl py-3.5 mt-4 transition-all duration-300 flex items-center justify-center gap-2">
                 <div v-if="isLoading" class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                <span>{{ isLoading ? 'প্রসেসিং...' : 'কনফার্ম অর্ডার' }}</span>
+                <Icon v-if="!isLoading" name="ph:lock-simple-fill" class="text-[18px]"/>
+                <span>{{ isLoading ? 'প্রসেসিং...' : 'Proceed To Payment' }}</span>
               </button>
             </div>
           </div>
@@ -243,7 +318,7 @@
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-300 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400"></span>
           </span>
-          অর্ডার করুন
+          পেমেন্ট করুন
         </button>
       </div>
     </div>
@@ -301,6 +376,7 @@ const name = ref('')
 const phone = ref(null)
 const coupon = ref(null)
 const checkText = ref(true)
+const paymentMethod = ref('bkash')
 const isLoading = ref(false)
 const typing = ref(false)
 const alreadySubscribed = ref(false)
@@ -380,6 +456,7 @@ onMounted(async () => {
             originalPrice: origPrice,
             displayPrice: dispPrice,
             discountPercent: discPct > 0 ? discPct : 0,
+            validity: plan.validity,
             features: featuresByBatch[plan.batch] || [],
             groups: [],
             plans: []
@@ -417,17 +494,21 @@ const submit = async () => {
   }
   localStorage.setItem('product', JSON.stringify(selectedBatch.value))
   localStorage.setItem('order', JSON.stringify(payload))
+  const paymentEndpoint = paymentMethod.value === 'bkash'
+    ? `${apiBase}/payment/bkash-external`
+    : `${apiBase}/payment/bkash-thirdparty`
   try {
-    const res = await $fetch(`${apiBase}/payment/bkash-thirdparty`, {
+    const res = await $fetch(paymentEndpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: payload
     })
-    if (res?.GatewayPageURL) {
+    const redirectURL = res?.bkashURL || res?.GatewayPageURL
+    if (redirectURL) {
       localStorage.setItem('order', JSON.stringify(payload))
-      window.location.href = res.GatewayPageURL
+      window.location.href = redirectURL
     }
   } catch (err) {
     const errData = err?.data || err?.response?._data

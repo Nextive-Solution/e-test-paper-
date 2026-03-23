@@ -36,25 +36,33 @@ const timeUnits = computed(() => [
   { label: 'সেকেন্ড', value: toBangla(seconds.value) },
 ]);
 
+let countdownDuration = 0;
+
 const startTimer = (countDownDate) => {
+  const now = new Date().getTime();
+  if (!countdownDuration) {
+    countdownDuration = countDownDate - now;
+    if (countdownDuration <= 0) countdownDuration = 5 * 60 * 1000;
+  }
+
+  let targetDate = countDownDate;
+
   interval = setInterval(() => {
     const now = new Date().getTime();
-    const distance = countDownDate - now;
+    let distance = targetDate - now;
 
-    if (distance < 0) {
-      clearInterval(interval);
-      hours.value = '00';
-      minutes.value = '00';
-      seconds.value = '00';
-    } else {
-      const totalHours = Math.floor(distance / (1000 * 60 * 60));
-      const minute = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const second = Math.floor((distance % (1000 * 60)) / 1000);
-
-      hours.value = totalHours < 10 ? '0' + totalHours : String(totalHours);
-      minutes.value = minute < 10 ? '0' + minute : String(minute);
-      seconds.value = second < 10 ? '0' + second : String(second);
+    if (distance <= 0) {
+      targetDate = now + countdownDuration;
+      distance = countdownDuration;
     }
+
+    const totalHours = Math.floor(distance / (1000 * 60 * 60));
+    const minute = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const second = Math.floor((distance % (1000 * 60)) / 1000);
+
+    hours.value = totalHours < 10 ? '0' + totalHours : String(totalHours);
+    minutes.value = minute < 10 ? '0' + minute : String(minute);
+    seconds.value = second < 10 ? '0' + second : String(second);
   }, 1000);
 };
 

@@ -3,6 +3,7 @@ import Banner from "~/components/home/Banner.vue";
 import Feature from "~/components/home/Feature.vue";
 import Review from "~/components/home/Review.vue";
 import OrderSection from "~/components/home/OrderSection.vue";
+import ImageSlider from "~/components/home/ImageSlider.vue";
 import Service from "~/components/home/Service.vue";
 import SpecialFeature from "~/components/home/SpecialFeature.vue";
 </script>
@@ -34,6 +35,9 @@ import SpecialFeature from "~/components/home/SpecialFeature.vue";
   <!--  </div>-->
   <div id="orderSection" class="bg-[#e7f3fc]">
     <order-section />
+  </div>
+  <div>
+    <image-slider />
   </div>
 </template>
 
