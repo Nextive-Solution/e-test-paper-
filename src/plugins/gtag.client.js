@@ -1,21 +1,25 @@
 export default defineNuxtPlugin((nuxtApp) => {
-    const { gtagId } = useRuntimeConfig().public;
+    // Initialize dataLayer if not already done
+    window.dataLayer = window.dataLayer || [];
 
+    // GTM helper function for pushing events
+    const pushEvent = (eventName, eventData = {}) => {
+        window.dataLayer.push({
+            event: eventName,
+            ...eventData
+        });
+    };
+
+    // GA4 gtag helper function
     function gtag() {
         window.dataLayer.push(arguments);
     }
 
-    window.dataLayer = window.dataLayer || [];
-
-    gtag("js", new Date());
-    gtag("config", gtagId);
-
-    useHead({
-        script: [
-            {
-                src: `https://www.googletagmanager.com/gtag/js?id=${gtagId}`,
-                async: true,
-            },
-        ],
+    // Provide helpers globally
+    nuxtApp.provide('gtm', {
+        push: pushEvent,
+        dataLayer: window.dataLayer
     });
+
+    nuxtApp.provide('gtag', gtag);
 });

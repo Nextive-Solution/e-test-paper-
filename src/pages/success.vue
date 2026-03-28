@@ -36,17 +36,69 @@
 onMounted(() => {
   const order = JSON.parse(localStorage.getItem('order'))
   const product = JSON.parse(localStorage.getItem('product'))
+
+  // Facebook Pixel Purchase Event
   if (typeof fbq === 'function') {
     fbq('track', 'Purchase', {
       category_name: "HSC E-testPaper",
       event_url: 'LandPage',
-      group: order.group,
-      product_name: product.name,
-      product_price: product.discount_price,
+      group: order?.group,
+      product_name: product?.name,
+      product_price: product?.displayPrice,
       currency: 'BDT',
-      level: order.level,
-      phone: order.phone,
-      name: order.name,
+      level: order?.level,
+      phone: order?.phone,
+      name: order?.name,
+    });
+  }
+
+  // GTM dataLayer Purchase Event
+  if (order && product) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'purchase',
+      ecommerce: {
+        transaction_id: Date.now().toString(),
+        currency: 'BDT',
+        value: product.displayPrice,
+        items: [
+          {
+            item_id: product.name,
+            item_name: product.name,
+            item_brand: 'E-TestPaper',
+            item_category: 'HSC Subscription',
+            item_variant: order.group,
+            price: product.displayPrice,
+            quantity: 1,
+          },
+        ],
+      },
+      user_data: {
+        phone: order.phone,
+        name: order.name,
+        batch: order.level,
+        group: order.group,
+      }
+    });
+
+    // Also push add_payment_info event
+    window.dataLayer.push({
+      event: 'add_payment_info',
+      ecommerce: {
+        currency: 'BDT',
+        value: product.displayPrice,
+        payment_type: 'Online Payment',
+        items: [
+          {
+            item_id: product.name,
+            item_name: product.name,
+            item_brand: 'E-TestPaper',
+            item_category: 'HSC Subscription',
+            price: product.displayPrice,
+            quantity: 1,
+          },
+        ],
+      },
     });
   }
 })

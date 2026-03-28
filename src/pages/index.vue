@@ -4,8 +4,19 @@ import Feature from "~/components/home/Feature.vue";
 import Review from "~/components/home/Review.vue";
 import OrderSection from "~/components/home/OrderSection.vue";
 import ImageSlider from "~/components/home/ImageSlider.vue";
-import Service from "~/components/home/Service.vue";
 import SpecialFeature from "~/components/home/SpecialFeature.vue";
+
+onMounted(() => {
+  // GTM page_view event for landing page
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'page_view',
+    page_title: 'E-TestPaper Home',
+    page_location: window.location.href,
+    page_path: '/',
+    page_type: 'landing_page',
+  });
+});
 </script>
 
 <template>
@@ -40,14 +51,3 @@ import SpecialFeature from "~/components/home/SpecialFeature.vue";
     <image-slider />
   </div>
 </template>
-
-
-<script>
-// const findActiveLayer = () => {
-//   const currentActiveElement = document.getElementById('orderSection');
-
-//   if (currentActiveElement) {
-//     currentActiveElement.scrollIntoView({behavior: 'smooth', block: 'start'});
-//   }
-// };
-</script>

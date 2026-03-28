@@ -399,6 +399,26 @@ const buttonDisabled = computed(() => {
 const selectBatch = (batch) => {
   selectedBatch.value = batch
   selectedGroup.value = batch.groups.includes('Science') ? 'Science' : batch.groups[0] || null
+
+  // GTM add_to_cart event
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'add_to_cart',
+    ecommerce: {
+      currency: 'BDT',
+      value: batch.displayPrice,
+      items: [
+        {
+          item_id: batch.name,
+          item_name: batch.name,
+          item_brand: 'E-TestPaper',
+          item_category: 'HSC Subscription',
+          price: batch.displayPrice,
+          quantity: 1,
+        },
+      ],
+    },
+  });
 }
 
 const orderFormRef = ref(null)
@@ -527,13 +547,39 @@ watch([name, phone], () => {
 
 watch(typing, () => {
   if (typeof fbq === 'function') {
-    console.log('track')
     fbq('track', 'AddToCart', {
       category_name: "HSC E-testPaper",
       phone: phone.value,
       name: name.value,
       event_url: 'LandPage',
     })
+  }
+
+  // GTM begin_checkout event
+  if (selectedBatch.value) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'begin_checkout',
+      ecommerce: {
+        currency: 'BDT',
+        value: selectedBatch.value.displayPrice,
+        items: [
+          {
+            item_id: selectedBatch.value.name,
+            item_name: selectedBatch.value.name,
+            item_brand: 'E-TestPaper',
+            item_category: 'HSC Subscription',
+            item_variant: selectedGroup.value,
+            price: selectedBatch.value.displayPrice,
+            quantity: 1,
+          },
+        ],
+      },
+      user_data: {
+        phone: phone.value,
+        name: name.value,
+      }
+    });
   }
 }, {deep: true})
 
