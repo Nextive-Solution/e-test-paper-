@@ -175,19 +175,22 @@
                   <!-- SSL Option -->
                   <div
                     @click="paymentMethod = 'ssl'"
-                    class="cursor-pointer rounded-xl p-3.5 md:p-4 flex items-center justify-between transition-all duration-200"
+                    class="cursor-pointer rounded-xl p-3.5 md:p-4 transition-all duration-200"
                     :class="paymentMethod === 'ssl'
                       ? 'ring-2 ring-[#0381e0] bg-blue-50/40'
                       : 'ring-1 ring-gray-200 bg-white hover:ring-gray-300'"
                   >
-                    <div class="flex items-center gap-3">
-                      <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0"
-                           :class="paymentMethod === 'ssl' ? 'border-[#0381e0]' : 'border-gray-300'">
-                        <div v-if="paymentMethod === 'ssl'" class="w-2.5 h-2.5 rounded-full bg-[#0381e0]"></div>
+                    <div class="flex items-center justify-between">
+                      <div class="flex items-center gap-3">
+                        <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0"
+                             :class="paymentMethod === 'ssl' ? 'border-[#0381e0]' : 'border-gray-300'">
+                          <div v-if="paymentMethod === 'ssl'" class="w-2.5 h-2.5 rounded-full bg-[#0381e0]"></div>
+                        </div>
+                        <span class="text-[14px] md:text-[16px] font-[600] text-gray-700">Nagad/Rocket/Visa/Master Card</span>
                       </div>
-                      <span class="text-[14px] md:text-[16px] font-[600] text-gray-700">Nagad/Rocket/Visa/Master Card</span>
+                      <img src="/images/gateway/SSLCommers.png" alt="SSLCommerz" class="hidden md:block h-7 object-contain"/>
                     </div>
-                    <img src="/images/gateway/SSLCommers.png" alt="SSLCommerz" class="h-6 md:h-7 object-contain"/>
+                    <img src="/images/gateway/SSLCommers.png" alt="SSLCommerz" class="block md:hidden h-6 object-contain mt-2 ml-8"/>
                   </div>
                 </div>
               </div>
