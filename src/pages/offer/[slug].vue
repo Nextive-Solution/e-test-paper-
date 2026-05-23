@@ -1,6 +1,7 @@
 <script setup>
 import OfferBanner from "~/components/offer/OfferBanner.vue";
 import OfferOrderSection from "~/components/offer/OfferOrderSection.vue";
+import OfferLandingPage from "~/components/offer/OfferLandingPage.vue";
 import ImageSlider from "~/components/home/ImageSlider.vue";
 
 const route = useRoute();
@@ -10,6 +11,8 @@ const apiBase = config.public.apiBase;
 const offerId = ref(null);
 const pageTitle = ref('');
 const pageLoading = ref(true);
+
+const isLandingPage = computed(() => offerId.value === '3');
 
 const resolveOfferPage = async () => {
   const slug = route.params.slug;
@@ -54,14 +57,28 @@ await resolveOfferPage();
     <div class="w-10 h-10 border-4 border-[#0381e0] border-t-transparent rounded-full animate-spin"></div>
   </div>
   <template v-else-if="offerId">
-    <div class="bg-[#f6fcfd]">
-      <OfferBanner :offer="offerId" :title="pageTitle" />
-    </div>
-    <div id="orderSection" class="bg-[#e7f3fc]">
-      <OfferOrderSection :offer="offerId" />
-    </div>
-    <div>
-      <ImageSlider />
-    </div>
+    <!-- Offer 3: Landing page layout -->
+    <template v-if="isLandingPage">
+      <OfferLandingPage :offer="offerId" />
+      <div id="orderSection" class="bg-[#e7f3fc]">
+        <OfferOrderSection :offer="offerId" />
+      </div>
+      <div>
+        <ImageSlider />
+      </div>
+    </template>
+
+    <!-- Default layout -->
+    <template v-else>
+      <div class="bg-[#f6fcfd]">
+        <OfferBanner :offer="offerId" :title="pageTitle" />
+      </div>
+      <div id="orderSection" class="bg-[#e7f3fc]">
+        <OfferOrderSection :offer="offerId" />
+      </div>
+      <div>
+        <ImageSlider />
+      </div>
+    </template>
   </template>
 </template>
