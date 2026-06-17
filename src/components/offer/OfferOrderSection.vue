@@ -414,6 +414,17 @@ const featuresByBatch = {
     {label: 'গুরুত্বপূর্ণ প্রশ্ন মার্ক করে রাখা এবং ভুল প্রশ্নে আলাদা প্র্যাকটিস'},
     {label: 'এছাড়া তোমার পূর্নাঙ্গ প্রস্তুতি সহায়ক যাবতীয় সমাধান একসাথে'}
   ],
+  'SSC': [
+    {label: 'সকল বিষয়ের ৯ বছরের বোর্ড প্রশ্ন ও সমাধান'},
+    {label: 'সকল বিষয়ের ২ বছরের স্কুল নির্বাচনী প্রশ্ন ও সমাধান'},
+    {label: 'সকল বিষয় এর অধ্যায় ভিত্তিক শতাধিক CQ & MCQ'},
+    {label: 'মক টেস্ট এবং লিডারবোর্ড'},
+    {label: '৫০ ডে চ্যালেঞ্জ প্রোগ্রাম ও ফাইনাল মডেল টেস্ট'},
+    {label: 'সকল CQ & MCQ আনলিমিটেড প্র্যাকটিস'},
+    {label: 'কলেজ এডমিশন প্রশ্নব্যাংক'},
+    {label: 'গুরুত্বপূর্ণ প্রশ্ন মার্ক করে রাখা এবং ভুল প্রশ্নে আলাদা প্র্যাকটিস'},
+    {label: 'এছাড়া তোমার পূর্নাঙ্গ প্রস্তুতি সহায়ক যাবতীয় সমাধান একসাথে'}
+  ],
 }
 
 const getDisplayPrice = (plan) => {
@@ -526,7 +537,7 @@ onMounted(async () => {
             displayPrice: dispPrice,
             discountPercent: discPct > 0 ? discPct : 0,
             validity: plan.validity,
-            features: featuresByBatch[plan.batch] || [],
+            features: featuresByBatch[plan.batch] || featuresByBatch[level] || [],
             groups: [],
             plans: []
           }
