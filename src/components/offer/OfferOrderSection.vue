@@ -15,21 +15,26 @@
     </div>
 
     <!-- Already Subscribed Modal -->
-    <div v-if="alreadySubscribed" class="fixed inset-0 z-50 flex items-center justify-center px-4" @click.self="alreadySubscribed = false">
+    <div v-if="alreadySubscribed" class="fixed inset-0 z-50 flex items-center justify-center px-4"
+         @click.self="alreadySubscribed = false">
       <div class="fixed inset-0 bg-black/50 backdrop-blur-sm"></div>
       <div class="relative bg-white rounded-2xl p-6 md:p-8 max-w-sm w-full shadow-2xl text-center z-10">
-        <button @click="alreadySubscribed = false" class="absolute top-3 right-3 text-gray-400 hover:text-gray-600 transition-colors">
+        <button @click="alreadySubscribed = false"
+                class="absolute top-3 right-3 text-gray-400 hover:text-gray-600 transition-colors">
           <Icon name="ph:x-bold" class="text-[20px]"/>
         </button>
         <div class="w-16 h-16 mx-auto bg-amber-100 rounded-full flex items-center justify-center">
           <Icon class="text-amber-500 text-[32px]" name="ph:warning-circle-fill"/>
         </div>
-        <p class="text-[16px] md:text-[18px] font-[700] text-gray-800 mt-4 font-['Hind_Siliguri']">{{ alreadySubscribedMsg }}</p>
+        <p class="text-[16px] md:text-[18px] font-[700] text-gray-800 mt-4 font-['Hind_Siliguri']">
+          {{ alreadySubscribedMsg }}</p>
         <div class="flex flex-col gap-2 mt-5">
-          <a href="https://www.etestpaper.net" class="block px-6 py-2.5 bg-gradient-to-r from-[#0d568b] to-[#2f8ce2] text-white font-[600] rounded-xl text-[14px] md:text-[16px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+          <a href="https://www.etestpaper.net"
+             class="block px-6 py-2.5 bg-gradient-to-r from-[#0d568b] to-[#2f8ce2] text-white font-[600] rounded-xl text-[14px] md:text-[16px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
             ওয়েবসাইটে যান
           </a>
-          <button @click="alreadySubscribed = false" class="px-6 py-2.5 text-gray-500 font-[600] rounded-xl text-[14px] md:text-[16px] hover:bg-gray-100 transition-colors">
+          <button @click="alreadySubscribed = false"
+                  class="px-6 py-2.5 text-gray-500 font-[600] rounded-xl text-[14px] md:text-[16px] hover:bg-gray-100 transition-colors">
             বন্ধ করুন
           </button>
         </div>
@@ -55,23 +60,34 @@
                    ? 'ring-2 ring-[#0381e0] bg-white shadow-lg shadow-blue-100'
                    : 'ring-1 ring-[#c8cdd2] bg-white hover:ring-[#0381e0] hover:shadow-md'"
                  class="cursor-pointer rounded-xl p-3 md:p-4 flex items-center gap-x-4 w-full transition-all duration-300">
-              <div class="bg-gradient-to-br from-[#0d568b] to-[#2f8ce2] text-[28px] md:text-[46px] font-extrabold text-white px-4 py-1 rounded-lg italic shrink-0 shadow-md">
+              <div
+                  class="bg-gradient-to-br from-[#0d568b] to-[#2f8ce2] text-[28px] md:text-[46px] font-extrabold text-white px-4 py-1 rounded-lg italic shrink-0 shadow-md">
                 {{ batch.batchYear }}
               </div>
               <div class="flex-1 min-w-0">
                 <div class="flex items-center gap-x-2">
-                  <p class="text-[16px] md:text-[22px] font-[700] truncate" :class="selectedBatch === batch ? 'text-[#0381e0]' : 'text-gray-800'">{{ batch.displayName }}</p>
+                  <p class="text-[16px] md:text-[22px] font-[700] truncate"
+                     :class="selectedBatch === batch ? 'text-[#0381e0]' : 'text-gray-800'">{{ batch.displayName }}</p>
                   <div v-if="selectedBatch === batch" class="shrink-0">
                     <Icon class="text-green-500 text-[22px] md:text-[26px]" name="ph:check-circle-fill"/>
                   </div>
                 </div>
                 <div class="flex items-center gap-x-2 mt-1">
-                  <span class="text-red-400 line-through text-[13px] md:text-[17px] font-[500]">৳{{ batch.originalPrice }}</span>
+                  <span class="text-red-400 line-through text-[13px] md:text-[17px] font-[500]">৳{{
+                      batch.originalPrice
+                    }}</span>
                   <span class="text-[18px] md:text-[24px] font-[800] text-[#047857]">৳{{ batch.displayPrice }}</span>
                 </div>
                 <p v-if="batch.validity" class="text-[11px] md:text-[13px] font-[600] text-gray-400 mt-1">
-                  <Icon name="ph:calendar-blank-bold" class="inline-block text-[13px] md:text-[15px] align-text-bottom mr-0.5"/>
-                  {{ new Date(batch.validity).toLocaleDateString('bn-BD', { day: 'numeric', month: 'long', year: 'numeric' }) }} পর্যন্ত
+                  <Icon name="ph:calendar-blank-bold"
+                        class="inline-block text-[13px] md:text-[15px] align-text-bottom mr-0.5"/>
+                  {{
+                    new Date(batch.validity).toLocaleDateString('bn-BD', {
+                      day: 'numeric',
+                      month: 'long',
+                      year: 'numeric'
+                    })
+                  }} পর্যন্ত
                 </p>
               </div>
             </div>
@@ -91,7 +107,8 @@
 
               <!-- Name -->
               <div>
-                <label class="text-[13px] md:text-[14px] font-[700] text-gray-700 uppercase tracking-wide">Name <span class="text-red-500">*</span></label>
+                <label class="text-[13px] md:text-[14px] font-[700] text-gray-700 uppercase tracking-wide">Name <span
+                    class="text-red-500">*</span></label>
                 <input v-model="name" type="text"
                        class="mt-1.5 border border-gray-200 bg-white focus:border-[#0381e0] text-[15px] md:text-[16px] rounded-xl px-4 py-3 w-full outline-none transition-colors duration-200"
                        placeholder="Enter your name"/>
@@ -99,30 +116,37 @@
 
               <!-- Phone -->
               <div class="pt-5">
-                <label class="text-[13px] md:text-[14px] font-[700] text-gray-700 uppercase tracking-wide">Phone Number <span class="text-red-500">*</span></label>
+                <label class="text-[13px] md:text-[14px] font-[700] text-gray-700 uppercase tracking-wide">Phone Number
+                  <span class="text-red-500">*</span></label>
                 <input v-model="phone" type="text" maxlength="11"
                        class="mt-1.5 border bg-white text-[15px] md:text-[16px] rounded-xl px-4 py-3 w-full outline-none transition-colors duration-200"
                        :class="phone && !isValidPhone ? 'border-red-400 focus:border-red-400' : 'border-gray-200 focus:border-[#0381e0]'"
                        placeholder="01XXXXXXXXX"/>
-                <p v-if="phoneError" class="text-red-500 text-[12px] md:text-[13px] font-[500] mt-1">{{ phoneError }}</p>
+                <p v-if="phoneError" class="text-red-500 text-[12px] md:text-[13px] font-[500] mt-1">{{
+                    phoneError
+                  }}</p>
               </div>
 
               <!-- Batch selector inside form -->
               <div class="pt-5">
-                <label class="text-[13px] md:text-[14px] font-[700] text-gray-700 uppercase tracking-wide">Batch <span class="text-red-500">*</span></label>
+                <label class="text-[13px] md:text-[14px] font-[700] text-gray-700 uppercase tracking-wide">Batch <span
+                    class="text-red-500">*</span></label>
                 <div class="flex gap-2 mt-1.5">
                   <button
-                    v-for="batch in batchList"
-                    :key="batch.name"
-                    @click="selectBatch(batch)"
-                    class="flex-1 rounded-xl py-2.5 px-3 text-center transition-all duration-200"
-                    :class="selectedBatch === batch
+                      v-for="batch in batchList"
+                      :key="batch.name"
+                      @click="selectBatch(batch)"
+                      class="flex-1 rounded-xl py-2.5 px-3 text-center transition-all duration-200"
+                      :class="selectedBatch === batch
                       ? 'bg-gradient-to-r from-[#0d568b] to-[#2f8ce2] text-white shadow-md'
                       : 'bg-white border border-gray-200 text-gray-700 hover:border-[#0381e0]'"
                   >
-                    <p class="text-[13px] md:text-[14px] font-[700]">HSC BATCH {{ batch.name.replace('HSC ', '') }}</p>
+                    <p class="text-[13px] md:text-[14px] font-[700]">{{ batch.displayName }}</p>
                     <div class="flex items-center justify-center gap-1 mt-0.5">
-                      <span class="line-through text-[11px] font-[500]" :class="selectedBatch === batch ? 'text-white/60' : 'text-gray-400'">৳{{ batch.originalPrice }}</span>
+                      <span class="line-through text-[11px] font-[500]"
+                            :class="selectedBatch === batch ? 'text-white/60' : 'text-gray-400'">৳{{
+                          batch.originalPrice
+                        }}</span>
                       <span class="text-[14px] font-[800]">৳{{ batch.displayPrice }}</span>
                     </div>
                   </button>
@@ -131,19 +155,21 @@
 
               <!-- Group selector inside form -->
               <div class="pt-5">
-                <label class="text-[13px] md:text-[14px] font-[700] text-gray-700 uppercase tracking-wide">Group <span class="text-red-500">*</span></label>
+                <label class="text-[13px] md:text-[14px] font-[700] text-gray-700 uppercase tracking-wide">Group <span
+                    class="text-red-500">*</span></label>
                 <div class="flex gap-2 mt-1.5">
                   <button
-                    v-for="g in (selectedBatch?.groups || allGroups)"
-                    :key="g"
-                    @click="selectedBatch && selectGroup(g)"
-                    class="px-5 py-2 rounded-xl text-[13px] md:text-[14px] font-[700] transition-all duration-200"
-                    :class="selectedGroup === g
+                      v-for="g in (selectedBatch?.groups || allGroups)"
+                      :key="g"
+                      @click="selectedBatch && selectGroup(g)"
+                      class="px-5 py-2 rounded-xl text-[13px] md:text-[14px] font-[700] transition-all duration-200"
+                      :class="selectedGroup === g
                       ? 'bg-[#0381e0] text-white shadow-md'
                       : selectedBatch
                         ? 'bg-white border border-gray-200 text-gray-700 hover:border-[#0381e0]'
                         : 'bg-white border border-gray-200 text-gray-300 cursor-not-allowed'"
-                  >{{ g }}</button>
+                  >{{ g }}
+                  </button>
                 </div>
               </div>
 
@@ -156,9 +182,9 @@
                 <div class="mt-3 space-y-2.5">
                   <!-- bKash Option -->
                   <div
-                    @click="paymentMethod = 'bkash'"
-                    class="cursor-pointer rounded-xl p-3.5 md:p-4 flex items-center justify-between transition-all duration-200"
-                    :class="paymentMethod === 'bkash'
+                      @click="paymentMethod = 'bkash'"
+                      class="cursor-pointer rounded-xl p-3.5 md:p-4 flex items-center justify-between transition-all duration-200"
+                      :class="paymentMethod === 'bkash'
                       ? 'ring-2 ring-[#E2136E] bg-pink-50/40'
                       : 'ring-1 ring-gray-200 bg-white hover:ring-gray-300'"
                   >
@@ -174,9 +200,9 @@
 
                   <!-- SSL Option -->
                   <div
-                    @click="paymentMethod = 'ssl'"
-                    class="cursor-pointer rounded-xl p-3.5 md:p-4 transition-all duration-200"
-                    :class="paymentMethod === 'ssl'
+                      @click="paymentMethod = 'ssl'"
+                      class="cursor-pointer rounded-xl p-3.5 md:p-4 transition-all duration-200"
+                      :class="paymentMethod === 'ssl'
                       ? 'ring-2 ring-[#0381e0] bg-blue-50/40'
                       : 'ring-1 ring-gray-200 bg-white hover:ring-gray-300'"
                   >
@@ -186,11 +212,14 @@
                              :class="paymentMethod === 'ssl' ? 'border-[#0381e0]' : 'border-gray-300'">
                           <div v-if="paymentMethod === 'ssl'" class="w-2.5 h-2.5 rounded-full bg-[#0381e0]"></div>
                         </div>
-                        <span class="text-[14px] md:text-[16px] font-[600] text-gray-700">Nagad/Rocket/Visa/Master Card</span>
+                        <span
+                            class="text-[14px] md:text-[16px] font-[600] text-gray-700">Nagad/Rocket/Visa/Master Card</span>
                       </div>
-                      <img src="/images/gateway/SSLCommers.png" alt="SSLCommerz" class="hidden md:block h-7 object-contain"/>
+                      <img src="/images/gateway/SSLCommers.png" alt="SSLCommerz"
+                           class="hidden md:block h-7 object-contain"/>
                     </div>
-                    <img src="/images/gateway/SSLCommers.png" alt="SSLCommerz" class="block md:hidden h-6 object-contain mt-2 ml-8"/>
+                    <img src="/images/gateway/SSLCommers.png" alt="SSLCommerz"
+                         class="block md:hidden h-6 object-contain mt-2 ml-8"/>
                   </div>
                 </div>
               </div>
@@ -204,19 +233,28 @@
                 <div class="space-y-2.5">
                   <div class="flex items-center justify-between">
                     <span class="text-[13px] md:text-[15px] text-gray-500 font-[500]">Price (Subtotal)</span>
-                    <span class="text-[14px] md:text-[16px] font-[600] text-gray-700">৳ {{ selectedBatch.originalPrice?.toLocaleString() }}</span>
+                    <span class="text-[14px] md:text-[16px] font-[600] text-gray-700">৳ {{
+                        selectedBatch.originalPrice?.toLocaleString()
+                      }}</span>
                   </div>
                   <div v-if="selectedBatch.discountPercent > 0" class="flex items-center justify-between">
                     <div class="flex items-center gap-2">
                       <span class="text-[13px] md:text-[15px] text-gray-500 font-[500]">Discount</span>
-                      <span class="bg-[#047857] text-white text-[11px] md:text-[12px] font-[700] px-2 py-0.5 rounded-full">{{ selectedBatch.discountPercent }}% ছাড়</span>
+                      <span
+                          class="bg-[#047857] text-white text-[11px] md:text-[12px] font-[700] px-2 py-0.5 rounded-full">{{
+                          selectedBatch.discountPercent
+                        }}% ছাড়</span>
                     </div>
-                    <span class="text-[14px] md:text-[16px] font-[600] text-red-500">- ৳ {{ (selectedBatch.originalPrice - selectedBatch.displayPrice)?.toLocaleString() }}</span>
+                    <span class="text-[14px] md:text-[16px] font-[600] text-red-500">- ৳ {{
+                        (selectedBatch.originalPrice - selectedBatch.displayPrice)?.toLocaleString()
+                      }}</span>
                   </div>
                 </div>
                 <div class="border-t border-gray-200 mt-3 pt-3 flex items-center justify-between">
                   <span class="text-[15px] md:text-[17px] font-[800] text-gray-800">Total Amount</span>
-                  <span class="text-[20px] md:text-[24px] font-[800] text-[#047857]">৳ {{ selectedBatch.displayPrice?.toLocaleString() }}</span>
+                  <span class="text-[20px] md:text-[24px] font-[800] text-[#047857]">৳ {{
+                      selectedBatch.displayPrice?.toLocaleString()
+                    }}</span>
                 </div>
               </div>
 
@@ -226,7 +264,8 @@
                   <Icon class="text-[#0381e0] text-[18px] shrink-0 mt-0.5" name="ph:check-circle-fill"/>
                   <span class="text-[13px] md:text-[14px] text-gray-600 leading-tight">I Have Read And Agree To The
                     <a href="https://www.etestpaper.net/about/terms" target="_blank" class="text-[#0381e0] font-[600]">Terms & Conditions</a>,
-                    <a href="https://www.etestpaper.net/about/privacy" target="_blank" class="text-[#0381e0] font-[600]">Privacy Policy</a>, And
+                    <a href="https://www.etestpaper.net/about/privacy" target="_blank"
+                       class="text-[#0381e0] font-[600]">Privacy Policy</a>, And
                     <a href="https://www.etestpaper.net/about/refund" target="_blank" class="text-[#0381e0] font-[600]">Refund Policy</a>
                   </span>
                 </div>
@@ -236,7 +275,8 @@
               <button @click="submit" :disabled="buttonDisabled || isLoading"
                       :class="buttonDisabled || isLoading ? 'bg-gray-300 text-gray-400 cursor-not-allowed' : 'bg-gradient-to-r from-[#00b894] to-[#00cec9] text-white hover:-translate-y-0.5 hover:shadow-lg hover:shadow-green-200 cursor-pointer'"
                       class="w-full text-[18px] md:text-[22px] font-[700] rounded-xl py-3.5 mt-4 transition-all duration-300 flex items-center justify-center gap-2">
-                <div v-if="isLoading" class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                <div v-if="isLoading"
+                     class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                 <Icon v-if="!isLoading" name="ph:lock-simple-fill" class="text-[18px]"/>
                 <span>{{ isLoading ? 'প্রসেসিং...' : 'Proceed To Payment' }}</span>
               </button>
@@ -252,14 +292,20 @@
                 <div v-for="(feature, i) in selectedBatch.features" :key="i"
                      class="flex items-start gap-x-2.5 bg-green-50/60 rounded-lg px-3 py-2">
                   <Icon class="text-[#047857] text-[18px] md:text-[20px] shrink-0 mt-0.5" name="ph:check-circle-fill"/>
-                  <p class="text-[14px] md:text-[16px] font-[500] font-['Hind_Siliguri'] text-gray-700">{{ feature.label }}</p>
+                  <p class="text-[14px] md:text-[16px] font-[500] font-['Hind_Siliguri'] text-gray-700">{{
+                      feature.label
+                    }}</p>
                 </div>
               </div>
               <div class="mt-4 pt-3 border-t border-gray-100 text-center">
                 <p class="text-[13px] md:text-[14px] text-gray-400 font-[500]">সর্বমোট মূল্য</p>
                 <div class="flex items-center justify-center gap-x-3 mt-1">
-                  <span class="text-red-400 line-through text-[16px] md:text-[20px] font-[500]">৳{{ selectedBatch.originalPrice }}</span>
-                  <span class="text-[24px] md:text-[32px] font-[800] text-[#047857]">৳{{ selectedBatch.displayPrice }}</span>
+                  <span class="text-red-400 line-through text-[16px] md:text-[20px] font-[500]">৳{{
+                      selectedBatch.originalPrice
+                    }}</span>
+                  <span class="text-[24px] md:text-[32px] font-[800] text-[#047857]">৳{{
+                      selectedBatch.displayPrice
+                    }}</span>
                 </div>
               </div>
             </div>
@@ -271,56 +317,61 @@
 
   <!-- Sticky Bottom Bar -->
   <Transition name="sticky-bar">
-  <div v-if="showStickyBar" class="fixed bottom-0 left-0 right-0 z-40 md:hidden">
-    <div class="bg-white/80 backdrop-blur-xl border-t border-white/50 shadow-[0_-8px_32px_rgba(0,0,0,0.12)]">
-      <div class="flex gap-2 px-3 pt-3">
-        <button
-          v-for="batch in batchList"
-          :key="batch.name"
-          @click="selectBatch(batch)"
-          class="flex-1 rounded-xl py-2 px-2 text-center transition-all duration-300"
-          :class="selectedBatch === batch
+    <div v-if="showStickyBar" class="fixed bottom-0 left-0 right-0 z-40 md:hidden">
+      <div class="bg-white/80 backdrop-blur-xl border-t border-white/50 shadow-[0_-8px_32px_rgba(0,0,0,0.12)]">
+        <div class="flex gap-2 px-3 pt-3">
+          <button
+              v-for="batch in batchList"
+              :key="batch.name"
+              @click="selectBatch(batch)"
+              class="flex-1 rounded-xl py-2 px-2 text-center transition-all duration-300"
+              :class="selectedBatch === batch
             ? 'bg-gradient-to-br from-[#0d568b] via-[#1a6fba] to-[#2f8ce2] text-white shadow-lg shadow-blue-500/25 scale-[1.02]'
             : 'bg-gray-50/80 text-gray-600 hover:bg-gray-100'"
-        >
-          <p class="text-[12px] md:text-[14px] font-[800] tracking-wide">HSC {{ batch.name.replace('HSC ', '') }}</p>
-          <div class="flex items-center justify-center gap-1.5 mt-0.5">
-            <span class="line-through text-[10px] md:text-[12px] font-[500]" :class="selectedBatch === batch ? 'text-white/50' : 'text-gray-400'">৳{{ batch.originalPrice }}</span>
-            <span class="text-[15px] md:text-[17px] font-[900]" :class="selectedBatch === batch ? 'text-white' : 'text-gray-800'">৳{{ batch.displayPrice }}</span>
-          </div>
-        </button>
-      </div>
-
-      <div class="mx-3 my-2 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
-
-      <div class="flex items-center justify-between px-3 pb-3 gap-3">
-        <div class="flex gap-1.5 flex-1 min-w-0">
-          <button
-            v-for="g in (selectedBatch?.groups || [])"
-            :key="g"
-            @click="selectGroup(g)"
-            class="px-3 md:px-4 py-2 rounded-xl text-[11px] md:text-[12px] font-[700] transition-all duration-200 uppercase tracking-wide"
-            :class="selectedGroup === g
-              ? 'bg-[#0d568b] text-white shadow-md shadow-blue-500/20'
-              : 'bg-gray-50/80 text-gray-500 hover:bg-gray-100 border border-gray-200/60'"
-          >{{ g }}</button>
+          >
+            <p class="text-[12px] md:text-[14px] font-[800] tracking-wide">{{ batch.level }} {{ batch.batchYear ? `20${batch.batchYear}` : batch.name }}</p>
+            <div class="flex items-center justify-center gap-1.5 mt-0.5">
+              <span class="line-through text-[10px] md:text-[12px] font-[500]"
+                    :class="selectedBatch === batch ? 'text-white/50' : 'text-gray-400'">৳{{
+                  batch.originalPrice
+                }}</span>
+              <span class="text-[15px] md:text-[17px] font-[900]"
+                    :class="selectedBatch === batch ? 'text-white' : 'text-gray-800'">৳{{ batch.displayPrice }}</span>
+            </div>
+          </button>
         </div>
 
-        <button
-          @click="scrollToFormOrSubmit"
-          :disabled="isLoading"
-          class="flex items-center gap-2 bg-gradient-to-r from-[#d30163] to-[#e8266d] text-white pl-4 pr-5 md:pl-5 md:pr-6 py-2.5 rounded-xl text-[13px] md:text-[14px] font-[800] shrink-0 transition-all duration-300 hover:shadow-xl hover:shadow-pink-500/25 hover:scale-[1.02] active:scale-[0.98]"
-        >
+        <div class="mx-3 my-2 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+
+        <div class="flex items-center justify-between px-3 pb-3 gap-3">
+          <div class="flex gap-1.5 flex-1 min-w-0">
+            <button
+                v-for="g in (selectedBatch?.groups || [])"
+                :key="g"
+                @click="selectGroup(g)"
+                class="px-3 md:px-4 py-2 rounded-xl text-[11px] md:text-[12px] font-[700] transition-all duration-200 uppercase tracking-wide"
+                :class="selectedGroup === g
+              ? 'bg-[#0d568b] text-white shadow-md shadow-blue-500/20'
+              : 'bg-gray-50/80 text-gray-500 hover:bg-gray-100 border border-gray-200/60'"
+            >{{ g }}
+            </button>
+          </div>
+
+          <button
+              @click="scrollToFormOrSubmit"
+              :disabled="isLoading"
+              class="flex items-center gap-2 bg-gradient-to-r from-[#d30163] to-[#e8266d] text-white pl-4 pr-5 md:pl-5 md:pr-6 py-2.5 rounded-xl text-[13px] md:text-[14px] font-[800] shrink-0 transition-all duration-300 hover:shadow-xl hover:shadow-pink-500/25 hover:scale-[1.02] active:scale-[0.98]"
+          >
           <span class="relative flex h-2.5 w-2.5">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-300 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400"></span>
           </span>
-          পেমেন্ট করুন
-        </button>
+            পেমেন্ট করুন
+          </button>
+        </div>
       </div>
+      <div class="bg-white/80 backdrop-blur-xl h-[env(safe-area-inset-bottom)]"></div>
     </div>
-    <div class="bg-white/80 backdrop-blur-xl h-[env(safe-area-inset-bottom)]"></div>
-  </div>
   </Transition>
 </template>
 
@@ -377,6 +428,11 @@ const getBatchYear = (batch) => {
   return match ? match[0].slice(-2) : ''
 }
 
+const parseBatch = (batch) => {
+  const match = batch.match(/^(\S+)\s+(\d{4})/)
+  return match ? {level: match[1], year: match[2]} : {level: '', year: batch}
+}
+
 const allGroups = ['Science', 'Commerce', 'Arts']
 const batchList = ref([])
 const plansLoading = ref(true)
@@ -421,11 +477,11 @@ const selectGroup = (g) => {
 
 const scrollToFormOrSubmit = () => {
   if (!selectedBatch.value || !selectedGroup.value) {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo({top: 0, behavior: 'smooth'})
     return
   }
   if (orderFormRef.value) {
-    orderFormRef.value.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    orderFormRef.value.scrollIntoView({behavior: 'smooth', block: 'center'})
   }
 }
 
@@ -434,12 +490,14 @@ watch(orderFormRef, (el) => {
   if (observer) observer.disconnect()
   if (el) {
     observer = new IntersectionObserver(
-      ([entry]) => { formVisible.value = entry.isIntersecting },
-      { threshold: 0.15 }
+        ([entry]) => {
+          formVisible.value = entry.isIntersecting
+        },
+        {threshold: 0.15}
     )
     observer.observe(el)
   }
-}, { immediate: true })
+}, {immediate: true})
 
 onUnmounted(() => {
   if (observer) observer.disconnect()
@@ -448,7 +506,7 @@ onUnmounted(() => {
 onMounted(async () => {
   try {
     plansLoading.value = true
-    const { data } = await useFetch(`${apiBase}/subscription/plans`)
+    const {data} = await useFetch(`${apiBase}/subscription/plans`)
     if (data.value?.subscriptions) {
       const offerPlans = data.value.subscriptions.filter(s => s[showOnOfferKey] === true)
 
@@ -458,9 +516,11 @@ onMounted(async () => {
           const origPrice = plan[baseOfferPriceKey] ?? plan.base_offer_price ?? plan.price
           const dispPrice = getDisplayPrice(plan)
           const discPct = origPrice > 0 ? Math.round(((origPrice - dispPrice) / origPrice) * 100) : 0
+          const {level, year} = parseBatch(plan.batch)
           batchMap[plan.batch] = {
             name: plan.batch,
-            displayName: `HSC BATCH ${plan.batch.replace('HSC ', '')}`,
+            level,
+            displayName: `${level} BATCH ${year}`,
             batchYear: getBatchYear(plan.batch),
             originalPrice: origPrice,
             displayPrice: dispPrice,
@@ -504,8 +564,8 @@ const submit = async () => {
   localStorage.setItem('product', JSON.stringify(selectedBatch.value))
   localStorage.setItem('order', JSON.stringify(payload))
   const paymentEndpoint = paymentMethod.value === 'bkash'
-    ? `${apiBase}/payment/bkash-external`
-    : `${apiBase}/payment/bkash-thirdparty`
+      ? `${apiBase}/payment/bkash-external`
+      : `${apiBase}/payment/bkash-thirdparty`
   try {
     const res = await $fetch(paymentEndpoint, {
       method: 'POST',
@@ -555,13 +615,16 @@ watch(typing, () => {
 .sticky-bar-enter-active {
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
 }
+
 .sticky-bar-leave-active {
   transition: transform 0.3s cubic-bezier(0.4, 0, 1, 1), opacity 0.2s ease;
 }
+
 .sticky-bar-enter-from {
   transform: translateY(100%);
   opacity: 0;
 }
+
 .sticky-bar-leave-to {
   transform: translateY(100%);
   opacity: 0;
