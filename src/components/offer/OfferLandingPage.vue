@@ -31,7 +31,7 @@
 
           <!-- Subtitle -->
           <p class="mt-4 md:mt-6 text-[14px] md:text-[20px] font-[600] text-[#2f8ce2]/90 animate-fade-in-up delay-200">
-            Full Guide + Full Test Paper + Master Suggestion + Community Smart Practice — এক অ্যাপে
+            {{ subtitle || 'Full Guide + Full Test Paper + Master Suggestion + Community Smart Practice — এক অ্যাপে' }}
           </p>
 
           <!-- Description -->
@@ -509,6 +509,10 @@ defineProps({
   offer: {
     type: String,
     required: true
+  },
+  subtitle: {
+    type: String,
+    default: ''
   }
 });
 

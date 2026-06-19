@@ -10,6 +10,7 @@ const apiBase = config.public.apiBase;
 
 const offerId = ref(null);
 const pageTitle = ref('');
+const pageSubtitle = ref('');
 const pageLoading = ref(true);
 
 const isLandingPage = computed(() => offerId.value === '3');
@@ -38,6 +39,7 @@ const resolveOfferPage = async () => {
     if (data?.data) {
       offerId.value = data.data.offer;
       pageTitle.value = data.data.title;
+      pageSubtitle.value = data.data.subtitle || '';
       useHead({ title: pageTitle.value });
     } else {
       navigateTo('/', { redirectCode: 302 });
@@ -59,7 +61,7 @@ await resolveOfferPage();
   <template v-else-if="offerId">
     <!-- Offer 3: Landing page layout -->
     <template v-if="isLandingPage">
-      <OfferLandingPage :offer="offerId" />
+      <OfferLandingPage :offer="offerId" :subtitle="pageSubtitle" />
       <div id="orderSection" class="bg-[#e7f3fc]">
         <OfferOrderSection :offer="offerId" />
       </div>
@@ -71,7 +73,7 @@ await resolveOfferPage();
     <!-- Default layout -->
     <template v-else>
       <div class="bg-[#f6fcfd]">
-        <OfferBanner :offer="offerId" :title="pageTitle" />
+        <OfferBanner :offer="offerId" :title="pageTitle" :subtitle="pageSubtitle" />
       </div>
       <div id="orderSection" class="bg-[#e7f3fc]">
         <OfferOrderSection :offer="offerId" />
