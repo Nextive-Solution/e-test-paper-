@@ -12,6 +12,13 @@
 
       <div class="container mx-auto flex flex-col items-center px-4 md:px-6 py-6 md:py-12 relative z-10">
 
+        <!-- Offer title -->
+        <div class="w-full flex justify-center mt-2 md:mt-0 mb-3 md:mb-4 animate-fade-in-up">
+          <h2 class="offer-title font-['Hind_Siliguri']">
+            স্বপ্নের ফলাফলের প্রস্তুতি শুরু হোক সর্বোচ্চ ৩৯% ছাড়!
+          </h2>
+        </div>
+
         <!-- Countdown timer -->
         <div class="w-full flex justify-center mb-4 md:mb-6 animate-fade-in-up">
           <CountDown />
@@ -243,6 +250,26 @@ const findActiveLayer = () => {
 
   50% {
     transform: translateY(-30px);
+  }
+}
+
+/* Offer title badge */
+.offer-title {
+  display: inline-block;
+  padding: 6px 14px;
+  background: #ffffff;
+  border: 1.5px solid #e11d48;
+  border-radius: 8px;
+  color: #e11d48;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.4;
+  box-shadow: 0 4px 14px rgba(225, 29, 72, 0.15);
+
+  @media (min-width: 768px) {
+    padding: 8px 20px;
+    font-size: 22px;
   }
 }
 
