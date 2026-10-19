@@ -8,13 +8,23 @@
       </div>
 
       <!-- Feature description -->
-      <div class="text-center max-w-4xl mx-auto mb-8 md:mb-12 animate-fade-in-up delay-100">
-        <p class="text-[14px] md:text-[18px] text-slate-600 font-[500] leading-relaxed font-['Hind_Siliguri']">
-          ই-টেস্ট পেপার হলো দেশের প্রথম ডিজিটাল টেস্ট পেপার। যা ফিজিকাল টেস্ট পেপার এর একমাত্র বিকল্প।
-          যেখানে সারাবছর SSC ও HSC শিক্ষার্থীরা গাইড, সাপ্লিমেন্ট কিংবা টেস্ট পেপার এর মত বোর্ড এবং কলেজ
-          প্রশ্নব্যাংক প্র্যাকটিস, সাজেশন, মডেল টেস্ট সহ পড়াশোনাকে ইজি এবং ইফেক্টিভ করতে সকল আয়োজন এক সাথে পাওয়া
-          যায়।
-        </p>
+      <div class="promo-card max-w-4xl mx-auto mb-8 md:mb-12 animate-fade-in-up delay-100">
+        <div class="promo-card-inner text-center">
+          <p class="promo-hook-wrap font-['Hind_Siliguri']">
+            🔥 <span class="promo-hook">হাজার টাকার বই নয়, এক সাবস্ক্রিপশনেই প্রস্তুতির সবকিছু!</span>
+          </p>
+          <p class="text-[15px] md:text-[20px] text-slate-700 font-[600] leading-relaxed font-['Hind_Siliguri'] mt-3 md:mt-5">
+            <span class="text-[#0d568b] font-[800]">ই-টেস্টপেপার</span> দেশের প্রথম ডিজিটাল টেস্টপেপার প্ল্যাটফর্ম।
+            পাচ্ছো গাইড + টেস্টপেপার + সাপ্লিমেন্ট + স্পেশাল সাজেশন + ৮–১০ বছরের বোর্ড প্রশ্ন ও সমাধান + আনলিমিটেড
+            প্র্যাকটিস + মডেল টেস্ট + প্রোগ্রেস রিপোর্টসহ সবকিছু এক জায়গায়,
+            <span class="text-[#e11d48] font-[800]">সবচেয়ে সাশ্রয়ী খরচে!</span>
+          </p>
+          <div class="flex justify-center mt-4 md:mt-6">
+            <span class="promo-pill font-['Hind_Siliguri']">
+              💰 বইয়ের বাড়তি খরচ বাঁচাও, প্রস্তুতি এগিয়ে নাও!
+            </span>
+          </div>
+        </div>
       </div>
 
       <!-- Features grid -->
@@ -143,6 +153,57 @@ const findActiveLayer = () => {
 }
 
 /* Feature cards */
+/* Promo description card */
+.promo-card {
+  padding: 3px;
+  background: linear-gradient(135deg, #e11d48, #f59e0b, #2f8ce2);
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(225, 29, 72, 0.15), 0 4px 14px rgba(13, 86, 139, 0.1);
+}
+
+.promo-card-inner {
+  padding: 20px 16px;
+  background: linear-gradient(180deg, #fffaf5 0%, #ffffff 100%);
+  border-radius: 17px;
+
+  @media (min-width: 768px) {
+    padding: 32px 40px;
+  }
+}
+
+.promo-hook-wrap {
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.4;
+
+  @media (min-width: 768px) {
+    font-size: 30px;
+  }
+}
+
+.promo-hook {
+  background: linear-gradient(135deg, #e11d48 0%, #d30163 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.promo-pill {
+  display: inline-block;
+  padding: 8px 18px;
+  background: linear-gradient(135deg, #0d568b, #2f8ce2);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(13, 86, 139, 0.3);
+
+  @media (min-width: 768px) {
+    padding: 10px 28px;
+    font-size: 19px;
+  }
+}
+
 .feature-card {
   animation: fadeInUp 0.5s ease-out both;
 }
