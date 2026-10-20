@@ -121,7 +121,7 @@
                       ? 'bg-gradient-to-r from-[#0d568b] to-[#2f8ce2] text-white shadow-md'
                       : 'bg-white border border-gray-200 text-gray-700 hover:border-[#0381e0]'"
                   >
-                    <p class="text-[13px] md:text-[14px] font-[700]">HSC BATCH {{ batch.name.replace('HSC ', '') }}</p>
+                    <p class="text-[13px] md:text-[14px] font-[700]">{{ batch.displayName }}</p>
                     <div class="flex items-center justify-center gap-1 mt-0.5">
                       <span class="line-through text-[11px] font-[500]" :class="selectedBatch === batch ? 'text-white/60' : 'text-gray-400'">৳{{ batch.originalPrice }}</span>
                       <span class="text-[14px] font-[800]">৳{{ batch.displayPrice }}</span>
@@ -287,7 +287,7 @@
             ? 'bg-gradient-to-br from-[#0d568b] via-[#1a6fba] to-[#2f8ce2] text-white shadow-lg shadow-blue-500/25 scale-[1.02]'
             : 'bg-gray-50/80 text-gray-600 hover:bg-gray-100'"
         >
-          <p class="text-[12px] md:text-[14px] font-[800] tracking-wide">HSC {{ batch.name.replace('HSC ', '') }}</p>
+          <p class="text-[12px] md:text-[14px] font-[800] tracking-wide">{{ batch.name }}</p>
           <div class="flex items-center justify-center gap-1.5 mt-0.5">
             <span class="line-through text-[10px] md:text-[12px] font-[500]" :class="selectedBatch === batch ? 'text-white/50' : 'text-gray-400'">৳{{ batch.originalPrice }}</span>
             <span class="text-[15px] md:text-[17px] font-[900]" :class="selectedBatch === batch ? 'text-white' : 'text-gray-800'">৳{{ batch.displayPrice }}</span>
@@ -474,7 +474,7 @@ onMounted(async () => {
           const discPct = origPrice > 0 ? Math.round(((origPrice - dispPrice) / origPrice) * 100) : 0
           batchMap[plan.batch] = {
             name: plan.batch,
-            displayName: `HSC BATCH ${plan.batch.replace('HSC ', '')}`,
+            displayName: plan.batch.replace(/^(HSC|SSC)\s+/i, (_, level) => `${level.toUpperCase()} BATCH `),
             batchYear: getBatchYear(plan.batch),
             originalPrice: origPrice,
             displayPrice: dispPrice,
