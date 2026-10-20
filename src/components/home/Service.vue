@@ -17,7 +17,7 @@
               </div>
             </div>
             <div class="pl-16">
-              <a href="https://play.google.com/store/apps/details?id=com.nextive.eTestPaper" target="_blank">
+              <a href="https://play.google.com/store/apps/details?id=com.nextive.etestpaper" target="_blank">
                 <img loading="lazy" src="/media/board.gif" alt="gif"/>
               </a>
             </div>
@@ -27,7 +27,7 @@
         <div class="bg-[#b8e0fc]">
           <div class="container mx-auto p-4 md:p-0 md:flex justify-evenly items-center">
             <div>
-              <a href="https://play.google.com/store/apps/details?id=com.nextive.eTestPaper" target="_blank">
+              <a href="https://play.google.com/store/apps/details?id=com.nextive.etestpaper" target="_blank">
                 <img loading="lazy" src="/media/college.gif" alt="gif"/>
               </a>
             </div>
@@ -55,7 +55,7 @@
               </div>
             </div>
             <div class="pl-12">
-              <a href="https://play.google.com/store/apps/details?id=com.nextive.eTestPaper" target="_blank">
+              <a href="https://play.google.com/store/apps/details?id=com.nextive.etestpaper" target="_blank">
                 <img loading="lazy" src="/media/chapterwise.gif" alt="gif"/>
               </a>
             </div>
@@ -66,7 +66,7 @@
           <div class="container mx-auto p-4 md:p-0 md:flex justify-evenly items-center">
             <div class="pl-14">
               <div class="">
-                <a href="https://play.google.com/store/apps/details?id=com.nextive.eTestPaper" target="_blank">
+                <a href="https://play.google.com/store/apps/details?id=com.nextive.etestpaper" target="_blank">
                   <img loading="lazy" src="/media/modeltest.gif" alt="gif"/>
                 </a>
               </div>
@@ -96,7 +96,7 @@
               </div>
             </div>
             <div>
-              <a href="https://play.google.com/store/apps/details?id=com.nextive.eTestPaper" target="_blank">
+              <a href="https://play.google.com/store/apps/details?id=com.nextive.etestpaper" target="_blank">
                 <img :src="item.video" alt="gif"/>
               </a>
             </div>

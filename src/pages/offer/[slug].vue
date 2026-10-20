@@ -3,6 +3,7 @@ import OfferBanner from "~/components/offer/OfferBanner.vue";
 import OfferOrderSection from "~/components/offer/OfferOrderSection.vue";
 import OfferLandingPage from "~/components/offer/OfferLandingPage.vue";
 import ImageSlider from "~/components/home/ImageSlider.vue";
+import AppDownloadButton from "~/components/offer/AppDownloadButton.vue";
 
 const route = useRoute();
 const config = useRuntimeConfig();
@@ -62,6 +63,7 @@ await resolveOfferPage();
     <!-- Offer 3: Landing page layout -->
     <template v-if="isLandingPage">
       <OfferLandingPage :offer="offerId" :subtitle="pageSubtitle" />
+      <AppDownloadButton />
       <div id="orderSection" class="bg-[#e7f3fc]">
         <OfferOrderSection :offer="offerId" />
       </div>
@@ -74,6 +76,7 @@ await resolveOfferPage();
     <template v-else>
       <div class="bg-[#f6fcfd]">
         <OfferBanner :offer="offerId" :title="pageTitle" :subtitle="pageSubtitle" />
+        <AppDownloadButton />
       </div>
       <div id="orderSection" class="bg-[#e7f3fc]">
         <OfferOrderSection :offer="offerId" />

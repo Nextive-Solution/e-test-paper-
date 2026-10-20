@@ -15,10 +15,10 @@
       <div class="pt-8">
         <p class="text-[24px] font-[600] text-center pb-4">অ্যাপ ডাউনলোড করো</p>
         <div class="flex justify-center gap-3 pb-4">
-          <a href="https://apps.apple.com/us/app/etestpaper/id6749287735" target="_blank" class="inline-block transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110">
+          <a :href="appHref" rel="noopener" @click="trackAppDownload('success_page', 'app_store')" class="inline-block transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110">
             <img loading="lazy" src="/icon/apple.webp" alt="Download on App Store" class="h-[42px] md:h-[48px] rounded-lg"/>
           </a>
-          <a href="https://play.google.com/store/apps/details?id=com.nextive.eTestPaper" target="_blank" class="inline-block transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110">
+          <a :href="appHref" rel="noopener" @click="trackAppDownload('success_page', 'google_play')" class="inline-block transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110">
             <img loading="lazy" src="/icon/android.webp" alt="Get it on Google Play" class="h-[42px] md:h-[48px] rounded-lg"/>
           </a>
         </div>
@@ -33,6 +33,8 @@
 </template>
 
 <script setup>
+const {href: appHref} = useDeeplink()
+
 onMounted(() => {
   const order = JSON.parse(localStorage.getItem('order'))
   const product = JSON.parse(localStorage.getItem('product'))

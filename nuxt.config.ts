@@ -89,7 +89,13 @@ export default defineNuxtConfig({
         public: {
             siteName: "e-test paper",
             gtagId: 'GTM-TSW73ZQ2',
-            apiBase: process.env.API_BASE_URL
+            apiBase: process.env.API_BASE_URL,
+            // The campaign link behind the app download buttons. Must be the tenant's
+            // own link domain (link.etestpaper.net): the app verifies App Links
+            // against that host only.
+            deeplinkUrl: process.env.DEEPLINK_URL || 'https://link.etestpaper.net/c/mbnmncy',
+            // Where the download buttons go on desktop, which cannot install the app.
+            deeplinkDesktopUrl: process.env.DEEPLINK_DESKTOP_URL || 'https://www.etestpaper.net'
         }
     }
 })

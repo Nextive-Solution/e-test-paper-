@@ -81,7 +81,7 @@
         <!-- CTA Button -->
         <div class="mt-6 md:mt-10 animate-fade-in-up delay-400">
           <button @click="findActiveLayer" class="cta-main group">
-            <span class="cta-text font-['Hind_Siliguri']">৫ লাখ শিক্ষার্থীর সাথে যুক্ত হও তুমিও</span>
+            <span class="cta-text font-['Hind_Siliguri']">৭ লাখ শিক্ষার্থীর সাথে যুক্ত হও তুমিও</span>
             <svg class="cta-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
               fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12h14M12 5l7 7-7 7" />
@@ -97,7 +97,7 @@
               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
               <polyline points="22 4 12 14.01 9 11.01" />
             </svg>
-            <span class="font-['Hind_Siliguri']">৫ লাখ+ শিক্ষার্থী</span>
+            <span class="font-['Hind_Siliguri']">৭ লাখ+ শিক্ষার্থী</span>
           </div>
           <div class="badge">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
