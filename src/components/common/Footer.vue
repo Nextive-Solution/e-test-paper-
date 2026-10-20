@@ -40,10 +40,10 @@
         <div class="text-center md:text-right">
           <h3 class="footer-heading font-['Hind_Siliguri']">ডাউনলোড করো</h3>
           <div class="flex justify-center md:justify-end gap-3 mb-5">
-            <a href="https://apps.apple.com/us/app/etestpaper/id6749287735" target="_blank" class="store-badge">
+            <a :href="appHref" rel="noopener" @click="trackAppDownload('footer', 'app_store')" class="store-badge">
               <img src="/icon/apple.webp" alt="Download on App Store" class="h-[42px] md:h-[48px] rounded-lg" />
             </a>
-            <a href="https://play.google.com/store/apps/details?id=com.nextive.eTestPaper" target="_blank"
+            <a :href="appHref" rel="noopener" @click="trackAppDownload('footer', 'google_play')"
               class="store-badge">
               <img src="/icon/android.webp" alt="Get it on Google Play" class="h-[42px] md:h-[48px] rounded-lg" />
             </a>
@@ -74,6 +74,8 @@
 
 <script setup>
 import { computed } from 'vue';
+
+const {href: appHref} = useDeeplink()
 
 const currentYear = computed(() => new Date().getFullYear());
 
