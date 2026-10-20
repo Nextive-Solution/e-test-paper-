@@ -2,7 +2,7 @@
   <div class="banner-root">
     <!-- Top promotional banner -->
     <div @click="findActiveLayer" class="top-banner cursor-pointer ">
-      <img class="w-full h-[110px] md:h-auto object-fill" loading="lazy" src="/banner/topBanner.png"
+      <img class="w-full h-[110px] md:h-auto object-fill" loading="lazy" src="/banner/etest-offer-banner.png"
         alt="Promotional banner" />
     </div>
 
@@ -15,7 +15,7 @@
         <!-- Offer title -->
         <div class="w-full flex justify-center mt-2 md:mt-0 mb-3 md:mb-4 animate-fade-in-up">
           <h2 class="offer-title font-['Hind_Siliguri']">
-            স্বপ্নের ফলাফলের প্রস্তুতি শুরু হোক সর্বোচ্চ ৩৯% ছাড়!
+            স্বপ্নের ফলাফলের প্রস্তুতি শুরু হোক সর্বোচ্চ ৩৯% ছাড়ে!
           </h2>
         </div>
 
