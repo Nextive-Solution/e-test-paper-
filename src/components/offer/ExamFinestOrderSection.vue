@@ -120,20 +120,20 @@
                 </div>
                 <span class="text-[14px] md:text-[15px] font-[600] text-slate-200">bKash</span>
               </div>
-              <span class="bg-white rounded-md px-2 py-1"><img src="/images/bkash.webp" alt="bKash" class="h-5 object-contain"/></span>
+              <span class="bg-white rounded-md px-2 py-1 shrink-0"><img src="/images/bkash.webp" alt="bKash" class="h-5 w-[38px] object-contain"/></span>
             </div>
 
             <div @click="paymentMethod = 'ssl'"
                  class="cursor-pointer rounded-xl p-3.5 flex items-center justify-between gap-3 transition-all duration-200"
                  :class="paymentMethod === 'ssl' ? 'ring-2 ring-cyan-400 bg-cyan-500/10' : 'ring-1 ring-slate-800 bg-slate-950/80 hover:ring-slate-700'">
-              <div class="flex items-center gap-3">
+              <div class="flex items-center gap-3 min-w-0">
                 <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0"
                      :class="paymentMethod === 'ssl' ? 'border-cyan-400' : 'border-slate-600'">
                   <div v-if="paymentMethod === 'ssl'" class="w-2.5 h-2.5 rounded-full bg-cyan-400"></div>
                 </div>
-                <span class="text-[14px] md:text-[15px] font-[600] text-slate-200">Nagad/Rocket/Visa/Master Card</span>
+                <span class="text-[14px] md:text-[15px] font-[600] text-slate-200">Nagad/Rocket/Card</span>
               </div>
-              <span class="bg-white rounded-md px-2 py-1 shrink-0"><img src="/images/gateway/SSLCommers.png" alt="SSLCommerz" class="h-5 object-contain"/></span>
+              <span class="bg-white rounded-md px-2 py-1 shrink-0"><img src="/images/gateway/SSLCommers.png" alt="SSLCommerz" class="h-4 w-[76px] object-contain"/></span>
             </div>
           </div>
         </div>
