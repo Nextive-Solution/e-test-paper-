@@ -180,6 +180,14 @@
         </div>
       </div>
     </section>
+
+    <!-- Scroll to top -->
+    <Transition name="fade">
+      <button v-if="showScrollTop" @click="scrollToTop" aria-label="উপরে যান"
+              class="fixed right-4 bottom-24 md:bottom-6 z-40 w-11 h-11 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg shadow-blue-500/30 flex items-center justify-center active:scale-95 transition-transform">
+        <Icon name="ph:arrow-up-bold" class="text-[20px]"/>
+      </button>
+    </Transition>
   </div>
 </template>
 
@@ -253,6 +261,14 @@ const faqs = [
 
 const openFaq = ref(0)
 
+const showScrollTop = ref(false)
+const onScroll = () => {
+  showScrollTop.value = window.scrollY > 600
+}
+const scrollToTop = () => {
+  window.scrollTo({top: 0, behavior: 'smooth'})
+}
+
 // Hero price comes from the same plans the order section loads
 const heroBatch = ref(null)
 const onPlansLoaded = (batches) => {
@@ -311,6 +327,7 @@ let slideTimer = null
 onMounted(() => {
   checkIsDesktop()
   window.addEventListener('resize', checkIsDesktop)
+  window.addEventListener('scroll', onScroll, {passive: true})
   slideTimer = setInterval(() => {
     if (!isPaused.value) nextSlide()
   }, 4000)
@@ -326,7 +343,21 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener('resize', checkIsDesktop)
+  window.removeEventListener('scroll', onScroll)
   clearInterval(slideTimer)
   if (heroObserver) heroObserver.disconnect()
 })
 </script>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(8px);
+}
+</style>
