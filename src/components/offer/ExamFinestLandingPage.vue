@@ -36,7 +36,7 @@
         </h1>
 
         <p class="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-          HSC'26 ব্যাচে পিছিয়ে বা অকৃতকার্য শিক্ষার্থীদের জন্য বিগত ১০ বছরের বোর্ড প্রশ্ন এনালাইসিস ক্র্যাশ কোর্স ও সকালের রুটিন অ্যালার্ট।
+          HSC'26 ব্যাচে পিছিয়ে বা অকৃতকার্য শিক্ষার্থীদের জন্য বিগত ১০ বছরের বোর্ড প্রশ্ন এনালাইসিস ক্র্যাশ কোর্স ও দৈনিক রুটিন অ্যালার্ট।
         </p>
 
         <!-- Feature highlights -->
@@ -46,9 +46,9 @@
             <Icon name="ph:check-circle-fill" class="text-cyan-400 text-[16px] shrink-0"/>
             <span class="text-xs sm:text-sm font-medium leading-tight">{{ item }}</span>
           </div>
-          <div class="flex items-center gap-2 p-2.5 rounded-xl bg-emerald-950/40 border border-emerald-800/40 text-emerald-300">
+          <div class="col-span-2 sm:col-span-4 flex items-center justify-center gap-2 p-2.5 rounded-xl bg-emerald-950/40 border border-emerald-800/40 text-emerald-300">
             <Icon name="ph:shield-check-fill" class="text-emerald-400 text-[16px] shrink-0"/>
-            <span class="text-xs sm:text-sm font-bold leading-tight">১০০% মানিব্যাক</span>
+            <span class="text-xs sm:text-sm font-bold leading-tight">১০০% মানিব্যাক গ্যারান্টি</span>
           </div>
         </div>
 
@@ -193,7 +193,7 @@ defineProps({
   }
 });
 
-const heroFeatures = ['৭০% কমন টপিক', 'দৈনিক ৩ ঘণ্টার রুটিন', 'সকালের SMS অ্যালার্ট']
+const heroFeatures = ['৭০% কমন টপিক', 'দৈনিক ৩ ঘণ্টার রুটিন', 'সকালের নোটিফিকেশন অ্যালার্ট', 'উইকলি গাইডলাইন সেশন']
 
 const testimonials = [
   {
