@@ -28,9 +28,9 @@
 
         <!-- Headline -->
         <h1 class="flex flex-col items-center tracking-tight text-white" style="text-wrap: balance">
-          <span class="text-lg sm:text-xl md:text-3xl font-bold text-slate-200 mb-1">পরীক্ষায় পাস করা নিয়ে চিন্তিত?</span>
+          <span class="text-lg sm:text-xl md:text-3xl font-bold text-slate-200 mb-1">পরীক্ষায় পাশ করা নিয়ে চিন্তিত?</span>
           <span class="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 py-1.5 leading-tight">
-            ৩০ দিনে নিশ্চিত পাস!
+            ৩০ দিনে নিশ্চিত পাশ!
           </span>
           <span class="text-lg sm:text-xl md:text-2xl font-normal text-white mt-1">না হলে সম্পূর্ণ টাকা ফেরত</span>
         </h1>
@@ -57,7 +57,7 @@
           <div class="flex items-center justify-center">
             <div class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold bg-cyan-950/70 border border-cyan-500/40 text-cyan-300 shadow-sm shadow-cyan-950/30 max-w-full">
               <Icon name="ph:sparkle-fill" class="text-cyan-400 text-[14px] shrink-0"/>
-              <span class="leading-tight">এক সাবস্ক্রিপশনে পাচ্ছো সর্বোচ্চ ৪টি বিষয়ে পাসের গ্যারান্টি</span>
+              <span class="leading-tight">এক সাবস্ক্রিপশনে পাচ্ছো সর্বোচ্চ ৪টি বিষয়ে পাশের গ্যারান্টি</span>
             </div>
           </div>
 
