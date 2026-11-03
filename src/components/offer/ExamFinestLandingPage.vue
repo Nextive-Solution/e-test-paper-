@@ -113,7 +113,7 @@
                @touchstart="onTouchStart" @touchmove="onTouchMove" @touchend="onTouchEnd">
             <div class="flex transition-transform duration-500 ease-out"
                  :style="{ transform: `translateX(-${currentIndex * (isDesktop ? 33.333333 : 100)}%)` }">
-              <div v-for="t in testimonials" :key="t.name" class="w-full md:w-1/3 shrink-0 px-1 sm:px-2">
+              <div v-for="(t, i) in testimonials" :key="i" class="w-full md:w-1/3 shrink-0 px-1 sm:px-2">
                 <div class="bg-slate-800/90 border border-slate-700/80 hover:border-cyan-500/50 rounded-2xl p-5 sm:p-6 flex flex-col shadow-xl transition-all space-y-4 h-full min-h-[220px]">
                   <div class="flex items-start justify-between gap-3">
                     <div class="flex items-center gap-3">
@@ -127,12 +127,12 @@
                       </div>
                     </div>
                     <div class="flex items-center gap-0.5 text-amber-400 shrink-0 pt-1">
-                      <Icon v-for="i in 5" :key="i" name="ph:star-fill" class="text-[13px]"/>
+                      <Icon v-for="n in 5" :key="n" name="ph:star-fill" class="text-[13px]"/>
                     </div>
                   </div>
                   <div class="relative text-left flex-grow pt-1">
                     <Icon name="ph:quotes-fill" class="text-cyan-500/20 text-[24px] absolute -top-2 -left-1 pointer-events-none"/>
-                    <p class="text-sm sm:text-base text-slate-200/95 italic leading-relaxed pl-5">"{{ t.quote }}"</p>
+                    <p class="text-sm sm:text-base text-slate-200/95 italic leading-relaxed pl-5">"{{ t.message }}"</p>
                   </div>
                 </div>
               </div>
@@ -208,32 +208,32 @@ const testimonials = [
     name: 'তানভীর আহমেদ',
     exam: "HSC'26 পরীক্ষার্থী",
     college: 'নটর ডেম কলেজ, ঢাকা',
-    quote: 'মোটা টেস্ট পেপারের চেয়ে ই-টেস্ট পেপারের অধ্যায়ভিত্তিক প্রশ্ন ও নির্ভুল ব্যাখ্যাগুলো আমাকে সবচেয়ে বেশি এগিয়ে রেখেছে। অ্যাপে যেকোনো সময় বিগত ১০ বছরের বোর্ড প্রশ্ন ও ট্রিকস প্র্যাকটিস করার সুবিধাটা দারুণ!'
+    message: "এবার পরীক্ষা নিয়ে খুব দুশ্চিন্তায় ছিলাম। আলহামদুলিল্লাহ ই টেস্ট পেপারের সাজেশন ফলো করে জিপিএ ৫.০০ পেয়েছি।",
   },
   {
     name: 'সাদিয়া আক্তার',
     exam: "HSC'26 পরীক্ষার্থী",
     college: 'ভিকারুননিসা নূন স্কুল অ্যান্ড কলেজ, ঢাকা',
-    quote: 'ই-টেস্ট পেপারে পড়ার সবচেয়ে বড় সুবিধা হলো প্রতিটি বোর্ড প্রশ্নের সাথে পয়েন্ট আকারে সাজানো উত্তর ও কমন ভুলগুলো ধরিয়ে দেওয়া। কলেজের পরীক্ষার আগে দ্রুত রিভিশন দিতে ওয়েবসাইট আর অ্যাপের কোনো বিকল্প নেই!'
+    message: "ফুল সিলেবাসে ভালো ফলের জন্য ই টেস্ট পেপারের কোনো বিকল্প নেই।",
   },
   {
     name: 'আবরার জারিফ',
     exam: "HSC'26 পরীক্ষার্থী",
     college: 'ঢাকা রেসিডেনসিয়াল মডেল কলেজ',
-    quote: 'ফিজিক্স আর ম্যাথের কঠিন সমস্যাগুলো নিয়ে আগে খুব দুশ্চিন্তায় থাকতাম। নিয়মিত ই-টেস্ট পেপারের ট্রিকস ও স্টেপ-বাই-স্টেপ সমাধান দেখে নিজের সব দুর্বলতা দূর করে ফেলেছি। এখন পড়াশোনায় দারুণ আত্মবিশ্বাস এসেছে!'
+    message: "HSC পরীক্ষার আগে আপনাদের দেয়া সাজেশনে আস্থা রাখার ফল আমার জিপিএ ৫.০০",
   },
   {
     name: 'সুমাইয়া তাসনিম',
     exam: "HSC'26 পরীক্ষার্থী",
     college: 'হলিক্রস কলেজ, ঢাকা',
-    quote: 'আগে টেস্ট পেপার কিনে টেবিলের কোণায় ফেলে রাখতাম। কিন্তু ই-টেস্ট পেপারে বিষয়ভিত্তিক কুইজ ও CQ সলভ করতে করতে পড়ায় দারুণ আগ্রহ তৈরি হয়েছে। ফোনে বা ল্যাপটপে যখন-তখন পড়ার এই সুবিধাটা অসাধারণ!'
+    message: "আপনাদের জন্য ভালোবাসা রইল।",
   },
   {
     name: 'রাফিদ আল হাসান',
     exam: "HSC'26 পরীক্ষার্থী",
     college: 'আদমজী ক্যান্টনমেন্ট কলেজ, ঢাকা',
-    quote: 'টাইমার ধরে অ্যাপে বোর্ড স্ট্যান্ডার্ড প্র্যাকটিস করার অভিজ্ঞতা চমৎকার। কোন সৃজনশীলে কতটুকু সময় ব্যয় করা উচিত তা ই-টেস্ট পেপারে নিয়মিত সমাধান করেই ভালোভাবে আয়ত্ত করতে পেরেছি!'
-  }
+    message: "প্রাকটিসের জন্য এমন চমৎকার সিস্টেম আমি আর কোথাও দেখিনি, সবাইকে আমি চোখ বন্ধ করে ইটিপি সাজেস্ট করি।",
+  },
 ]
 
 const faqs = [
