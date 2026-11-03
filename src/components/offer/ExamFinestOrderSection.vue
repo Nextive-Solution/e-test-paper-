@@ -180,7 +180,7 @@
 
         <p class="text-xs text-slate-400 text-center flex items-center justify-center gap-1.5 pt-1">
           <Icon name="ph:shield-check-fill" class="text-emerald-400 text-[14px]"/>
-          নির্দেশনা মতো পড়ে পাস না করলে শতভাগ টাকা ফেরত
+          নির্দেশনা মতো পড়ে পাশ না করলে শতভাগ টাকা ফেরত
         </p>
       </div>
     </div>
